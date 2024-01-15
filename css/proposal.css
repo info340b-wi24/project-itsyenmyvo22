@@ -1,5 +1,13 @@
 header {
-    color:purple;
+    background-color:purple;
+    color: white;
+    padding: .2em;
+    text-indent: 4.2%;
+}
+
+h2 {
+    color: purple;
+    margin-left: 4.5%;
 }
 
 body {
@@ -7,4 +15,9 @@ body {
     font-size: 16px;
 }
 
-
+p {
+    width: 80%;
+    line-height: 1.5;
+    margin-left: 5%;
+    margin-right: 5%;
+}
