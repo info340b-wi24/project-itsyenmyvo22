@@ -20,10 +20,10 @@ nav{
     width: 100%;
     background-color:#B180D2;
     color: white;
-    padding-top: .25rem;
-    padding-left: .25rem;
-    padding-right: .25rem;
-    padding-bottom: .25rem;
+    padding-top: .5rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    padding-bottom: .5rem;
 } 
 
 nav div a{
