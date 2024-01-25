@@ -1,0 +1,32 @@
+header{
+    background-image: url('../photos/home/head-banner.png');
+    background-color: #B180D2;
+    background-size: cover;
+    height: 150px;
+    background-position: center;
+
+    
+}
+header div.overlap{
+
+    height: 150px;
+    left:0; /* play around with this */
+    position: relative;
+    top:0; /* and play around with this */
+}
+
+
+
+
+nav{
+    font-family: "Akshar", sans-serif;
+    top:0;
+    /* left: 0; */
+    width: 100%;
+    background-color:#B180D2;
+    color: white;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+} 
