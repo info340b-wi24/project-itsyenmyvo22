@@ -43,5 +43,51 @@ nav div a:hover, nav div a:focus{
 body {
     margin: .5rem;
     background-color: #EADFF0;
-    
+}
+
+h1 {
+    text-align: center;
+    color: #8F57B2;
+}
+
+.rectangle {
+    height: 138px;
+    width: 363px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.circle {
+    height: 100px;
+    width: 100px;
+    background-image: url('../photos/logo.png');
+    border-radius: 50%;
+    position: fixed;
+    top: 0; /*play around with it*/
+    right: 0;
+  }
+
+.card {
+    height: 135px; /*placeholder for now, might change later*/
+    width: 89px; /*placeholder for now, might change later*/
+    border-radius: 15px;
+    border: none;
+    position: fixed;
+}
+
+.card-body {
+    background-color: #E2CFEB;
+    color: white;
+    text-align: center;
+    border-radius: 15px;
+    margin: .3em;
+}
+
+main .container:nth-child(2) {
+    display: inline-flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    text-align: center;
+    align-items: center;
+    /*still figuring out flex components*/
 }
