@@ -39,3 +39,9 @@ nav div a:hover, nav div a:focus{
     color: 382D72;
     border-bottom:  .8rem, solid, #f0f0f0 ; 
 }
+
+body {
+    margin: .5rem;
+    background-color: #EADFF0;
+    
+}
