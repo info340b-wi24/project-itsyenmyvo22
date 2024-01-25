@@ -3,20 +3,15 @@ header{
     background-color: #B180D2;
     background-size: cover;
     height: 150px;
-    background-position: center;
-
-    
+    background-position: center;   
 }
-header div.overlap{
 
+header div.overlap{
     height: 150px;
     left:0; /* play around with this */
     position: relative;
     top:0; /* and play around with this */
 }
-
-
-
 
 nav{
     font-family: "Akshar", sans-serif;
@@ -35,11 +30,12 @@ nav div a{
     color: #f0f0f0;
     text-decoration: none;
 }
+
 nav div.td::selection, nav div.td:focus{
 background-color: #EADFF0;
 }
+
 nav div a:hover, nav div a:focus{
     color: 382D72;
-    border-bottom:  .8rem, solid, #f0f0f0 ;
-   
+    border-bottom:  .8rem, solid, #f0f0f0 ; 
 }
