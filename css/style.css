@@ -104,6 +104,75 @@ nav.navbar#mobile{
 }
 
 
+/* Stuff for Trading Card Page */
+.member-btn-container {
+    display: flex;
+    font-family: "Akshar", sans-serif;
+    flex-wrap: wrap;
+}
+
+.member-btn {
+    flex-shrink: 0;
+    flex-grow: 1;
+    background-color: rgba(177, 128, 210, 0.35); 
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    text-align: center;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.member-btn:hover {
+    background-color: #B180D2;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2), 0 0.1rem 1.2px 0 rgba(0,0,0,0.19);
+}
+
+.photocard-container {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: "Akshar", sans-serif;
+    font-size: 2rem;
+    justify-content: center;
+}
+
+.photocard {
+    flex-shrink: 0;
+    margin: 1rem;
+}
+
+img.photocard-img {
+    height: 400px;
+    width: 300px;
+}
+
+.photocard-description {
+    background-color: white;
+    padding: 2rem;
+}
+
+.trade-btn {
+    width: 11rem;
+    height: 3rem;
+    border-radius: 2.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: rgba(252, 103, 255, 1);
+}
+
+a.trade-btn, a.member-btn {
+    text-decoration: none;
+}
+
+a.trade-btn:hover, a.member-btn:hover {
+    color: white;
+}
+
+ 
+
+
+
 
 
 
