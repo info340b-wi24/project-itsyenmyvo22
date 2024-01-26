@@ -82,12 +82,18 @@ h1 {
 }
 
 main .container:nth-child(2) {
+    margin: 1em;
     display: inline-flex;
     justify-content: center;
     flex-flow: column wrap;
     text-align: center;
     align-items: center;
+    position: fixed;
     /*still figuring out flex components*/
+}
+
+h2 {
+    margin-top: 1rem;
 }
 
 nav.site-navbar{
@@ -96,7 +102,6 @@ nav.site-navbar{
 nav.navbar#mobile{
     display: block;
 }
-
 
 
 
