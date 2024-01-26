@@ -44,15 +44,18 @@ body {
 }
 
 h1 {
+    margin: .5rem;
     text-align: center;
     color: #8F57B2;
 }
 
 .rectangle {
-    height: 138px;
-    width: 363px;
+    display: flex;
+    height: 9.5rem;
+    width: 25rem;
     background-color: white;
     border-radius: 15px;
+    justify-content: left;
 }
 
 .circle {
@@ -71,6 +74,8 @@ h1 {
     border-radius: 15px;
     border: none;
     position: fixed;
+    background-color: #E2CFEB;
+    margin: .5em;
 }
 
 .card-body {
@@ -81,7 +86,11 @@ h1 {
     margin: .3em;
 }
 
-main .container:nth-child(2) {
+.d-grid.gap-2.col-6.mx-auto.d-block.d-sm-none {
+    justify-content: center;
+}
+
+/* main .container:nth-child(2) {
     margin: 1em;
     display: inline-flex;
     justify-content: center;
@@ -89,8 +98,8 @@ main .container:nth-child(2) {
     text-align: center;
     align-items: center;
     position: fixed;
-    /*still figuring out flex components*/
-}
+  
+} */
 
 h2 {
     margin-top: 1rem;
@@ -169,14 +178,28 @@ a.trade-btn:hover, a.member-btn:hover {
     color: white;
 }
 
- 
+.container#desktop {
+    display: none;
+}
 
+.container#desktop img {
+    width: 100%;
+    height: auto;
+}
 
-
-
-
-
-
+.container .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #B180D2;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 15px;
+}
 
 @media (min-width: 598px) {
    
@@ -189,13 +212,25 @@ a.trade-btn:hover, a.member-btn:hover {
     nav.navbar#mobile {
         display: none;
     }
-    .rectangle {
-        background-color: #8F57B2;
-        width: 50em;
-        height: 138px;
+    .container#desktop {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
 
-    
+    /* .container#desktop > .col:nth-child(1) {
+        flex-direction: column;
+        background-image: url("../photos/home/purple-clouds.png");
+    } */
+
+    .rectangle {
+        background-color: #8F57B2;
+        width: 60rem;
+        height: 10rem;
+    }
+    h1 {
+        display: none;
+    }
 
 }
 
