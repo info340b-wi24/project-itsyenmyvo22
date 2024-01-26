@@ -65,16 +65,32 @@
    </nav>
   
   <main>
+
+    <div class="container" id="mobile-buttons">
+      <div class="d-grid gap-2 col-6 mx-auto d-block d-sm-none">
+        <a class="btn btn-light" href="sent-requests.html" role="button">Sent Trade Request</a>
+        <a class="btn btn-light" href="incoming-requests.html" role="button">Incoming Trade Request</a>
+        <a class="btn btn-light" href="#" role="button">Message Inbox</a>
+      </div>
+    </div>
     
-    <div class="container" id="desktop">
-      <div class="row">
+    
+    <!-- <div class="container" id="desktop"> -->
+      <div class="row g-0 mx-0" id="desktop">
         <div class="col">
-          <img src="photos/home/purple-clouds.png" alt="background for sent requests button">
-          <button class="btn" href="sent-requests.html">Sent Trade Request</button>
+          <div class="container-fluid">
+            <img src="photos/home/purple-clouds.png" alt="background for sent requests button">
+          </div>
+          <button class="btn" href="sent-requests.html" id="sent">Sent Trade Request</button>
+        </div>
+        <div class="col">
+          <div class="container-fluid">
+            <img src="photos/home/army-ocean.png" alt="background for incoming requests button">
+          </div>
+          <button class="btn" href="incoming-requests.html" id="incoming">Incoming Trade Request</button>
         </div>
       </div>
-      
-    </div>
+    <!-- </div> -->
 
 
 
@@ -83,12 +99,9 @@
       <h1>Home</h1>
     </div>
 
-
-    <div class="d-grid gap-2 col-6 mx-auto d-block d-sm-none">
-      <a class="btn btn-light" href="sent-requests.html" role="button">Sent Trade Request</a>
-      <a class="btn btn-light" href="incoming-requests.html" role="button">Incoming Trade Request</a>
-      <a class="btn btn-light" href="#" role="button">Message Inbox</a>
-    </div>
+      
+    
+    
 
 
     <section id="my-cards">

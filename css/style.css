@@ -73,7 +73,7 @@ h1 {
     width: 89px; /*placeholder for now, might change later*/
     border-radius: 15px;
     border: none;
-    position: fixed;
+    position: absolute;
     background-color: #E2CFEB;
     margin: .5em;
 }
@@ -86,23 +86,13 @@ h1 {
     margin: .3em;
 }
 
-.d-grid.gap-2.col-6.mx-auto.d-block.d-sm-none {
+#mobile-buttons .d-grid.gap-2.col-6.mx-auto.d-block.d-sm-none {
     justify-content: center;
 }
 
-/* main .container:nth-child(2) {
-    margin: 1em;
-    display: inline-flex;
-    justify-content: center;
-    flex-flow: column wrap;
-    text-align: center;
-    align-items: center;
-    position: fixed;
-  
-} */
-
 h2 {
     margin-top: 1rem;
+    margin-bottom: .5rem;
 }
 
 nav.site-navbar{
@@ -178,28 +168,52 @@ a.trade-btn:hover, a.member-btn:hover {
     color: white;
 }
 
-.container#desktop {
+.row.g-0.mx-0#desktop {
     display: none;
 }
 
-.container#desktop img {
+.row.g-0.mx-0#desktop img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    position: relative;
 }
 
-.container .btn {
+/* .img-overlay {
+    
+} */
+
+
+.row.g-0.mx-0#desktop #sent {
     position: absolute;
     top: 50%;
-    left: 50%;
+    /* bottom: 0;
+    right: 0; */
+    left: 25%;
     transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
     background-color: #B180D2;
     color: white;
     font-size: 16px;
     padding: 12px 24px;
     border: none;
     border-radius: 15px;
-}
+} 
+
+
+.row.g-0.mx-0#desktop #incoming {
+    position: absolute;
+    top: 50%;
+    /* bottom: 0;
+    right: 0; */
+    left: 75%;
+    transform: translate(-50%, -50%);
+    background-color: #B180D2;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 15px;
+} 
+
 
 @media (min-width: 598px) {
    
@@ -212,21 +226,20 @@ a.trade-btn:hover, a.member-btn:hover {
     nav.navbar#mobile {
         display: none;
     }
-    .container#desktop {
+    .row.g-0.mx-0#desktop {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        /* flex-basis: auto; */
+        flex-grow: 1;
+        padding-bottom: .5rem;
     }
-
-    /* .container#desktop > .col:nth-child(1) {
-        flex-direction: column;
-        background-image: url("../photos/home/purple-clouds.png");
-    } */
 
     .rectangle {
         background-color: #8F57B2;
-        width: 60rem;
+        width: 100%;
         height: 10rem;
+        margin: auto;
     }
     h1 {
         display: none;
