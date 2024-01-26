@@ -114,8 +114,20 @@ nav.navbar#mobile{
 }
   
 @media (min-width: 768px) {
-   
-      
+    nav.site-navbar {
+        display: block;
+    }
+    nav.navbar#mobile {
+        display: none;
+    }
+    .rectangle {
+        background-color: #8F57B2;
+        width: 50em;
+        height: 138px;
+    }
+
+    
+
 }
 
 @media (min-width: 992px) {
