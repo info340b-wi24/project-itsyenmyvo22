@@ -171,6 +171,25 @@ a.trade-btn:hover, a.member-btn:hover {
     color: white;
 }
 
+.trade-request {
+    background-color: white;
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    text-align: center;
+}
+
+.request-title {
+    text-decoration: underline;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* End of Stuff for Card Trading Page */
+
 .row.g-0.mx-0#desktop {
     display: none;
 }
