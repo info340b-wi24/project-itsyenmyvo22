@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
+
+
 header{
     background-image: url('../photos/home/head-banner.png');
     background-color: #B180D2;
@@ -228,39 +234,64 @@ a.trade-btn:hover, a.member-btn:hover {
     border-radius: 15px;
 } 
 
-body#incomingrq {
+body#incomingrq{
     background-color: white;
 }
 
-main#incomingrq {
+.main#incomingrq {
     background-color: #EADFF0;
-    padding: none;
 }
 
 .rectangle#incomingrq {
     display: none;
 }
 
-/* .card#incomingrq {
-    display: none;
-} */
-
-/* .card#incomingrq > .card-body {
-    width: auto;
-    height: .25rem;
-} */
-
 .card#incomingrq {
     background-color: #E2CFEB;
     text-align: center;
-    padding: auto;
     position: absolute;
     top: 50%;
+    width: fit-content;
+    height: fit-content;
 }
 
 .card#incomingrq > .card-body {
-    height: .25rem;
+    font-size: medium;
+    font-weight: 500;
 }
+
+
+
+
+
+
+
+body#sentrq{
+    background-color: white;
+}
+
+.main#sentrq {
+    background-color: #EADFF0;
+}
+
+.rectangle#sentrq {
+    display: none;
+}
+
+.card#sentrq {
+    background-color: #E2CFEB;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    width: fit-content;
+    height: fit-content;
+}
+
+.card#sentrq > .card-body {
+    font-size: medium;
+    font-weight: 500;
+}
+
 
 
 @media (min-width: 598px) {
@@ -283,11 +314,6 @@ main#incomingrq {
         padding-bottom: .5rem;
     }
 
-    body#incomingrq {
-        background-image: url('../photos/home/army-ocean.png');
-        background-size: cover;
-    }
-
     .rectangle {
         background-color: #8F57B2;
         width: 100%;
@@ -298,20 +324,41 @@ main#incomingrq {
         display: none;
     }
 
-    
+    body#incomingrq {
+        background-image: url('../photos/home/army-ocean.png');
+        background-size: cover;
+        background-position: center;
+    }
 
     .rectangle#incomingrq {
         display: flex;
         background-color: white;
-        width: 100%;
+        width: 80%;
         height: 100%;
         border-radius: 15px;
         margin: 25px auto;
-        padding: .5rem;
+        justify-content: center;
+    }
+
+    body#sentrq {
+        background-image: url('../photos/home/purple-clouds.png');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .rectangle#sentrq {
+        display: flex;
+        background-color: white;
+        width: 80%;
+        height: 100%;
+        border-radius: 15px;
+        margin: 25px auto;
         justify-content: center;
     }
     
-    
+    html {
+        height: 100%;
+    }
 
 }
 

@@ -10,4 +10,91 @@
   <link rel="icon" href="photos/logo.png">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
+<body id="sentrq">
+  <header>
+    <div class="overlap">
+        <img src="photos/logo.png" alt="ArmyBase logo of a purple whale" height="120" width="120">
+    </div>
+  </header>  
+<nav class="site-navbar" role="banner">
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 td">
+    <a href="#">Home</a>
+
+    </div>
+    <div class="col-md-3 col-lg-3 col-xl-3 td">
+  <a href="calendar.html">Calendar</a>
+</div>
+<div class="col-md-3 col-lg-3 col-xl-3 td">
+  <a href="game.html">Guess the Song</a>
+</div>
+<div class="col-md-3 col-lg-3 col-xl-3 td">
+  <a href="card-trading.html">Card Trading</a>
+</div>
+</div>
+</div>
+</nav>
+
+<nav class="navbar navbar-dark site-navbar" id="mobile">
+<!-- <a class="navbar-brand" href = "#">Menu</a> -->
+
+
+<button class="navbar-toggler ms-auto" type="button" id = "toggle" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon fas fa-bars fa-1x"><i
+    Class = "fas fa-bars fa-1x"></i></span>
+</button>
+
+<div class = "collapse navbar-collapse" id = "navbarSupportedContent1">
+ <ul class = "navbar-nav mr-auto">
+    <li class = "nav-item active">
+      <a class = "nav-link" href="#">Home</a>
+    </li>
+    <li class = "nav-item">
+       <a class = "nav-link" href="card-trading.html">Card Trading</a>
+    </li>
+    <li class = "nav-item">
+      <a class = "nav-link" href="game.html">Guess the Song</a>
+    </li>
+    <li class = "nav-item">
+      <a class = "nav-link"href="calendar.html">Calendar</a>
+    </li>
+    
+ </ul>
+</div>
+</nav>
+
+<main id="sentrq">
+<div class="container">
+  <h1> Sent Requests </h1>
+</div>
+
+
+<!-- <div class="container"> -->
+  <div class="rectangle" id="sentrq">
+    <h2>Sent Requests</h2>
+    <div class="card" id="sentrq">
+      <div class="card-body">
+        No sent requests
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
+  
+</main>
+</body>
+
+<script>
+let item = document.getElementById('navbarSupportedContent1');
+let button = document.getElementById('toggle');
+button.addEventListener('click', () => {
+   if (item.style.display != "block") {
+      item.style.display = "block";
+   } else {
+      item.style.display = "none";
+   }
+})
+</script>
+
 </html>
