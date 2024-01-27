@@ -186,8 +186,8 @@ a.trade-btn:hover, a.member-btn:hover {
     text-decoration: underline;
     font-weight: bold;
     text-align: center;
+    font-size: 1.5rem;
 }
-
 /* End of Stuff for Card Trading Page */
 
 .row.g-0.mx-0#desktop {
