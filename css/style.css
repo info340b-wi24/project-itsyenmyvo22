@@ -52,9 +52,10 @@ h1 {
 .rectangle {
     display: flex;
     height: 9.5rem;
-    width: 25rem;
+    width: 100%;
     background-color: white;
     border-radius: 15px;
+    margin: auto;
     justify-content: left;
 }
 
@@ -86,7 +87,8 @@ h1 {
     margin: .3em;
 }
 
-#mobile-buttons .d-grid.gap-2.col-6.mx-auto.d-block.d-sm-none {
+.d-grid.gap-2.col-6.mx-auto.d-block.d-sm-none {
+    display: flex;
     justify-content: center;
 }
 
@@ -178,16 +180,10 @@ a.trade-btn:hover, a.member-btn:hover {
     position: relative;
 }
 
-/* .img-overlay {
-    
-} */
-
 
 .row.g-0.mx-0#desktop #sent {
     position: absolute;
     top: 50%;
-    /* bottom: 0;
-    right: 0; */
     left: 25%;
     transform: translate(-50%, -50%);
     background-color: #B180D2;
@@ -202,8 +198,6 @@ a.trade-btn:hover, a.member-btn:hover {
 .row.g-0.mx-0#desktop #incoming {
     position: absolute;
     top: 50%;
-    /* bottom: 0;
-    right: 0; */
     left: 75%;
     transform: translate(-50%, -50%);
     background-color: #B180D2;
@@ -214,6 +208,29 @@ a.trade-btn:hover, a.member-btn:hover {
     border-radius: 15px;
 } 
 
+body#incomingrq {
+    background-color: white;
+}
+
+main#incomingrq {
+    background-color: #EADFF0;
+    padding: none;
+}
+
+.rectangle#incomingrq {
+    display: flex;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    margin: auto;
+    justify-content: center;
+}
+
+.card#incomingrq {
+    background-color: #E2CFEB;
+    text-align: center;
+}
 
 @media (min-width: 598px) {
    
@@ -244,6 +261,13 @@ a.trade-btn:hover, a.member-btn:hover {
     h1 {
         display: none;
     }
+
+    body#incomingrq {
+        background-image: url('../photos/home/army-ocean.png');
+        background-size: cover;
+    }
+
+    
 
 }
 
