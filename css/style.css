@@ -295,22 +295,61 @@ body#sentrq{
 
 /* Calendar Styling */
 
+.month {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.month img {
+    width: 1.4rem;
+    margin-top: 1.3rem;
+}
+
+.cal-prev img, .no-cal-prev img {
+    transform: rotateY(180deg);
+}
+
+/* .cal-prev, .no-cal-prev {
+    flex: 1 0 auto;
+}
+
+.cal-next, .no-cal-next {
+    flex: 1 0 auto;
+    
+} */
+
 .calendar {
+    display: flex;
+    flex-direction: column;
     background: white;
     border-radius: 5%;
-    margin-right: 0.5rem;
-    margin-left: 0.5rem;
-    text-align: center;
+    margin: 0.5rem;
+    align-items: center;
 }
 
 th, td {
     color:#B180D2;
+    width: 7%;
+    padding-bottom: 4%;
+    text-align: center;
 }
 
-.table {
-    justify-content: center;
-    width: 70%;
-    height: 50%;
+td span {
+    background-color: #8F57B2;
+    display: none;
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+td .scheduled {
+    display: block;
+}
+
+td:hover {
+    background-color: #E2CFEB;
 }
 
 .events {
@@ -322,12 +361,15 @@ th, td {
 .event {
     flex: 0 0 auto;
     background-color: white;
+    width: 8.4rem;
+    height: 9rem;
     color: #B180D2;
     border-radius: 10%;
     margin: 0.5rem;
 }
 
 .event h3 {
+    display: block;
     margin: 0.75rem 1rem;
     color: #8F57B2;
     border-bottom: #8F57B2;
@@ -350,7 +392,13 @@ th, td {
     color: white;
     text-align: center;
     font-size: 1rem;
-    margin: 0.5rem 0;
+    width: 8.4rem;
+    margin: 0.5rem 0 0.5rem 0.5rem;
+}
+
+.add-event img {
+    filter:invert(100);
+    width: 60%;
 }
 
 .add-event:hover {
