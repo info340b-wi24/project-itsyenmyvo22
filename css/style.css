@@ -293,7 +293,70 @@ body#sentrq{
     font-weight: 500;
 }
 
+/* Calendar Styling */
 
+.calendar {
+    background: white;
+    border-radius: 5%;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    text-align: center;
+}
+
+th, td {
+    color:#B180D2;
+}
+
+.table {
+    justify-content: center;
+    width: 70%;
+    height: 50%;
+}
+
+.events {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+}
+
+.event {
+    flex: 0 0 auto;
+    background-color: white;
+    color: #B180D2;
+    border-radius: 10%;
+    margin: 0.5rem;
+}
+
+.event h3 {
+    margin: 0.75rem 1rem;
+    color: #8F57B2;
+    border-bottom: #8F57B2;
+}
+
+.event p {
+    margin: 0 1rem;
+    font-size: 0.8rem;
+}
+
+.event p:last-of-type {
+    font-size: 1rem;
+    margin: 0.3rem 0.5rem 1rem 1rem;
+}
+
+.add-event {
+    background-color: rgba(177, 128, 210, 0.35); 
+    border: none;
+    border-radius: 10%;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+.add-event:hover {
+    background-color: #B180D2;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2), 0 0.1rem 1.2px 0 rgba(0,0,0,0.19);
+}
 
 @media (min-width: 598px) {
    
@@ -357,6 +420,10 @@ body#sentrq{
         justify-content: center;
     }
     
+.events {
+    display: block;
+}
+
     html {
         height: 100%;
     }
