@@ -414,7 +414,7 @@ div.jumbotron p.lead{
     color:#8F57B2;
     text-align: center;
 }
-div#white-bg.card{
+/* div#white-bg.card{
     background: white;
     width: auto;
     padding: 5;
@@ -426,7 +426,7 @@ div#white-bg.card-body{
     margin-bottom: 10px;
     padding-bottom: 1px;
     
-}
+} */
 
 div.col#bg-purple span.input-group-text{
     background-color: #B180D2;
@@ -446,6 +446,45 @@ button.btn#leaderboard{
     padding: 5;
 }
 
+button a{
+    text-decoration: none;
+    color:white;
+}
+/* div.container-desktop{
+    display:none;
+ 
+   } */
+
+/* div#desktop-game-background{
+    background-color: white;
+    padding: .5em 0em;
+} */
+h2{
+    color:#8F57B2
+}
+h1#congrat{
+    background-color: #E2CFEB;
+}
+div#purple-bg{
+    background-color: #8F57B2;
+    color:#EADFF0;
+    font-size: 1.7rem;
+    text-align:center;
+
+}
+p#leader{
+    size:.5rem;
+}
+div#leaderBack{
+    background-color: white;
+    padding: 5px 0px;
+}
+div#desktopPlay.row.mt-5{
+    display:none;
+}
+div#row.mb-4{
+    background-color:#EADFF0;
+}
 @media (min-width: 598px) {
    
 }
@@ -507,60 +546,11 @@ button.btn#leaderboard{
         margin: 25px auto;
         justify-content: center;
     }
-
-    th, td {
-        width: 4.5rem;
-        padding-bottom: 4rem;
-    }
-
-    .layout {
-        justify-content: space-between;
-    }
-
-    .popup {
-        width: 50%;
-        left: 30%;
-        bottom: 30%
-    }
-
-    .title-input {
-        margin-top: 2rem;
-    }
-
-    .create-event {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    .events {
-        flex-direction: column;
-        flex-wrap: wrap;
-        overflow-x:unset;
-        flex: 4 1 40%;
-    }
-
-    .calendar {
-        flex-basis: 70%;
-    }
-
-    .event-section {
-        padding-right: 4rem;
-    }
-
-    .event-heading {
-        width: 100%;
-    }
-
-    .event, .add-event {
-        width: 20rem;
-        border-radius: 5%;
-    }
-
-    .add-event img {
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-        width: 14%;
-    }
+    
+    
+.events {
+    display: block;
+}
 
     html {
         height: 100%;
@@ -576,13 +566,15 @@ button.btn#leaderboard{
         display: none;
        }
 
-    .calendar {
-        flex-basis: 60%;
-    }
-    .popup {
-        width: 40%;
-        left: 30%;
-        bottom: 30%
+       div.container#container-desktop{
+        display:block
+       }
+       div.container#mobile_guess{
+        display:none;
+       }
+
+       div#desktopPlay.row.mt-5{
+        display:block;
     }
 }
 
@@ -593,5 +585,16 @@ button.btn#leaderboard{
        nav.navbar{
         display: none;
        }
+
+
+       div.container#container-desktop{
+        display:block
+       }
+       div.container#mobile_guess{
+        display:none;
+       }
+       div#desktopPlay.row.mt-5{
+        display:block;
+    }
 }
 
