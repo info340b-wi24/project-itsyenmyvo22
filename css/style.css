@@ -414,6 +414,37 @@ div.jumbotron p.lead{
     color:#8F57B2;
     text-align: center;
 }
+div#white-bg.card{
+    background: white;
+    width: auto;
+    padding: 5;
+
+}
+div#white-bg.card-body{
+    background: white;
+    width: auto;
+    margin-bottom: 10px;
+    padding-bottom: 1px;
+    
+}
+
+div.col#bg-purple span.input-group-text{
+    background-color: #B180D2;
+    padding: 5;
+    text-align:center;
+}
+div.col#bg-purple span.input-group-text h2{
+    font-size: 2em;
+    padding: 5;
+    color:white;
+   
+}
+button.btn#leaderboard{
+    background-color: #B180D2;
+    border-color:white;
+    font-size: 2em;
+    padding: 5;
+}
 
 @media (min-width: 598px) {
    
