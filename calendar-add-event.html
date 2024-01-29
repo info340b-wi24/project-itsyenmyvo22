@@ -63,14 +63,14 @@
 
     <main>
         <div class="layout d-flex flex-column flex-md-row">
-            <div class="calendar">
+            <section class="calendar">
                 <div class="month">
                     <a class="no-cal-prev">
-                        <img src="photos/calendar/month-arrow.png" alt="previous month"/>
+                        <img src="photos/calendar/month-arrow.png" alt="back arrow"/>
                     </a>
                     <h2>January 2024</h2>
                     <a class="cal-next">
-                        <img src="photos/calendar/month-arrow.png" alt="next month">
+                        <img src="photos/calendar/month-arrow.png" alt="forward arrow">
                     </a>
                 </div>
                 <table>
@@ -199,12 +199,12 @@
                         </td>
                     </tr>
                 </table>
-            </div>
+            </section>
 
-            <div class="event-section d-flex flex-column">
+            <section class="event-section d-flex flex-column">
                 <h2 class="event-heading">Events</h2>
                 <div class="events">
-                    <a type="button" class="add-event" href="calendar-add-event.html">
+                    <a type="button" role="button" class="add-event" href="calendar-add-event.html">
                         <img src="photos/calendar/event_plus.png" alt="plus"/>
                     </a>
                     <div class="event">
@@ -214,10 +214,10 @@
                         <p>Event Type</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <div class="popup py-3">
-                <a type="button" class="btn-close" href="calendar.html"></a>
+                <a type="button" role="button" class="btn-close" href="calendar.html"></a>
                 <div class="popup-title">
                     <label for="title-input" class="title-label">Event Title:</label>
                     <input type="text" id="title-input" placeholder="Event 2" class="title-input">
@@ -230,13 +230,13 @@
                     <label for="time-input" class="time-label">Time:</label>
                     <input type="time" id="time-input" class="time-input">
                 </div>
-                <select class="popup-select" aria-label="select event type">
+                <select class="popup-select">
                     <option selected>Type of Event</option>
                     <option value="1">Concert</option>
                     <option value="2">Livestream</option>
                     <option value="3">Meet and Greet</option>
                 </select>
-                <a type="button" class="create-event" href="calendar-added-event.html">Create Event</a>
+                <a type="button" role="button" class="create-event" href="calendar-added-event.html">Create Event</a>
             </div>
         </div>
     </main>
