@@ -445,10 +445,7 @@ button.btn#leaderboard{
     font-size: 2em;
     padding: 5;
 }
-div.container div#background{
-    background-color: white;
-    padding: 1em 0em;
-}
+
 button a{
     text-decoration: none;
     color:white;
@@ -457,6 +454,27 @@ div.container-desktop{
     display:none;
  
    }
+
+div#desktop-game-background{
+    background-color: white;
+    padding: .5em 0em;
+}
+h2{
+    color:#8F57B2
+}
+h1#congrat{
+    background-color: #E2CFEB;
+}
+div#purple-bg{
+    background-color: #f0f0f0;
+}
+p#leader{
+    size:.5rem;
+}
+div#leaderBack{
+    background-color: white;
+    padding: 5px 0px;
+}
 @media (min-width: 598px) {
    
 }
