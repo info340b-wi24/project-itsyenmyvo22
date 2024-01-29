@@ -528,6 +528,11 @@ div#desktopPlay.row.mt-5{
 div#row.mb-4{
     background-color:#EADFF0;
 }
+
+footer{
+    padding: 0em 1em;
+    text-align:center;
+}
 @media (min-width: 598px) {
    
 }
