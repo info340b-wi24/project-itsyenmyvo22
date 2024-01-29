@@ -529,8 +529,29 @@ div#row.mb-4{
     background-color:#EADFF0;
 }
 
+
+
+span.input-group-text p{
+    font-size: 2rem;
+    color:white;
+}
+p.colTitle{
+    font-size:1.7rem;
+    color:#8F57B2;
+    font-weight: 500;
+    
+}
+div.col-lg-12.difScore{
+    font-size:1.7rem;
+    color:#8F57B2;
+    font-weight: 500;
+}
+h2.leader{
+    text-align:center;
+}
+
 footer{
-    padding: 0em 1em;
+    padding: 1em 0em;
     text-align:center;
 }
 @media (min-width: 598px) {
