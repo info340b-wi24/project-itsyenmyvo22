@@ -414,7 +414,7 @@ div.jumbotron p.lead{
     color:#8F57B2;
     text-align: center;
 }
-div#white-bg.card{
+/* div#white-bg.card{
     background: white;
     width: auto;
     padding: 5;
@@ -426,7 +426,7 @@ div#white-bg.card-body{
     margin-bottom: 10px;
     padding-bottom: 1px;
     
-}
+} */
 
 div.col#bg-purple span.input-group-text{
     background-color: #B180D2;
@@ -445,7 +445,18 @@ button.btn#leaderboard{
     font-size: 2em;
     padding: 5;
 }
-
+div.container div#background{
+    background-color: white;
+    padding: 1em 0em;
+}
+button a{
+    text-decoration: none;
+    color:white;
+}
+div.container-desktop{
+    display:none;
+ 
+   }
 @media (min-width: 598px) {
    
 }
@@ -508,6 +519,7 @@ button.btn#leaderboard{
         justify-content: center;
     }
     
+    
 .events {
     display: block;
 }
@@ -525,6 +537,13 @@ button.btn#leaderboard{
        nav.navbar#mobile{
         display: none;
        }
+
+       div.container#container-desktop{
+        display:block
+       }
+       div.container#mobile_guess{
+        display:none;
+       }
 }
 
 @media (min-width: 1200px) {
@@ -533,6 +552,14 @@ button.btn#leaderboard{
        }
        nav.navbar{
         display: none;
+       }
+
+
+       div.container#container-desktop{
+        display:block
+       }
+       div.container#mobile_guess{
+        display:none;
        }
 }
 
