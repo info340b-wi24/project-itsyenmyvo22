@@ -553,6 +553,7 @@ h2.leader{
 footer{
     padding: 1em 0em;
     text-align:center;
+    background-color:#EADFF0;
 }
 @media (min-width: 598px) {
    
