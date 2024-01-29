@@ -186,7 +186,7 @@
                             <span></span>
                         </td>
                         <td>31
-                            <span></span>
+                            <span class="scheduled"></span>
                         </td>
                         <td>
                             <span></span>
@@ -213,7 +213,36 @@
                         <p>6:00 pm PST</p>
                         <p>Event Type</p>
                     </div>
+                    <div class="event">
+                        <h3>Event 2</h3>
+                        <p>January 31, 2024</p>
+                        <p>4:00 pm PST</p>
+                        <p>Livestream</p>
+                    </div>
                 </div>
+            </div>
+
+            <div class="popup py-3">
+                <a type="button" class="btn-close" href="calendar-added-event.html"></a>
+                <div class="popup-title">
+                    <label for="title-input" class="title-label">Event Title:</label>
+                    <input type="text" id="title-input" placeholder="Event 2" class="title-input">
+                </div>
+                <div class="popup-date">
+                    <label for="date-input" class="date-label">Date:</label>
+                    <input type="date" id="date-input" class="date-input">
+                </div>
+                <div class="popup-time">
+                    <label for="time-input" class="time-label">Time:</label>
+                    <input type="time" id="time-input" class="time-input">
+                </div>
+                <select class="popup-select" aria-label="select event type">
+                    <option selected>Type of Event</option>
+                    <option value="1">Concert</option>
+                    <option value="2">Livestream</option>
+                    <option value="3">Meet and Greet</option>
+                </select>
+                <a type="button" class="create-event" href="calendar-added-event.html">Create Event</a>
             </div>
         </div>
     </main>
