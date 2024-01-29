@@ -450,10 +450,10 @@ button a{
     text-decoration: none;
     color:white;
 }
-div.container-desktop{
+/* div.container-desktop{
     display:none;
  
-   }
+   } */
 
 /* div#desktop-game-background{
     background-color: white;
@@ -466,7 +466,11 @@ h1#congrat{
     background-color: #E2CFEB;
 }
 div#purple-bg{
-    background-color: #f0f0f0;
+    background-color: #8F57B2;
+    color:#EADFF0;
+    font-size: 1.7rem;
+    text-align:center;
+
 }
 p#leader{
     size:.5rem;
@@ -474,6 +478,12 @@ p#leader{
 div#leaderBack{
     background-color: white;
     padding: 5px 0px;
+}
+div#desktopPlay.row.mt-5{
+    display:none;
+}
+div#row.mb-4{
+    background-color:#EADFF0;
 }
 @media (min-width: 598px) {
    
@@ -562,6 +572,10 @@ div#leaderBack{
        div.container#mobile_guess{
         display:none;
        }
+
+       div#desktopPlay.row.mt-5{
+        display:block;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -579,5 +593,8 @@ div#leaderBack{
        div.container#mobile_guess{
         display:none;
        }
+       div#desktopPlay.row.mt-5{
+        display:block;
+    }
 }
 
