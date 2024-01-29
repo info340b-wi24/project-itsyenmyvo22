@@ -407,6 +407,49 @@ td:hover {
     box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2), 0 0.1rem 1.2px 0 rgba(0,0,0,0.19);
 }
 
+.popup {
+    position: absolute;
+    width: 70%;
+    left: 15%;
+    bottom: 40%;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2), 0 0.1rem 1.2px 0 rgba(0,0,0,0.19);
+}
+
+.popup .btn-close {
+    margin-left: 1rem;
+    display: block;
+}
+
+.popup-date, .popup-time, .popup-select {
+    margin-top: 0.5rem;
+}
+
+.create-event {
+    display: block;
+    background-color: rgba(177, 128, 210, 0.35); 
+    border: none;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    width: 6rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    padding: 0.2rem;
+}
+
+.create-event:hover {
+    background-color: #B180D2;
+    color: white;
+}
+
+.scheduled {
+    display: block;
+}
+
+/* end calender styling */
 
 /* game css */
 
@@ -547,10 +590,49 @@ div#row.mb-4{
         justify-content: center;
     }
     
-    
-.events {
-    display: block;
-}
+    th, td {
+        width: 4.5rem;
+        padding-bottom: 4rem;
+    }
+    .layout {
+        justify-content: space-between;
+    }
+    .popup {
+        width: 50%;
+        left: 30%;
+        bottom: 30%
+    }
+    .title-input {
+        margin-top: 2rem;
+    }
+    .create-event {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .events {
+        flex-direction: column;
+        flex-wrap: wrap;
+        overflow-x:unset;
+        flex: 4 1 40%;
+    }
+    .calendar {
+        flex-basis: 70%;
+    }
+    .event-section {
+        padding-right: 4rem;
+    }
+    .event-heading {
+        width: 100%;
+    }
+    .event, .add-event {
+        width: 20rem;
+        border-radius: 5%;
+    }
+    .add-event img {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        width: 14%;
+    }
 
     html {
         height: 100%;
@@ -575,6 +657,21 @@ div#row.mb-4{
 
        div#desktopPlay.row.mt-5{
         display:block;
+    }
+
+    th, td {
+        width: 5.5rem;
+        padding-bottom: 5rem;
+    }
+
+    .calendar {
+        flex-basis: 60%;
+    }
+    
+    .popup {
+        width: 40%;
+        left: 30%;
+        bottom: 30%
     }
 }
 
