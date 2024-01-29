@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: "Akshar", sans-serif;
 }
 
 
@@ -20,7 +21,7 @@ header div.overlap{
 }
 
 nav{
-    font-family: "Akshar", sans-serif;
+    /* font-family: "Akshar", sans-serif; */
     top:0;
     /* left: 0; */
     width: 100%;
@@ -406,46 +407,43 @@ td:hover {
     box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2), 0 0.1rem 1.2px 0 rgba(0,0,0,0.19);
 }
 
-.popup {
-    position: absolute;
-    width: 70%;
-    left: 15%;
-    bottom: 40%;
-    background-color: white;
+
+/* game css */
+
+div.jumbotron p.lead{
+    color:#8F57B2;
     text-align: center;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2), 0 0.1rem 1.2px 0 rgba(0,0,0,0.19);
+}
+div#white-bg.card{
+    background: white;
+    width: auto;
+    padding: 5;
+
+}
+div#white-bg.card-body{
+    background: white;
+    width: auto;
+    margin-bottom: 10px;
+    padding-bottom: 1px;
+    
 }
 
-.popup .btn-close {
-    margin-left: 1rem;
-    display: block;
-}
-
-.popup-date, .popup-time, .popup-select {
-    margin-top: 0.5rem;
-}
-
-.create-event {
-    display: block;
-    background-color: rgba(177, 128, 210, 0.35); 
-    border: none;
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    width: 6rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1rem;
-    padding: 0.2rem;
-}
-
-.create-event:hover {
+div.col#bg-purple span.input-group-text{
     background-color: #B180D2;
-    color: white;
+    padding: 5;
+    text-align:center;
 }
-
-.scheduled {
-    display: block;
+div.col#bg-purple span.input-group-text h2{
+    font-size: 2em;
+    padding: 5;
+    color:white;
+   
+}
+button.btn#leaderboard{
+    background-color: #B180D2;
+    border-color:white;
+    font-size: 2em;
+    padding: 5;
 }
 
 @media (min-width: 598px) {
@@ -595,8 +593,5 @@ td:hover {
        nav.navbar{
         display: none;
        }
-    th, td {
-        width: 5.5rem;
-        padding-bottom: 5rem;
-    }
 }
+
