@@ -156,6 +156,18 @@ h1 {
     color: #8F57B2;
 }
 
+h1#incomingh1 {
+    margin: .5rem;
+    text-align: center;
+    color: #8F57B2;
+}
+
+h1#senth1 {
+    margin: .5rem;
+    text-align: center;
+    color: #8F57B2;
+}
+
 .rectangle {
     display: flex;
     height: 9.5rem;
@@ -276,11 +288,11 @@ body#sentrq{
     background-color: #EADFF0;
 }
 
-.rectangle#sentrq {
+.rectangle#rq {
     display: none;
 }
 
-.card#sentrq {
+.card#rq {
     background-color: #E2CFEB;
     text-align: center;
     position: absolute;
@@ -289,7 +301,7 @@ body#sentrq{
     height: fit-content;
 }
 
-.card#sentrq > .card-body {
+.card#rq > .card-body {
     font-size: medium;
     font-weight: 500;
 }
@@ -559,12 +571,12 @@ div.playagain{
     text-align:center;
 }
 
-footer{
+footer {
     padding: 1em 0em;
     text-align:center;
     background-color:#EADFF0;
-    /* position:absolute; */
-    left: 0;
+    position:absolute;
+    /* left: 0; */
     bottom: 0;
     z-index:10;
     width: 100%;
@@ -587,6 +599,7 @@ footer{
         /* flex-basis: auto; */
         flex-grow: 1;
         padding-bottom: .5rem;
+        height: 100%;
     }
 
     .rectangle {
@@ -598,6 +611,13 @@ footer{
     /* h1 {
         display: none;
     } */
+    /* h1#incomingh1 {
+        color: white;
+    } */
+
+    h1#rqh1 {
+        color: white;
+    }
 
     body#incomingrq {
         background-image: url('../photos/home/army-ocean.png');
@@ -605,11 +625,13 @@ footer{
         background-position: center;
     }
 
-    .rectangle#incomingrq {
+
+
+    .rectangle#rq {
         display: flex;
         background-color: white;
         width: 80%;
-        height: 100%;
+        height: 25rem;
         border-radius: 15px;
         margin: 25px auto;
         justify-content: center;
@@ -625,7 +647,7 @@ footer{
         display: flex;
         background-color: white;
         width: 80%;
-        height: 100%;
+        height: 25rem;
         border-radius: 15px;
         margin: 25px auto;
         justify-content: center;
