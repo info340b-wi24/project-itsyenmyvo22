@@ -15,18 +15,18 @@
 <body>
     <header>
         <div class="overlap">
-            <img src="photos/logo.png" height="120" width="120">
+            <img src="photos/logo.png" height="120" width="120" alt="army base logo of purple whale">
         </div>
     </header>
 
-    <nav class="site-navbar" role="banner">
+    <nav class="site-navbar">
         <div class="container">
             <div class="row">
                 <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 td">
                     <a href="index.html">Home</a> 
                 </div>
                 <div class="col-md-3 col-lg-3 col-xl-3 td">
-                    <a href="#"">Calendar</a>
+                    <a href="#">Calendar</a>
                 </div>
                 <div class="col-md-3 col-lg-3 col-xl-3 td">
                     <a href="game.html">Guess the Song</a>
@@ -39,7 +39,7 @@
     </nav>
 
     <nav class="navbar navbar-dark site-navbar" id="mobile">        
-        <button class="navbar-toggler ms-auto" type="button" id = "toggle" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
+        <button class="navbar-toggler ms-auto" type="button" id = "toggle" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon fas fa-bars fa-1x"><i Class = "fas fa-bars fa-1x"></i></span>
         </button>
         
@@ -66,7 +66,7 @@
             <section class="calendar">
                 <div class="month">
                     <a class="no-cal-prev">
-                        <img src="photos/calendar/month-arrow.png" alt="back arrow"/>
+                        <img src="photos/calendar/month-arrow.png" alt="back arrow">
                     </a>
                     <h1>January 2024</h1>
                     <a class="cal-next">
@@ -204,8 +204,8 @@
             <section class="event-section d-flex flex-column">
                 <h1 class="event-heading">Events</h1>
                 <div class="events">
-                    <a type="button" role="button"  class="add-event" href="calendar-add-event.html">
-                        <img src="photos/calendar/event_plus.png" alt="plus icon"/>
+                    <a role="button"  class="add-event" href="calendar-add-event.html">
+                        <img src="photos/calendar/event_plus.png" alt="plus icon">
                     </a>
                     <div class="event">
                         <h3>Event 1</h3>
@@ -223,7 +223,7 @@
             </section>
 
             <div class="popup py-3">
-                <a type="button" role="button" class="btn-close" href="calendar-added-event.html"></a>
+                <a role="button" class="btn-close" href="calendar-added-event.html"></a>
                 <div class="popup-title">
                     <label for="title-input" class="title-label">Event Title:</label>
                     <input type="text" id="title-input" placeholder="Event 2" class="title-input">
@@ -242,7 +242,7 @@
                     <option value="2">Livestream</option>
                     <option value="3">Meet and Greet</option>
                 </select>
-                <a type="button" role="button" class="create-event" href="calendar-added-event.html">Create Event</a>
+                <a role="button" class="create-event" href="calendar-added-event.html">Create Event</a>
             </div>
         </div>
     </main>
