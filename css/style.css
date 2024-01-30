@@ -258,7 +258,7 @@ body#incomingrq{
     background-color: #EADFF0;
 }
 
-.main#incomingrq {
+.main#incoming {
     background-color: #EADFF0;
 }
 
@@ -272,7 +272,7 @@ body#incomingrq{
     justify-content: center;
 }
 
-.card#rq {
+.card#rqcard {
     background-color: #E2CFEB;
     text-align: center;
     /* position: absolute;
@@ -283,7 +283,7 @@ body#incomingrq{
     height: fit-content;
 }
 
-.card#rq > .card-body {
+.card#rqcard > .card-body {
     font-size: medium;
     font-weight: 500;
 }
@@ -292,7 +292,7 @@ body#sentrq{
     background-color: #EADFF0;
 }
 
-.main#sentrq {
+.main#sent {
     background-color: #EADFF0;
 }
 
