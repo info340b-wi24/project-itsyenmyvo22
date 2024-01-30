@@ -42,8 +42,7 @@
 
 
 
-<button class="navbar-toggler ms-auto" type="button" id = "toggle" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon fas fa-bars fa-1x"><i
+<button class="navbar-toggler ms-auto" type="button" id = "toggle" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-label="Toggle navigation">
     Class = "fas fa-bars fa-1x"></i></span>
 </button>
 
@@ -70,10 +69,8 @@
 
   <h1 id="rqh1">Incoming Requests</h1>
   <div class="rectangle" id="rq">
-    <div class="card" id="rqcard">
-      <div class="card-body">
-        No incoming requests
-      </div>
+    <div id="none-sent">
+      No sent requests
     </div>
   </div>
 
@@ -87,15 +84,15 @@
 </body>
 
 <script>
-let item = document.getElementById('navbarSupportedContent1');
-let button = document.getElementById('toggle');
-button.addEventListener('click', () => {
-   if (item.style.display != "block") {
-      item.style.display = "block";
-   } else {
-      item.style.display = "none";
-   }
-})
-</script>
+  let item = document.getElementById('navbarSupportedContent1');
+  let button = document.getElementById('toggle');
+  button.addEventListener('click', () => {
+     if (item.style.display != "block") {
+        item.style.display = "block";
+     } else {
+        item.style.display = "none";
+     }
+  })
+  </script>
 
 </html>
