@@ -486,12 +486,16 @@ button.btn#leaderboard{
     background-color: #B180D2;
     border-color:white;
     font-size: 2em;
-    padding: 5;
+    padding: 0.2em;
 }
 
 button a{
     text-decoration: none;
     color:white;
+}
+
+div.col-6.mx-auto.my-4.leader{
+    text-align:center;
 }
 /* div.container-desktop{
     display:none;
@@ -531,10 +535,12 @@ div#row.mb-4{
 
 
 
-span.input-group-text p{
+span.input-group-text{
     font-size: 2rem;
     color:white;
+    text-align:center;
 }
+
 p.colTitle{
     font-size:1.7rem;
     color:#8F57B2;
@@ -553,7 +559,12 @@ h2.leader{
 footer{
     padding: 1em 0em;
     text-align:center;
-    background-color:#EADFF0;
+    background-color:#EADFF0; */
+    /* position:absolute; */
+    left: 0;
+    bottom: 0;
+    z-index:10;
+    width: 100%;
 }
 @media (min-width: 598px) {
    
