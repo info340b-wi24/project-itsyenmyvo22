@@ -147,6 +147,39 @@ a.trade-btn:hover, a.member-btn:hover {
     text-align: center;
     font-size: 1.5rem;
 }
+
+.add-card {
+    background-color: #f6abf8;
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    text-align: center;
+}
+
+.inner-add-card {
+    background-color: white;
+    border-radius: 2.5rem;
+}
+
+.upload-icon {
+    height: 15rem;
+    width: 15rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.exit-btn {
+    position: absolute;
+    top: 2%;
+    right: 5%;
+    color: black;
+    text-decoration: none;
+}
+
 /* End of Stuff for Card Trading Page */
 
 
