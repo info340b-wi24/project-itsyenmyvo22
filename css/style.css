@@ -250,9 +250,9 @@ body#incomingrq{
     background-color: #EADFF0;
 }
 
-.rectangle#incomingrq {
+/* .rectangle#incomingrq {
     display: none;
-}
+} */
 
 .card#incomingrq {
     background-color: #E2CFEB;
@@ -276,9 +276,9 @@ body#sentrq{
     background-color: #EADFF0;
 }
 
-.rectangle#sentrq {
+/* .rectangle#sentrq {
     display: none;
-}
+} */
 
 .card#sentrq {
     background-color: #E2CFEB;
@@ -595,7 +595,7 @@ footer{
         height: 10rem;
         margin: auto;
     }
-    /* h1 {
+    /* .test {
         display: none;
     } */
 
