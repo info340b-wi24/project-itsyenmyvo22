@@ -206,6 +206,11 @@ h1#senth1 {
     margin: .3em;
 }
 
+.card-link {
+    color: white;
+    text-decoration-line: none;
+}
+
 .container#mobile-buttons {
     display: flex;
     justify-content: center;
