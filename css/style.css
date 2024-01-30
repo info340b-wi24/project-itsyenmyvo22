@@ -502,7 +502,7 @@ div.col#bg-purple span.input-group-text h2{
     color:white;
    
 }
-button.btn#leaderboard{
+button.btn.leaderboard{
     background-color: #B180D2;
     border-color:white;
     font-size: 1.7em;
@@ -532,17 +532,17 @@ h2{
 h1#congrat{
     background-color: #E2CFEB;
 }
-div#purple-bg{
+div.col-6.purple-bg{
     background-color: #8F57B2;
     color:#EADFF0;
     font-size: 1.7rem;
     text-align:center;
 
 }
-p#leader{
+p.leader{
     size:.5rem;
 }
-div#leaderBack{
+div.leaderBack{
     background-color: white;
     padding: 5px 0px;
 }
