@@ -47,6 +47,9 @@ nav div a:hover, nav div a:focus{
 }
 
 body {
+    min-height:100vh;
+    display: flex;
+    flex-direction: column;
     background-color: #EADFF0;
 }
 
@@ -537,14 +540,10 @@ button.btn.leaderboard{
     padding: 0.3em;
 }
 
-button a{
-    text-decoration: none;
-    color:white;
-}
 
-div.col-6.mx-auto.my-4.leader{
+ div.col-6.mx-auto.my-4.leader{
     text-align:center;
-}
+} 
 
 h2{
     color:#8F57B2
@@ -559,18 +558,11 @@ div.col-6.purple-bg{
     text-align:center;
 
 }
-p.leader{
-    size:.5rem;
-}
+
 div.leaderBack{
     background-color: white;
-    padding: 5px 0px;
+    padding: .5rem;
 }
-div#desktopPlay.row.mt-5{
-    display:none;
-}
-
-
 
 
 span.input-group-text{
@@ -596,7 +588,9 @@ h2.leader{
 div.playagain{
     text-align:center;
 }
-
+div.row.mt-5.desktopPlay{
+    display: none;
+}
 footer {
     padding: 1em 0em;
     text-align:center;
@@ -606,11 +600,9 @@ footer {
     bottom: 0;
     z-index:10;
     width: 100%;
+    margin-top:auto;
 }
-@media (min-width: 598px) {
-   
-}
-  
+
 @media (min-width: 768px) {
     nav.site-navbar {
         display: block;
@@ -724,6 +716,9 @@ footer {
         padding-bottom: 0.5rem;
         width: 14%;
     }
+    div.row.mt-5.desktopPlay{
+        display: none;
+    }
 
     html {
         height: 100%;
@@ -739,16 +734,14 @@ footer {
         display: none;
        }
 
-       div.container#container-desktop{
-        display:block
-       }
+/*     
        div.container#mobile_guess{
         display:none;
-       }
-
-       div#desktopPlay.row.mt-5{
-        display:block;
+       } */
+       div.row.mt-5.desktopPlay{
+        display: block;
     }
+       
 
     th, td {
         width: 5.5rem;
@@ -773,9 +766,11 @@ footer {
        nav.navbar{
         display: none;
        }
+       div.row.mt-5.desktopPlay{
+        display: block;
+    }
 
-
-       div.container#container-desktop{
+       /* div.container#container-desktop{
         display:block
        }
        div.container#mobile_guess{
@@ -783,6 +778,6 @@ footer {
        }
        div#desktopPlay.row.mt-5{
         display:block;
-    }
+    } */
 }
 
