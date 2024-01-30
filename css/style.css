@@ -262,11 +262,6 @@ body#incomingrq{
     background-color: #EADFF0;
 }
 
-<<<<<<< HEAD
-/* .rectangle#incomingrq {
-    display: none;
-} */
-=======
 .rectangle#rq {
     display: flex;
     background-color: white;
@@ -276,7 +271,6 @@ body#incomingrq{
     margin: 25px auto;
     justify-content: center;
 }
->>>>>>> 6db1040a311e4e2947e0bd3b1497516ed75b2636
 
 .card#rq {
     background-color: #E2CFEB;
@@ -302,11 +296,7 @@ body#sentrq{
     background-color: #EADFF0;
 }
 
-<<<<<<< HEAD
-/* .rectangle#sentrq {
-=======
 /* .rectangle#rq {
->>>>>>> 6db1040a311e4e2947e0bd3b1497516ed75b2636
     display: none;
 } */
 
