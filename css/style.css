@@ -485,8 +485,8 @@ div.col#bg-purple span.input-group-text h2{
 button.btn#leaderboard{
     background-color: #B180D2;
     border-color:white;
-    font-size: 2em;
-    padding: 0.2em;
+    font-size: 1.7em;
+    padding: 0.3em;
 }
 
 button a{
@@ -555,6 +555,9 @@ div.col-lg-12.difScore{
 h2.leader{
     text-align:center;
 }
+div.playagain{
+    text-align:center;
+}
 
 footer{
     padding: 1em 0em;
@@ -592,9 +595,9 @@ footer{
         height: 10rem;
         margin: auto;
     }
-    h1 {
+    /* h1 {
         display: none;
-    }
+    } */
 
     body#incomingrq {
         background-image: url('../photos/home/army-ocean.png');
