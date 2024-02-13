@@ -193,13 +193,7 @@ h1 {
     color: #C2A4DB;
 }
 
-h1#incomingh1 {
-    margin: .5rem;
-    text-align: center;
-    color: #C2A4DB;
-}
-
-h1#senth1 {
+h1.rqh1 {
     margin: .5rem;
     text-align: center;
     color: #C2A4DB;
@@ -243,7 +237,7 @@ h1#senth1 {
     margin: .3em;
 }
 
-#my-cards > h2 {
+h2.cardh {
     padding-left: 1.5rem;
 }
 
@@ -252,28 +246,28 @@ h1#senth1 {
     text-decoration-line: none;
 }
 
-.container#mobile-buttons {
+.container.mobile-buttons {
     display: flex;
     justify-content: center;
 }
 
-a#rq {
+/* a#rq {
     color: white;
     text-decoration-line: none;
-}
+} */
 
-.row.g-0.mx-0#desktop {
+.row.g-0.mx-0 {
     display: none;
 }
 
-.row.g-0.mx-0#desktop img {
+.row.g-0.mx-0 img {
     width: 100%;
     height: 350px;
     position: relative;
 }
 
 
-.row.g-0.mx-0#desktop #sent {
+.row.g-0.mx-0 .btn-sent {
     position: absolute;
     top: 50%;
     left: 25%;
@@ -287,7 +281,7 @@ a#rq {
 } 
 
 
-.row.g-0.mx-0#desktop #incoming {
+.row.g-0.mx-0 .btn-incoming {
     position: absolute;
     top: 50%;
     left: 75%;
@@ -300,16 +294,16 @@ a#rq {
     border-radius: 15px;
 } 
 
-body#incomingrq{
+body.incoming {
     background-color: white;
 }
 
-.main#incomingrq {
+main.incoming {
     background-color: #EADFF0;
 
 }
 
-.rectangle#rq {
+.rectangle {
     display: flex;
     background-color: white;
     width: 80%;
@@ -319,9 +313,8 @@ body#incomingrq{
     justify-content: center;
 }
 
-div#none-sent {
+div.none {
     position: absolute;
-    /* top: 50%; */
     background-color: #C2A4DB;
     color: white;
     text-align: center;
@@ -333,11 +326,11 @@ div#none-sent {
     border-radius: 15px;
 }
 
-body#sentrq{
+body.sent {
     background-color: #EADFF0;
 }
 
-.main#sentrq {
+main.sent {
     background-color: #EADFF0;
 }
 
@@ -572,7 +565,7 @@ footer {
     nav.navbar#mobile {
         display: none;
     }
-    .row.g-0.mx-0#desktop {
+    .row.g-0.mx-0 {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -589,21 +582,21 @@ footer {
     }
 
 
-    h1#rqh1 {
+    h1.rqh1 {
         color: white;
     }
 
-    body#incomingrq {
+    body .incoming {
         background-image: url('../photos/home/army-ocean.png');
         background-size: cover;
         background-position: center;
     }
 
-    #my-cards > h2 {
+    h2.cardh {
         padding-left: 2.5em;
     }
 
-    .rectangle#rq {
+    .rectangle {
         display: flex;
         background-color: white;
         width: 80%;
@@ -613,13 +606,13 @@ footer {
         justify-content: center;
     }
 
-    body#sentrq {
+    body.sent {
         background-image: url('../photos/home/purple-clouds.png');
         background-size: cover;
         background-position: center;
     }
 
-    .rectangle#sentrq {
+    /* .rectangle#sentrq {
         display: flex;
         background-color: white;
         width: 80%;
@@ -627,7 +620,7 @@ footer {
         border-radius: 15px;
         margin: 25px auto;
         justify-content: center;
-    }
+    } */
 
     
     
