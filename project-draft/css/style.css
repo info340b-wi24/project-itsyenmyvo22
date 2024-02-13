@@ -7,7 +7,7 @@
 
 header{
     background-image: url('../photos/home/head-banner.png');
-    background-color: #B180D2;
+    background-color: #8F57B2;
     background-size: cover;
     height: 150px;
     background-position: center;   
@@ -15,9 +15,9 @@ header{
 
 header div.overlap{
     height: 150px;
-    left:0; /* play around with this */
+    left:0; 
     position: relative;
-    top:0; /* and play around with this */
+    top:0; 
 }
 
 nav{
@@ -25,7 +25,7 @@ nav{
     top:0;
     /* left: 0; */
     width: 100%;
-    background-color:#B180D2;
+    background-color:#8F57B2;
     color: white;
     padding-top: .5rem;
     padding-left: .5rem;
@@ -34,23 +34,23 @@ nav{
 } 
 
 nav div a{
-    color: #f0f0f0;
+    color: white;
     text-decoration: none;
 }
 
-nav div.td::selection, nav div.td:focus{
+/* nav div.td::selection, nav div.td:focus{
 background-color: #EADFF0;
 }
 
 nav div a:hover, nav div a:focus{
     border-bottom:  .8rem, solid, #f0f0f0 ; 
-}
+} */
 
 body {
     min-height:100vh;
     display: flex;
     flex-direction: column;
-    background-color: #EADFF0;
+    background-color: white;
 }
 
 
@@ -79,7 +79,7 @@ nav.navbar#mobile{
     flex-grow: 1;
     background-color: rgba(177, 128, 210, 0.35); 
     border: none;
-    color: white;
+    color:white;
     padding: 0.5rem 1rem;
     margin: 0.5rem;
     text-align: center;
@@ -88,7 +88,7 @@ nav.navbar#mobile{
 }
 
 .member-btn:hover {
-    background-color: #B180D2;
+    background-color: #C2A4DB;
     box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2), 0 0.1rem 1.2px 0 rgba(0,0,0,0.19);
 }
 
@@ -123,6 +123,7 @@ img.photocard-img {
     text-align: center;
     font-size: 1.5rem;
     background-color: rgba(252, 103, 255, 1);
+    color: black;
 }
 
 a.trade-btn, a.member-btn {
@@ -189,19 +190,19 @@ a.trade-btn:hover, a.member-btn:hover {
 h1 {
     margin: .5rem;
     text-align: center;
-    color: #8F57B2;
+    color: #C2A4DB;
 }
 
 h1#incomingh1 {
     margin: .5rem;
     text-align: center;
-    color: #8F57B2;
+    color: #C2A4DB;
 }
 
 h1#senth1 {
     margin: .5rem;
     text-align: center;
-    color: #8F57B2;
+    color: #C2A4DB;
 }
 
 .rectangle {
@@ -277,7 +278,7 @@ a#rq {
     top: 50%;
     left: 25%;
     transform: translate(-50%, -50%);
-    background-color: #B180D2;
+    background-color:#C2A4DB;
     color: white;
     font-size: 16px;
     padding: 12px 24px;
@@ -291,7 +292,7 @@ a#rq {
     top: 50%;
     left: 75%;
     transform: translate(-50%, -50%);
-    background-color: #B180D2;
+    background-color: #C2A4DB;
     color: white;
     font-size: 16px;
     padding: 12px 24px;
@@ -300,11 +301,12 @@ a#rq {
 } 
 
 body#incomingrq{
-    background-color: #EADFF0;
+    background-color: white;
 }
 
 .main#incomingrq {
     background-color: #EADFF0;
+
 }
 
 .rectangle#rq {
@@ -320,7 +322,7 @@ body#incomingrq{
 div#none-sent {
     position: absolute;
     /* top: 50%; */
-    background-color: #B180D2;
+    background-color: #C2A4DB;
     color: white;
     text-align: center;
     height: fit-content;
@@ -370,14 +372,14 @@ body#sentrq{
 }
 
 th, td {
-    color:#B180D2;
+    color:#B78AD6;
     width: 7%;
     padding-bottom: 4%;
     text-align: center;
 }
 
 td span {
-    background-color: #8F57B2;
+    background-color: #C2A4DB;
     display: none;
     margin: 0 auto;
     border-radius: 50%;
@@ -408,7 +410,7 @@ td:hover {
     background-color: white;
     width: 8.4rem;
     height: 9rem;
-    color: #B180D2;
+    color: #C2A4DB;
     border-radius: 10%;
     margin: 0.5rem;
 }
@@ -448,7 +450,7 @@ td:hover {
 }
 
 .add-event:hover {
-    background-color: #B180D2;
+    background-color: #B78AD6;
     box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2), 0 0.1rem 1.2px 0 rgba(0,0,0,0.19);
 }
 
@@ -475,7 +477,7 @@ td:hover {
     display: block;
     background-color: rgba(177, 128, 210, 0.35); 
     border: none;
-    color: white;
+    color:white ;
     text-decoration: none;
     font-size: 1rem;
     width: 6rem;
@@ -486,7 +488,7 @@ td:hover {
 }
 
 .create-event:hover {
-    background-color: #B180D2;
+    background-color:#B78AD6;
     color: white;
 }
 
@@ -512,9 +514,7 @@ div.jumbotron p.lead{
 h2{
     color:#8F57B2
 }
-h1#congrat{
-    background-color: #E2CFEB;
-}
+
 div.col-6.purple-bg{
     background-color: #8F57B2;
     color:#EADFF0;
