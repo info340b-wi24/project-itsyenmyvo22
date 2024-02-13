@@ -77,7 +77,7 @@ nav.navbar#mobile{
 .member-btn {
     flex-shrink: 0;
     flex-grow: 1;
-    background-color: rgba(177, 128, 210, 0.35); 
+    background-color: #8F5EB1; 
     border: none;
     color:white;
     padding: 0.5rem 1rem;
@@ -89,6 +89,7 @@ nav.navbar#mobile{
 
 .member-btn:hover {
     background-color: #C2A4DB;
+    color: black;
     box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2), 0 0.1rem 1.2px 0 rgba(0,0,0,0.19);
 }
 
@@ -131,7 +132,7 @@ a.trade-btn, a.member-btn {
 }
 
 a.trade-btn:hover, a.member-btn:hover {
-    color: white;
+    color: black;
 }
 
 .trade-request {
@@ -153,8 +154,8 @@ a.trade-btn:hover, a.member-btn:hover {
 }
 
 .add-card {
-    background-color: #f6abf8;
-    color: black;
+    background-color:#8F5EB1;
+    color: white;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -190,7 +191,7 @@ a.trade-btn:hover, a.member-btn:hover {
 h1 {
     margin: .5rem;
     text-align: center;
-    color: #C2A4DB;
+    color: #8F5EB1;
 }
 
 h1.rqh1 {
@@ -199,11 +200,11 @@ h1.rqh1 {
     color: #C2A4DB;
 }
 
-.rectangle {
+.container .rectangle {
     display: flex;
     height: 9.5rem;
     width: 100%;
-    background-color: white;
+    background-color:  #8F5EB1;
     border-radius: 15px;
     margin: auto;
     justify-content: left;
@@ -225,13 +226,13 @@ h1.rqh1 {
     border-radius: 15px;
     border: none;
     position: absolute;
-    background-color: #E2CFEB;
+    background-color:   #8F5EB1;
     margin: .5em;
 }
 
 .card-body {
-    background-color: #E2CFEB;
-    color: white;
+    background-color: white;
+    color: #8F5EB1;
     text-align: center;
     border-radius: 15px;
     margin: .3em;
@@ -242,7 +243,7 @@ h2.cardh {
 }
 
 .card-link {
-    color: white;
+    color: #8F5EB1;
     text-decoration-line: none;
 }
 
@@ -267,17 +268,18 @@ h2.cardh {
 }
 
 
-.row.g-0.mx-0 .btn-sent {
+.btn-sent {
     position: absolute;
     top: 50%;
     left: 25%;
     transform: translate(-50%, -50%);
-    background-color:#C2A4DB;
+    background-color:#8F5EB1;
     color: white;
     font-size: 16px;
     padding: 12px 24px;
     border: none;
     border-radius: 15px;
+    text-decoration: none;
 } 
 
 
@@ -286,12 +288,13 @@ h2.cardh {
     top: 50%;
     left: 75%;
     transform: translate(-50%, -50%);
-    background-color: #C2A4DB;
+    background-color: #8F5EB1;
     color: white;
     font-size: 16px;
     padding: 12px 24px;
     border: none;
     border-radius: 15px;
+    text-decoration: none;
 } 
 
 body.incoming {
@@ -315,7 +318,7 @@ main.incoming {
 
 div.none {
     position: absolute;
-    background-color: #C2A4DB;
+    background-color:#8F5EB1;
     color: white;
     text-align: center;
     height: fit-content;
@@ -365,14 +368,14 @@ main.sent {
 }
 
 th, td {
-    color:#B78AD6;
+    color:#8F5EB1;
     width: 7%;
     padding-bottom: 4%;
     text-align: center;
 }
 
 td span {
-    background-color: #C2A4DB;
+    background-color: #8F5EB1;
     display: none;
     margin: 0 auto;
     border-radius: 50%;
@@ -386,6 +389,7 @@ td .scheduled {
 
 td:hover {
     background-color: #E2CFEB;
+    color: black;
 }
 
 .event-heading {
@@ -403,7 +407,7 @@ td:hover {
     background-color: white;
     width: 8.4rem;
     height: 9rem;
-    color: #C2A4DB;
+    color:#8F5EB1;
     border-radius: 10%;
     margin: 0.5rem;
 }
@@ -426,7 +430,7 @@ td:hover {
 }
 
 .add-event {
-    background-color: rgba(177, 128, 210, 0.35); 
+    background-color: #8F5EB1; 
     border: none;
     border-radius: 10%;
     color: white;
@@ -443,7 +447,7 @@ td:hover {
 }
 
 .add-event:hover {
-    background-color: #B78AD6;
+    background-color: #8F5EB1;
     box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2), 0 0.1rem 1.2px 0 rgba(0,0,0,0.19);
 }
 
@@ -494,7 +498,7 @@ td:hover {
 /* game css */
 
 div.jumbotron p.lead{
-    color:#8F57B2;
+    color:#8F5EB1;
     text-align: center;
 }
 
@@ -551,7 +555,7 @@ div.row.mt-5.desktopPlay{
 footer {
     padding: 1em 0em;
     text-align:center;
-    background-color:#EADFF0;
+    background-color:white;
     bottom: 0;
     z-index:10;
     width: 100%;
@@ -575,7 +579,7 @@ footer {
     }
 
     .rectangle {
-        background-color: #8F57B2;
+        background-color: #8F5EB1;
         width: 100%;
         height: 10rem;
         margin: auto;
