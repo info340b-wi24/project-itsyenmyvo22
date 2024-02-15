@@ -50,7 +50,7 @@ body {
     min-height:100vh;
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: #EADFF0;
 }
 
 
@@ -555,7 +555,7 @@ div.row.mt-5.desktopPlay{
 footer {
     padding: 1em 0em;
     text-align:center;
-    background-color:white;
+    background-color: #EADFF0;
     bottom: 0;
     z-index:10;
     width: 100%;
