@@ -79,7 +79,7 @@ function MonthBar(props) {
 function CalendarBody(props) {
     const [startIndex, setStartIndex] = useState(0);
     const dayArray = daysOfMonth2024[props.displayMonth].map((day) => {
-        if (day == 0) {
+        if (day === 0) {
             return (
                 <td>
                     <span></span>
