@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
@@ -50,137 +51,53 @@ export default function Leader(props){
             {/* <!-- leaderboard --> */}
             
 
-            <div class="row g-1">
+            <div class="row">
                 <div class="col-12">
                     <h2 class="leader">World LeaderBoard</h2>
                 </div>
-                <div class="col-3">
-                    <p>Rank</p>
+          
+           <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Score</th>
+                    <th>Avg Time</th>
+                    <th>User</th>
+                </tr>
+            </thead>
+            <tbody>
+                <MakeRow rank= '1' score='20' time='00:03:12' user = 'Username'  />
+                <MakeRow rank = '2' score= '19' time='00:03:12' user = 'Username' />  
+                <MakeRow rank = '3' score= '19' time='00:03:12' user = 'Username' />  
+                <MakeRow rank = '4' score= '19' time='00:03:12' user = 'Username' />  
+                <MakeRow rank = '5' score= '19' time='00:03:12' user = 'Username' />  
+                <MakeRow rank = '6' score= '19' time='00:03:12' user = 'Username' />  
+            </tbody> 
+            </table>
+         
+            </div>
+            </div>  
                 </div>
-                <div class="col-3">
-                    <p >Score</p>
                 </div>
-                <div class="col-3" >
-                    <p >Avg Time</p>
-                </div>
-                <div class="col-3" >
-                    <p >User</p>
                 </div>
                 
-                <div class="col-3 leaderBack">
-                    <p >1</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>20</p>
-                </div>
-                <div class="col-3 leaderBack" >
-                    <p>00:03:12</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p >Username</p>
-                </div>
 
-                <div class="col-3 leaderBack">
-                    <p >2</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p >18</p>
-                </div>
-                <div class="col-3 leaderBack" >
-                    <p>00:03:11</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>Username</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>3</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>13</p>
-                </div>
-                <div class="col-3 leaderBack" >
-                    <p>00:03:15</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>Username</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>4</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>14</p>
-                </div>
-                <div class="col-3 leaderBack" >
-                    <p>00:04:15</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>Username</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>5</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>10</p>
-                </div>
-                <div class="col-3 leaderBack" >
-                    <p>00:05:15</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>Username</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>6</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>9</p>
-                </div>
-                <div class="col-3 leaderBack" >
-                    <p>00:07:15</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>Username</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>7</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>8</p>
-                </div>
-                <div class="col-3 leaderBack" >
-                    <p>00:04:15</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>Username</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>9</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>6</p>
-                </div>
-                <div class="col-3 leaderBack" >
-                    <p>00:04:15</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>Username</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>10</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>6</p>
-                </div>
-                <div class="col-3 leaderBack" >
-                    <p>00:04:15</p>
-                </div>
-                <div class="col-3 leaderBack">
-                    <p>Username</p>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
-    </div>
 
+             
+              
+
+
+    )
+}
+
+
+function MakeRow({rank, score, time, user}){
+    return(
+      <tr>
+            <td>{rank}</td>
+            <td>{score}</td>  
+            <td>{time}</td>
+            <td>{user}</td>
+        </tr>
     )
 }

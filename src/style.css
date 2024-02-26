@@ -559,14 +559,34 @@ div.col-6.purple-bg{
     color:#EADFF0;
     font-size: 1.7rem;
     text-align:center;
+    padding: .5rem 0rem;
 
 }
-
-div.leaderBack{
+div.row{
+    padding: 0;
+}
+table{
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+tbody{
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+/* div.leaderBack{
     background-color: white;
     padding: .5rem;
-}
+} */
+ td {
+    padding: 8px; /* Adjust the padding as needed */
+    border: 1px solid #ddd; /* Optional: Add border for better separation */
+  }
 
+  table tr{
+    padding: 0;
+    border: 0;
+    background-color: white;
+  }
 
 span.input-group-text{
     font-size: 2rem;
@@ -739,7 +759,7 @@ footer {
 
     th, td {
         width: 5.5rem;
-        padding-bottom: 5rem;
+        padding-bottom: .5rem;
     }
 
     .calendar {
