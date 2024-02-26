@@ -24,7 +24,7 @@ export function NavBar(props){
     return(
       <div>
     <nav className="site-navbar">
-    <div className="container">
+ 
         <div className="row">
             <div className="col-sm-3 col-md-3 col-lg-3 col-xl-3 td">
       <CustomLink to="/Home">Home</CustomLink>
@@ -43,7 +43,7 @@ export function NavBar(props){
       <CustomLink to ="/Cards">Card Trading</CustomLink>
     </div>
     </div>
-    </div>
+ 
   </nav>
 
 

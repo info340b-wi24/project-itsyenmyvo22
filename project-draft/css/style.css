@@ -38,13 +38,19 @@ nav div a{
     text-decoration: none;
 }
 
+nav div a.active{
+    background-color: white;
+    color:#8F57B2
+}
+
 /* nav div.td::selection, nav div.td:focus{
 background-color: #EADFF0;
 }
+*/ 
 
 nav div a:hover, nav div a:focus{
     border-bottom:  .8rem, solid, #f0f0f0 ; 
-} */
+} 
 
 body {
     min-height:100vh;

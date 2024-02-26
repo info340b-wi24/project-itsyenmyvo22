@@ -23,24 +23,49 @@ header div.overlap{
 nav{
     /* font-family: "Akshar", sans-serif; */
     top:0;
-    /* left: 0; */
+    left: 0;
     width: 100%;
     background-color:#8F57B2;
     color: white;
-    padding-top: .5rem;
-    padding-left: .5rem;
-    padding-right: .5rem;
-    padding-bottom: .5rem;
+    padding: .5rem;
+    align-items: stretch;
 } 
-
-nav div a{
+nav div div{
+    align-items: center;
+    text-align: center;
+}
+nav div div li {
     color: white;
     text-decoration: none;
+    color: #8F57B2;
+    height: 100%;
+  font-size: 1.3rem;
+   align-items: center;
+   padding: .25rem;
+ 
 }
 
-li{
+nav div a {
+    text-align: center;
+   color: white;
+   text-decoration: none;
+}
+
+nav li{
+    
   list-style-type: none;  
 }
+
+nav li.active a {
+    color: #8F57B2;
+}
+nav  li.active{
+    background-color: #EADFF0;
+    color:#8F57B2;
+    text-decoration: none;
+    height:100%;
+    padding: .25rem
+ }
 
 /* nav div.td::selection, nav div.td:focus{
 background-color: #EADFF0;
