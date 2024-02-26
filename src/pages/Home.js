@@ -29,7 +29,7 @@ export default function Home(props) {
       </nav>
     
      
-        <nav className="navbar navbar-dark site-navbar" id="mobile">
+        {/* <nav className="navbar navbar-dark site-navbar" id="mobile">
          
      
           <button className="navbar-toggler ms-auto" type="button" id ="toggle" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-label="Toggle navigation">
@@ -54,7 +54,7 @@ export default function Home(props) {
               
            </ul>
         </div>
-       </nav>
+       </nav> */}
       
       <main>
         
