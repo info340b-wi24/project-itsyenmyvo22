@@ -434,6 +434,11 @@ td:hover {
     color: black;
 }
 
+.no-hover:hover {
+    background-color: white;
+    color:#8F5EB1;
+}
+
 .event-heading {
     margin-left: 0.5rem;
     margin-right: 0.5rem;

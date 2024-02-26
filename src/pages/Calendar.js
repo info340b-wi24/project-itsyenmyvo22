@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 // data:
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -34,7 +34,7 @@ export default function Calendar(props) {
                         <th>FRI</th>
                         <th>SAT</th>
                     </tr>
-                    <CalendarBody displayMonth={displayMonth} />
+                    {<CalendarBody displayMonth={displayMonth} />}
                 </table>
             </section>
             <Events />
@@ -77,11 +77,10 @@ function MonthBar(props) {
 }
 
 function CalendarBody(props) {
-    const [startIndex, setStartIndex] = useState(0);
     const dayArray = daysOfMonth2024[props.displayMonth].map((day) => {
         if (day === 0) {
             return (
-                <td>
+                <td className='no-hover'>
                     <span></span>
                 </td>
             );
@@ -94,11 +93,11 @@ function CalendarBody(props) {
         }
     });
     const rowArray = [];
+    let startIndex = 0;
     while (startIndex < dayArray.length) {
-        // change from state to variable in while loop?
-        rowArray.push(<CalendarRow startIndex={startIndex} setStartIndex={setStartIndex} dayArray={dayArray} />);
+        rowArray.push(<CalendarRow startIndex={startIndex} dayArray={dayArray} />);
+        startIndex = startIndex + 7;
     }
-    setStartIndex(0);
     return rowArray;
 }
 
@@ -107,7 +106,6 @@ function CalendarRow(props) {
     const dayCells = [];
     for (let i = initialIndex; i < (initialIndex + 7); i++) {
         dayCells.push(props.dayArray[i]);
-        props.setStartIndex(i);
     }
     return (
         <tr>
