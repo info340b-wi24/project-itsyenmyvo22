@@ -4,7 +4,7 @@ import Home from '../pages/Home';
 import Game from '../pages/Game';
 import Calendar from '../pages/Calendar';
 import Cards from '../pages/Cards';
-
+import { Route, Routes} from "react-router-dom";
 
 
 // function Outline(props){
@@ -22,52 +22,64 @@ import Cards from '../pages/Cards';
 //             component = <Calendar />
 //             break
 //             case "photo-cards":
-//                 component = <Card />
+//                 component = <Cards />
 //                 break
                
 //         }
 
 //     return (
         
-//         // <div>
-//         // <header>
-//         // </header>
-//         //   {/* <NavBar/>
-//         //   {component} */}
+//         <div>
+//         <header>
+//         </header>
+//          <NavBar/>
+//           {component} 
           
-//         // </div>
+//         </div>
 //     )
 // }
 
 function App(props){
 
-    let component;
-    switch(window.location.pathname){
+    // let component;
+    // switch(window.location.pathname){
 
     
-        case "/Home":
-        component = <Home />
-        break
-        case"/Calendar":
-        component = <Calendar />
-        break
-        case "/Game":
-            component = <Game />
-            break
+    //     case "/Home":
+    //     component = <Home />
+    //     break
+    //     case"/Calendar":
+    //     component = <Calendar />
+    //     break
+    //     case "/Game":
+    //         component = <Game />
+    //         break
            
-            case "Cards":
-                component = <Cards />
-                break
+    //         case "/Cards":
+    //             component = <Cards />
+    //             break
                
-        }
+    //     }
 
 
     return (
         <div>
         <header></header>
         <NavBar />
-        {component}
-
+        <div className='container'>
+            <Routes>
+                <Route path = "/Home" element = {<Home />} />
+                <Route path = "/Calendar" element = {<Calendar />} />
+                <Route path = "/Game" element = {<Game />} />
+                <Route path = "/Cards" element = {<Cards />} />
+           
+           
+           
+           
+            </Routes>
+        </div>
+        {/* {component}  */}
+       
         </div>
     )
 }
