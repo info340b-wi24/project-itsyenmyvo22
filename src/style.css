@@ -106,6 +106,10 @@ nav.navbar#mobile{
 
 
 /* Stuff for Trading Card Page */
+.hidden {
+    display: none;
+}
+
 .member-btn-container {
     display: flex;
     font-family: "Akshar", sans-serif;
