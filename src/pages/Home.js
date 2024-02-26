@@ -1,6 +1,6 @@
 
 export default function Home(props){
-    console.log("hi");
+  
     
     return(
         

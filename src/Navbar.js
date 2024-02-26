@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import './style.css';
 import App from './components/App';
 import {Link, useMatch, useResolvedPath} from 'react-router-dom'
+
 
 export function NavBar(props){
 
@@ -16,69 +17,84 @@ export function NavBar(props){
     //    }
     // })
 
+    const [isOpen, setIsOpen] = useState(false)
+    const toggleMenu = () =>{
+      setIsOpen(!isOpen);
+    }
 
-
-
-    
+    const closeMenu = () => {
+      setIsOpen(false);
+    };
 
     return(
+      
       <div>
+
     <nav className="site-navbar">
  
         <div className="row">
             <div className="col-sm-3 col-md-3 col-lg-3 col-xl-3 td">
-      <CustomLink to="/Home">Home</CustomLink>
+      <CustomLink to="/Home" onClick ={closeMenu}>Home</CustomLink>
 
         </div>
         <div className="col-md-3 col-lg-3 col-xl-3 td">
       {/* <a href="/Calendar">Calendar</a> */}
-      <CustomLink to ="/Calendar">Calendar</CustomLink>
+      <CustomLink to ="/Calendar" onClick ={closeMenu}>Calendar</CustomLink>
     </div>
     <div className="col-md-3 col-lg-3 col-xl-3 td">
       {/* <a href="/Game">Guess the Song</a> */}
-      <CustomLink to="/Game">Guess the Song </CustomLink>
+      <CustomLink to="/Game" onClick ={closeMenu}>Guess the Song </CustomLink>
     </div>
     <div className="col-md-3 col-lg-3 col-xl-3 td">
       {/* <a href="/Cards">Card Trading</a> */}
-      <CustomLink to ="/Cards">Card Trading</CustomLink>
+      <CustomLink to ="/Cards" onClick ={closeMenu}>Card Trading</CustomLink>
     </div>
     </div>
  
   </nav>
 
 
-<nav className="navbar navbar-dark site-navbar" id="mobile">
+
+  {/* nav className="navbar navbar-dark */}
+<nav className="navbar  navbar-dark site-navbar" id="mobile">
      
  
-   <button className="navbar-toggler ms-auto" type="button" id ="toggle" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-label="Toggle navigation">
+   <button className="navbar-toggler ms-auto" type="button" id ="toggle" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-label="Toggle navigation" onClick={toggleMenu}>
+   <div className= {isOpen? 'menu-icon ': 'menu-icon'}>
     <span className="navbar-toggler-icon fas fa-bars fa-1x"><i
-         className = "fas fa-bars fa-1x"></i></span>
+         className = "fas fa-bars fa-1x"></i></span> 
+     
+     </div>
      </button>
      
-     <div className = "collapse navbar-collapse" id = "navbarSupportedContent1">
+     <div className ={isOpen? 'open' : 'menu'}>
+     
+   
       <ul className = "navbar-nav mr-auto">
-         <li className = "nav-item active">
-           <Link className = "nav-link" to="/Home">Home</Link>
-         </li>
-         <li className = "nav-item">
-            <Link className = "nav-link" to="/Cards">Card Trading</Link>
-         </li>
-         <li className = "nav-item">
-           <Link className = "nav-link" to="/Game">Guess the Song</Link>
-         </li>
-         <li className = "nav-item">
-           <Link className = "nav-link" to="/Calendar">Calendar</Link>
-         </li>
+         {/* <li className = "nav-item active"> */}
+           <CustomLink className ="nav-link " to="/Home">Home</CustomLink>
+         {/* </li> */}
+        
+            <CustomLink className = "nav-link" to="/Cards" onClick={closeMenu}>Card Trading</CustomLink>
+         
+        
+           <CustomLink className = "nav-link" to="/Game" onClick={closeMenu}>Guess the Song</CustomLink>
+      
+           <CustomLink className = "nav-link" to="/Calendar" onClick={closeMenu}>Calendar</CustomLink>
+       
          
       </ul>
+
+
      </div>
      </nav>
-
-
-
+   
   </div>
     )
 }
+
+
+
 
 function CustomLink({to, children, ...props}){
     

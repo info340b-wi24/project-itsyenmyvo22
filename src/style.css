@@ -48,32 +48,34 @@ nav div div li {
 nav div a {
     text-align: center;
    color: white;
+
    text-decoration: none;
 }
-
+nav button{
+    color:white;
+}
 nav li{
-    
+
   list-style-type: none;  
 }
 
 nav li.active a {
-    color: #8F57B2;
+    color: white;
 }
 nav  li.active{
-    background-color: #EADFF0;
-    color:#8F57B2;
+    background-color: #B78AD6;
+    
     text-decoration: none;
     height:100%;
     padding: .25rem
  }
 
-/* nav div.td::selection, nav div.td:focus{
-background-color: #EADFF0;
+ .open {
+    display:none;
+   
 }
+  
 
-nav div a:hover, nav div a:focus{
-    border-bottom:  .8rem, solid, #f0f0f0 ; 
-} */
 
 body {
     min-height:100vh;
@@ -95,7 +97,7 @@ nav.navbar#mobile{
     display: block;
 }
 
-na
+
 
 
 /* Stuff for Trading Card Page */

@@ -73,12 +73,9 @@ function App(props){
                 <Route path = "/Game" element = {<Game />} />
                 <Route path = "/Cards" element = {<Cards />} />
            
-           
-           
-           
             </Routes>
         </div>
-        {/* {component}  */}
+       
        
         </div>
     )
