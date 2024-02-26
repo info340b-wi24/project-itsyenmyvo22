@@ -64,7 +64,11 @@ function App(props){
 
     return (
         <div>
-        <header></header>
+        <header>
+        <div className="overlap">
+            <img src="photos/logo.png" alt="ArmyBase logo of a purple whale" height="120" width="120"></img>
+        </div>
+    </header>  
         <NavBar />
         <div className='container'>
             <Routes>
@@ -77,7 +81,11 @@ function App(props){
             </Routes>
         </div>
        
-       
+            <footer>
+        <p> &copy; 2024 ARMY BASE  All Rights Reserved</p>
+        <p> Created By Yenmy Vo, Stephanie Liu, Natalie Hinds, and Carmen Weatherman</p>
+    </footer>
+ 
         </div>
     )
 }
