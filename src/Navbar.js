@@ -72,7 +72,7 @@ export function NavBar(props){
    
       <ul className = "navbar-nav mr-auto">
          {/* <li className = "nav-item active"> */}
-           <CustomLink className ="nav-link " to="/Home">Home</CustomLink>
+           <CustomLink className = "nav-link"  to="/Home" onClick={closeMenu}>Home</CustomLink>
          {/* </li> */}
         
             <CustomLink className = "nav-link" to="/Cards" onClick={closeMenu}>Card Trading</CustomLink>
