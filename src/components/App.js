@@ -5,7 +5,7 @@ import Game from '../pages/Game';
 import Calendar from '../pages/Calendar';
 import Cards from '../pages/Cards';
 import { Route, Routes} from "react-router-dom";
-
+import Leader from '../pages/Leader';
 
 // function Outline(props){
 //     let component;
@@ -71,8 +71,9 @@ function App(props){
                 <Route path = "/Home" element = {<Home />} />
                 <Route path = "/Calendar" element = {<Calendar />} />
                 <Route path = "/Game" element = {<Game />} />
-                <Route path = "/Cards" element = {<Cards />} />
-           
+                <Route path = "/Cards" element = {<Cards />}/>
+                  <Route path="/" exact component={<Game />} />
+                <Route path="/Leader" element ={<Leader/>} />
             </Routes>
         </div>
        

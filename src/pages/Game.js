@@ -1,5 +1,6 @@
 
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 export default function Game(props){
 
 
@@ -30,7 +31,7 @@ export default function Game(props){
          
         <div className="row leader">
           <div className="col-6 mx-auto my-4 leader">
-            {/* <a class="member-btn trade" href=/leaderboard> View Leadboard </a> */}
+            <Link to='/Leader' className="member-btn trade"> View Leadboard </Link>
           </div>
          </div>
    
