@@ -8,7 +8,7 @@ export default function Home(props) {
                 <img src="photos/logo.png" alt="ArmyBase logo of a purple whale" height="120" width="120" />
             </div>
         </header>  
-      <nav className="site-navbar">
+      {/* <nav className="site-navbar">
         <div className="container">
             <div className="row">
                 <div className="col-sm-3 col-md-3 col-lg-3 col-xl-3 td">
@@ -26,7 +26,7 @@ export default function Home(props) {
         </div>
         </div>
         </div>
-      </nav>
+      </nav> */}
     
      
         {/* <nav className="navbar navbar-dark site-navbar" id="mobile">
