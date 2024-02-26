@@ -396,7 +396,7 @@ main.sent {
     transform: rotateY(180deg);
 }
 
-.no-cal-prev img {
+.no-cal-prev img, .no-cal-next img {
     opacity: 30%;
 }
 
