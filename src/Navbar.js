@@ -56,10 +56,10 @@ export function NavBar(props){
 
 
   {/* nav className="navbar navbar-dark */}
-<nav className="navbar  navbar-dark site-navbar" id="mobile">
+<nav className="navbar site-navbar" id="mobile">
      
  
-   <button className="navbar-toggler ms-auto" type="button" id ="toggle" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-label="Toggle navigation" onClick={toggleMenu}>
+   <button className="navbar-dark navbar-toggler ms-auto" type="button" id ="toggle" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-label="Toggle navigation" onClick={toggleMenu}>
    <div className= {isOpen? 'menu-icon ': 'menu-icon'}>
     <span className="navbar-toggler-icon fas fa-bars fa-1x"><i
          className = "fas fa-bars fa-1x"></i></span> 

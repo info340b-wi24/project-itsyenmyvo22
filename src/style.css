@@ -59,22 +59,27 @@ nav li{
   list-style-type: none;  
 }
 
-nav li.active a {
-    color: white;
+.nav-link{
+    color:white;
 }
-nav  li.active{
-    background-color: #B78AD6;
-    
+nav  li.active {
+    background-color:#E2CFEB;
+    color: #8F57B2;
     text-decoration: none;
     height:100%;
     padding: .25rem
  }
+nav li.active a{
+    color:#8F57B2;
+}
 
  .open {
     display:none;
    
 }
-  
+  div ul.navbar-nav li.active a{
+    color:black;
+  }
 
 
 body {
