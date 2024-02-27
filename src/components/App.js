@@ -72,7 +72,7 @@ function App(props){
         <div>
         <header>
         <div className="overlap">
-            <img src="photos/logo.png" alt="ArmyBase logo of a purple whale" height="120" width="120"></img>
+        <Link to="/">  <img src="photos/logo.png" alt="ArmyBase logo of a purple whale" height="120" width="120"></img></Link>
         </div>
     </header>  
         <NavBar />
