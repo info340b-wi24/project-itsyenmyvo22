@@ -410,6 +410,10 @@ main.sent {
     align-items: center;
 }
 
+.month button {
+    border-style: none;
+}
+
 th, td {
     color:#8F5EB1;
     width: 7%;
