@@ -406,6 +406,7 @@ main.sent {
     background: white;
     border-radius: 5%;
     margin: 0.5rem;
+    padding-bottom: 1rem;
     align-items: center;
 }
 
@@ -439,6 +440,10 @@ td:hover {
     color:#8F5EB1;
 }
 
+table {
+    padding: 0.5rem, 0.5rem, 0.5rem, 0.5rem;
+}
+
 .event-heading {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
@@ -459,7 +464,7 @@ td:hover {
     margin: 0.5rem;
 }
 
-.event h3 {
+.event h2 {
     display: block;
     margin: 0.75rem 1rem;
     color: #8F57B2;
