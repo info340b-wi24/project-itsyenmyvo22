@@ -5,7 +5,6 @@ export function Accept(props) {
     <div className="trade-request">
         <p className="request-title">Request Sent!</p>
         <p>Your request has been sent to the owner of the card. Their contact will be revealed to you in your Sent Trade Request Inbox if they accept!</p>
-        {/* <a className="member-btn" href="card-trading.html">Return to Card Trading</a> */}
         <Link to='/Cards' className="member-btn">Return to Card Trading</Link>
     </div>
     )
