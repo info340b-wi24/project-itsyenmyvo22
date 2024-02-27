@@ -5,7 +5,7 @@ export default function Home(props) {
     <body>
       <main>
         <h1>Home</h1>
-        
+
         <div className="container mobile-buttons" id="mobile-buttons">
           <div className="d-grid gap-2 col-6 mx-auto d-block d-md-none d-lg-none d-xl-none">
             <a className="btn btn-light" href="sent-requests.html" role="button">Sent Trade Request</a>
