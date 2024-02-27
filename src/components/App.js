@@ -70,35 +70,34 @@ function App(props){
 
     return (
         <div>
-        <header>
-        <div className="overlap">
-        <Link to="/">  <img src="photos/logo.png" alt="ArmyBase logo of a purple whale" height="120" width="120"></img></Link>
-        </div>
-    </header>  
-        <NavBar />
-        <div className='container'>
-        
-            <Routes>
-                <Route exact path = "/" element={<Home />}/>
-                <Route path = "/Calendar" element = {<Calendar />} />
-                <Route path = "/Game" element = {<Game />} />
-                <Route path = "/Cards" element = {<Cards />}/>
-                 {/* <Route path="/" exact component={<Game />} /> */}
-                <Route path = "/Leader" element = {<Leader />} />
-                <Route path = "/incoming-requests" element= { <IncomingRequests /> } />
-                <Route path = "/sent-requests" element= { <SentRequests /> } />
-                <Route path= "/TradeRequest" element= {<TradeRequest/>}/>
-                <Route path= "/Accept" element= {<Accept/>}/>
-                <Route path= "/Cards" element= {<Cards/>}/>
-            </Routes>
+            <header>
+                <div className="overlap">
+                    <Link to="/">  <img src="photos/logo.png" alt="ArmyBase logo of a purple whale" height="120" width="120"></img></Link>
+                </div>
+            </header>  
+            
+            <NavBar />
 
-    
-        </div>
+            <div className='container'>
+                <Routes>
+                    <Route exact path = "/" element={<Home />}/>
+                    <Route path = "/Calendar" element = {<Calendar />} />
+                    <Route path = "/Game" element = {<Game />} />
+                    <Route path = "/Cards" element = {<Cards />}/>
+                    {/* <Route path="/" exact component={<Game />} /> */}
+                    <Route path = "/Leader" element = {<Leader />} />
+                    <Route path = "/incoming-requests" element= { <IncomingRequests /> } />
+                    <Route path = "/sent-requests" element= { <SentRequests /> } />
+                    <Route path= "/TradeRequest" element= {<TradeRequest/>}/>
+                    <Route path= "/Accept" element= {<Accept/>}/>
+                    <Route path= "/Cards" element= {<Cards/>}/>
+                </Routes>      
+            </div>
+
             <footer>
-        <p> &copy; 2024 ARMY BASE  All Rights Reserved</p>
-        <p> Created By Yenmy Vo, Stephanie Liu, Natalie Hinds, and Carmen Weatherman</p>
-    </footer>
- 
+                <p> &copy; 2024 ARMY BASE  All Rights Reserved</p>
+                <p> Created By Yenmy Vo, Stephanie Liu, Natalie Hinds, and Carmen Weatherman</p>
+            </footer>
         </div>
     )
 }
