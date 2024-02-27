@@ -9,6 +9,8 @@ import Leader from '../pages/Leader';
 import IncomingRequests from '../pages/incoming-requests';
 import SentRequests from '../pages/sent-requests';
 import { Link } from 'react-router-dom';
+import TradeRequest from "../pages/TradeRequest";
+import {Accept} from "../pages/Accept";
 
 
 // function Outline(props){
@@ -85,6 +87,9 @@ function App(props){
                 <Route path = "/Leader" element = {<Leader />} />
                 <Route path = "/incoming-requests" element= { <IncomingRequests /> } />
                 <Route path = "/sent-requests" element= { <SentRequests /> } />
+                <Route path= "/TradeRequest" element= {<TradeRequest/>}/>
+                <Route path= "/Accept" element= {<Accept/>}/>
+                <Route path= "/Cards" element= {<Cards/>}/>
             </Routes>
 
     
