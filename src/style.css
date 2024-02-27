@@ -97,16 +97,16 @@ h2 {
     margin-top: 1rem;
     margin-bottom: .5rem;
 }
-
+ nav ul{
+    margin: .5 rem;
+ }
 nav.site-navbar{
     display: none;
 }
 nav.mobile{
     display: block;
 }
-nav{
 
-}
 nav.site-navbar div li.active{
     color: black;
 }

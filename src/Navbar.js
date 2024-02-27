@@ -31,8 +31,10 @@ export function NavBar(props){
       <div>
 
     <nav className="site-navbar">
- 
+    <ul>
         <div className="row">
+          
+     
             <div className="col-sm-3 col-md-3 col-lg-3 col-xl-3 td">
       <CustomLink to="/" onClick ={closeMenu}>Home</CustomLink>
 
@@ -49,8 +51,9 @@ export function NavBar(props){
       {/* <a href="/Cards">Card Trading</a> */}
       <CustomLink to ="/Cards" onClick ={closeMenu}>Card Trading</CustomLink>
     </div>
+   
     </div>
- 
+    </ul>
   </nav>
 
 
