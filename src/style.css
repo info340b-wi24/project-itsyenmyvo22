@@ -99,6 +99,12 @@ body {
     background-color: #EADFF0;
 }
 
+.footer-bottom {
+    min-height:100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #EADFF0;
+}
 
 h2 {
     margin-top: 1rem;
@@ -117,7 +123,6 @@ nav.mobile{
 nav.site-navbar div li.active{
     color: black;
 }
-
 
 /* Stuff for Trading Card Page */
 .hidden {
@@ -653,7 +658,6 @@ footer {
     bottom: 0;
     z-index:10;
     width: 100%;
-    margin-top:auto;
 }
 
 @media (min-width: 768px) {
