@@ -56,7 +56,7 @@ export function NavBar(props){
 
 
   {/* nav className="navbar navbar-dark */}
-<nav className="navbar site-navbar" id="mobile">
+<nav className="navbar site-navbar mobile" id="mobile">
      
  
    <button className="navbar-dark navbar-toggler ms-auto" type="button" id ="toggle" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-label="Toggle navigation" onClick={toggleMenu}>

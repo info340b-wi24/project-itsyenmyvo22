@@ -70,7 +70,11 @@ nav  li.active {
     padding: .25rem
  }
 nav li.active a{
-    color:#8F57B2;
+    color:black;
+}
+
+nav li:hover a{
+    color:black;
 }
 
  .open {
@@ -79,9 +83,6 @@ nav li.active a{
 }
 
 
-  div ul.navbar-nav li.active a{
-    color:black;
-  }
 
 
 body {
@@ -99,11 +100,16 @@ h2 {
 
 nav.site-navbar{
     display: none;
-   }
-nav.navbar#mobile{
+}
+nav.mobile{
     display: block;
 }
+nav{
 
+}
+nav.site-navbar div li.active{
+    color: black;
+}
 
 
 
