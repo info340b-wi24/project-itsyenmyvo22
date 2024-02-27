@@ -54,7 +54,7 @@ export function SongGuess(props){
                  <div class="card-body d-flex" id="white-bg" >   --> */}
                     <div className="row">
                    
-                      <div className="col-sm-12 col-md-6 col-lg-6">
+                      <div className="col-sm-12 col-md-6 col-lg-6 mb-3">
                         <img src="photos/game/Play.png" alt="play audio"></img>
                       {/* </div>
                       <div className=" col-md-4 col-lg-4"> */}
