@@ -406,17 +406,20 @@ main.sent {
     background: white;
     border-radius: 5%;
     margin: 0.5rem;
-    padding-bottom: 1rem;
+    padding: 1rem;
     align-items: center;
 }
 
 .month button {
     border-style: none;
+    background-color: white;
+    padding-bottom: 1.6rem;
 }
 
 th, td {
     color:#8F5EB1;
     width: 7%;
+    margin-top: 0.5rem;
     padding-bottom: 4%;
     text-align: center;
 }
@@ -442,10 +445,6 @@ td:hover {
 .no-hover:hover {
     background-color: white;
     color:#8F5EB1;
-}
-
-table {
-    padding: 0.5rem, 0.5rem, 0.5rem, 0.5rem;
 }
 
 .event-heading {
@@ -739,7 +738,7 @@ footer {
         width: 100%;
     }
     .event, .add-event {
-        width: 20rem;
+        width: 12rem;
         border-radius: 5%;
     }
     .add-event img {

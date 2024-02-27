@@ -123,7 +123,7 @@ function Events(props) {
     }
     const allEvents = eventList.map((event) => {
         return (
-            <div class="event">
+            <div className="event">
                 <h2>{event.title}</h2>
                 <p>{event.date}</p>
                 <p>{event.time}</p>
