@@ -30,11 +30,11 @@ nav{
     padding: .5rem;
     align-items: stretch;
 } 
-nav div div{
+nav ul div div{
     align-items: center;
     text-align: center;
 }
-nav div div li {
+nav ul div div li {
     color: white;
     text-decoration: none;
     color: #8F57B2;
