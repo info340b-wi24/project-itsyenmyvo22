@@ -778,6 +778,10 @@ footer {
     .calendar {
         flex-basis: 60%;
     }
+
+    .event, .add-event {
+        width: 18rem;
+    }
     
     .popup {
         width: 40%;

@@ -25,16 +25,18 @@ export default function Calendar(props) {
             <section className="calendar">
                 <MonthBar displayMonth={displayMonth} setDisplayMonth={setDisplayMonth} />
                 <table>
-                    <tr>
-                        <th>SUN</th>
-                        <th>MON</th>
-                        <th>TUE</th>
-                        <th>WED</th>
-                        <th>THU</th>
-                        <th>FRI</th>
-                        <th>SAT</th>
-                    </tr>
-                    {<CalendarBody displayMonth={displayMonth} />}
+                    <tbody>
+                        <tr>
+                            <th>SUN</th>
+                            <th>MON</th>
+                            <th>TUE</th>
+                            <th>WED</th>
+                            <th>THU</th>
+                            <th>FRI</th>
+                            <th>SAT</th>
+                        </tr>
+                        {<CalendarBody displayMonth={displayMonth} />}
+                    </tbody>
                 </table>
             </section>
             <Events />
@@ -77,25 +79,11 @@ function MonthBar(props) {
 }
 
 function CalendarBody(props) {
-    const dayArray = daysOfMonth2024[props.displayMonth].map((day) => {
-        if (day === 0) {
-            return (
-                <td className='no-hover'>
-                    <span></span>
-                </td>
-            );
-        } else {
-            return (
-                <td>{day}
-                    <span></span>
-                </td>
-            )
-        }
-    });
     const rowArray = [];
+    const dayArray = [...daysOfMonth2024[props.displayMonth]];
     let startIndex = 0;
     while (startIndex < dayArray.length) {
-        rowArray.push(<CalendarRow startIndex={startIndex} dayArray={dayArray} />);
+        rowArray.push(<CalendarRow startIndex={startIndex} dayArray={dayArray} displayMonth={props.displayMonth} />);
         startIndex = startIndex + 7;
     }
     return rowArray;
@@ -105,10 +93,23 @@ function CalendarRow(props) {
     const initialIndex = props.startIndex;
     const dayCells = [];
     for (let i = initialIndex; i < (initialIndex + 7); i++) {
-        dayCells.push(props.dayArray[i]);
-    }
+        const key = props.displayMonth + i + props.dayArray[i];
+        if (props.dayArray[i] === 0) {
+            dayCells.push(
+                <td className='no-hover' key={key}>
+                    <span key={key + 'span'}></span>
+                </td>
+            );
+        } else {
+            dayCells.push(
+                <td key={key}>{props.dayArray[i]}
+                    <span key={key + 'span'}></span>
+                </td>
+            );
+        };
+    };
     return (
-        <tr>
+        <tr key={initialIndex}>
             {dayCells}
         </tr>
     );
@@ -123,7 +124,7 @@ function Events(props) {
     }
     const allEvents = eventList.map((event) => {
         return (
-            <div className="event">
+            <div className="event" key={event.date + event.time}>
                 <h2>{event.title}</h2>
                 <p>{event.date}</p>
                 <p>{event.time}</p>
