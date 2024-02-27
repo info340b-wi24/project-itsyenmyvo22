@@ -30,8 +30,8 @@ export function NavBar(props){
       
       <div>
 
-    <nav className="site-navbar">
-    <ul className ="navbar-nav">
+    <nav className="nav">
+    <ul >
     <CustomLink  to="/" onClick ={closeMenu}>Home</CustomLink>
     <CustomLink to ="/Calendar" onClick ={closeMenu}>Calendar</CustomLink>
     <CustomLink to="/Game" onClick ={closeMenu}>Guess the Song </CustomLink>

@@ -30,11 +30,11 @@ nav{
     padding: .5rem;
     align-items: stretch;
 } 
-nav ul div div{
+nav ul {
     align-items: center;
     text-align: center;
 }
-nav ul div div li {
+.nav ul  li {
     color: white;
     text-decoration: none;
     color: #8F57B2;
@@ -42,9 +42,16 @@ nav ul div div li {
   font-size: 1.3rem;
    align-items: center;
    padding: .25rem;
+   text-decoration: none;
  
 }
-
+.nav ul{
+ 
+    margin:0;
+    text-decoration: none;
+    display: flex;
+    gap: 5rem;
+}
 nav div a {
     text-align: center;
    color: white;
@@ -100,7 +107,7 @@ h2 {
  nav ul{
     margin: .5 rem;
  }
-nav.site-navbar{
+.nav{
     display: none;
 }
 nav.mobile{
@@ -651,7 +658,7 @@ footer {
 }
 
 @media (min-width: 768px) {
-    nav.site-navbar {
+    .nav {
         display: block;
     }
     nav.navbar#mobile {
@@ -770,7 +777,7 @@ footer {
 }
 
 @media (min-width: 992px) {
-    nav.site-navbar{
+    .nav{
         display: block;
        }
        nav.navbar#mobile{
@@ -804,7 +811,7 @@ footer {
 }
 
 @media (min-width: 1200px) {
-    nav.site-navbar{
+   .nav{
         display: block;
        }
        nav.navbar{
