@@ -1,9 +1,8 @@
 import React from 'react';
 
-
 export default function IncomingRequests (props) {
     return (
-    <div>
+    // <div>
         <main className="incoming">
         <h1 className="rqh1">Incoming Requests</h1>
         <div className="rectangle">
@@ -12,6 +11,6 @@ export default function IncomingRequests (props) {
             </div>
         </div>
         </main>
-    </div>
+    //</div>
     );
 }

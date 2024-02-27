@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function SentRequests (props) {
     return (
-    <div>
+    //<div>
         <main className="sent">
         <h1 className="rqh1">Sent Requests</h1>
         <div className="rectangle">
@@ -12,7 +12,7 @@ export default function SentRequests (props) {
             </div>
         </div>
     </main>
-    </div>
+    //</div>
     
     );
 }
