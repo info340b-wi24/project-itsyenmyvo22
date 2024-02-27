@@ -629,6 +629,11 @@ div.playagain{
 div.row.mt-5.desktopPlay{
     display: none;
 }
+
+div.jumbotron p.lead{
+    color: black;
+    
+}
 footer {
     padding: 1em 0em;
     text-align:center;
