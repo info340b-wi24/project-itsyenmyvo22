@@ -34,7 +34,7 @@ export function NavBar(props){
  
         <div className="row">
             <div className="col-sm-3 col-md-3 col-lg-3 col-xl-3 td">
-      <CustomLink to="/Home" onClick ={closeMenu}>Home</CustomLink>
+      <CustomLink to="/" onClick ={closeMenu}>Home</CustomLink>
 
         </div>
         <div className="col-md-3 col-lg-3 col-xl-3 td">
@@ -72,7 +72,7 @@ export function NavBar(props){
    
       <ul className = "navbar-nav mr-auto">
          {/* <li className = "nav-item active"> */}
-           <CustomLink className = "nav-link"  to="/Home" onClick={closeMenu}>Home</CustomLink>
+           <CustomLink className = "nav-link"  to="/" onClick={closeMenu}>Home</CustomLink>
          {/* </li> */}
         
             <CustomLink className = "nav-link" to="/Cards" onClick={closeMenu}>Card Trading</CustomLink>
