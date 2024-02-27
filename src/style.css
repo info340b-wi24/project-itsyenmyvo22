@@ -62,7 +62,7 @@ nav button{
     color:white;
 }
 nav li{
-
+    padding: 0 4rem;
   list-style-type: none;  
 }
 nav.nav ul li a{
@@ -73,12 +73,20 @@ nav.nav ul li a{
     color:white;
 }
 nav  li.active {
-    background-color:#EADFF0;
+    background-color:#C2A4DB;
     padding: 0 4rem;
     color: #8F57B2;
     text-decoration: none;
     height:100%;
  
+ }
+
+
+ .nav a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: .25rem;
  }
 
 nav li.active a{
@@ -87,7 +95,15 @@ nav li.active a{
 nav.nav ul li.active a{
     color:black;
 }
-nav li:hover a{
+nav ul li.nav-item:hover{
+    color:black;
+    background-color:#C2A4DB;
+}
+nav ul li.nav-item:hover a{
+    color:black;
+   
+}
+nav li:hover {
     color:black;
 }
 
