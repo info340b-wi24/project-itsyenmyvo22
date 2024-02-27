@@ -60,16 +60,18 @@ export function NavBar(props){
      
  
    <button className="navbar-dark navbar-toggler ms-auto" type="button" id ="toggle" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-label="Toggle navigation" onClick={toggleMenu}>
-   <div className= {isOpen? 'menu-icon ': 'menu-icon'}>
+   {/* <div className= {isOpen? 'menu-icon ': 'menu-icon'}> */}
     <span className="navbar-toggler-icon fas fa-bars fa-1x"><i
          className = "fas fa-bars fa-1x"></i></span> 
      
-     </div>
+     {/* </div> */}
      </button>
      
-     <div className ={isOpen? 'open' : 'menu'}>
+    {/* <div className ={isOpen? 'open' : 'menu'}> */}
      
-   
+    {isOpen && (
+        
+     
       <ul className = "navbar-nav mr-auto">
          {/* <li className = "nav-item active"> */}
            <CustomLink className = "nav-link"  to="/" onClick={closeMenu}>Home</CustomLink>
@@ -84,12 +86,20 @@ export function NavBar(props){
        
          
       </ul>
+       )}
+  
 
-
-     </div>
-     </nav>
+     {/* </div> */}
    
+        {isOpen && (
+        <div className="overlay" onClick={closeMenu}></div>
+      )}
+
+     </nav>
+
+    
   </div>
+
     )
 }
 
