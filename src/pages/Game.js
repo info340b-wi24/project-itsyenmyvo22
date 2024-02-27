@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 export default function Game(props){
 
@@ -46,7 +46,7 @@ export default function Game(props){
     )
 }
 
-function SongGuess(props){
+export function SongGuess(props){
   return (
     <div className="row mb-4">
             <div className="col d-flex justify-content-center"> 
@@ -60,17 +60,46 @@ function SongGuess(props){
                        <img src="photos/game/Player.png" alt="song image"></img>
                       </div>
                       <div className="col-sm-12 col-md-3 col-lg-3">
-                        <form className="input-group">
+                        {/* <form className="input-group">
                            <textarea className="form-control" aria-label="Write name of song"></textarea>
-                          </form>
+                          </form> */}
+                          <ComposeForm />
                       </div>
                                           
                                  
-                      <div className="col">
+                      {/* <div className="col">
                         <a className="member-btn trade" aria-label="submit">Submit</a>
-                     </div>
+                     </div> */}
                     </div>
                   </div>
                 </div>
   )
 }
+
+ export function ComposeForm(props){
+  
+  const [typedValue, setTypedValue] = useState("");
+ 
+  const handleChange = (event) => {
+    const inputtedValue = event.target.value;
+    setTypedValue(inputtedValue); //update state and re-render!
+  }
+ 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("submitting", typedValue);
+    // props.addMessageCallback(typedValue)
+    setTypedValue(""); 
+ 
+  }
+  return(
+  <form className="input-group" onSubmit ={handleSubmit}>
+  <textarea className="form-control" aria-label="Write name of song" placeholder="Type name of song" onChange = {handleChange} value={typedValue}></textarea>
+    <div className="col">
+      <button className="member-btn trade" type ="submit">
+      <span  aria-label="submit">Submit</span>
+      </button> 
+    </div>
+ 
+ </form>)
+ }
