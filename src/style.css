@@ -62,7 +62,7 @@ nav button{
     color:white;
 }
 nav li{
-    padding: 0 3rem;
+    padding: 0 2rem;
   list-style-type: none;  
 }
 nav.nav ul li a{
@@ -684,12 +684,7 @@ footer {
 }
 
 @media (min-width: 768px) {
-    .nav {
-        display: block;
-    }
-    nav.navbar#mobile {
-        display: none;
-    }
+   
     .row.g-0.mx-0 {
         display: flex;
         flex-direction: row;
@@ -803,13 +798,7 @@ footer {
 }
 
 @media (min-width: 992px) {
-    .nav{
-        display: block;
-       }
-       nav.navbar#mobile{
-        display: none;
-       }
-
+   
 
        div.row.mt-5.desktopPlay{
         display: block;
