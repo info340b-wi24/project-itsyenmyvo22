@@ -69,14 +69,13 @@ function App(props){
 
 
     return (
-        <div>
-            <header>
-                <div className="overlap">
-                    <Link to="/">  <img src="photos/logo.png" alt="ArmyBase logo of a purple whale" height="120" width="120"></img></Link>
-                </div>
-            </header>  
-            
-            <body>
+        <div>            
+                <header>
+                    <div className="overlap">
+                        <Link to="/">  <img src="photos/logo.png" alt="ArmyBase logo of a purple whale" height="120" width="120"></img></Link>
+                    </div>
+                </header>
+                
                 <NavBar />
 
                 <div className='container'>
@@ -93,12 +92,11 @@ function App(props){
                         <Route path= "/Cards" element= {<Cards/>}/>
                     </Routes>      
                 </div>
-            </body>
 
-            <footer>
-                <p> &copy; 2024 ARMY BASE  All Rights Reserved</p>
-                <p> Created By Yenmy Vo, Stephanie Liu, Natalie Hinds, and Carmen Weatherman</p>
-            </footer>
+                <footer className='footer'>
+                    <p> &copy; 2024 ARMY BASE  All Rights Reserved</p>
+                    <p> Created By Yenmy Vo, Stephanie Liu, Natalie Hinds, and Carmen Weatherman</p>
+                </footer>
         </div>
     )
 }
