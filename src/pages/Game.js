@@ -53,12 +53,14 @@ export function SongGuess(props){
                {/* <!-- <div class="card" id="white-bg" > 
                  <div class="card-body d-flex" id="white-bg" >   --> */}
                     <div className="row">
-                      <div className="col-2">
+                   
+                      <div className="col-sm-12 col-md-6 col-lg-6">
                         <img src="photos/game/Play.png" alt="play audio"></img>
-                      </div>
-                      <div className="col-4">
+                      {/* </div>
+                      <div className=" col-md-4 col-lg-4"> */}
                        <img src="photos/game/Player.png" alt="song image"></img>
                       </div>
+                  
                       <div className="col-sm-12 col-md-6 col-lg-6">
                         {/* <form className="input-group">
                            <textarea className="form-control" aria-label="Write name of song"></textarea>
@@ -72,7 +74,8 @@ export function SongGuess(props){
                      </div> */}
                     </div>
                   </div>
-                </div>
+                  </div>
+               
   )
 }
 
