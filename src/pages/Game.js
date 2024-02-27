@@ -53,13 +53,13 @@ export function SongGuess(props){
                {/* <!-- <div class="card" id="white-bg" > 
                  <div class="card-body d-flex" id="white-bg" >   --> */}
                     <div className="row">
-                      <div className="col-auto">
+                      <div className="col-2">
                         <img src="photos/game/Play.png" alt="play audio"></img>
                       </div>
-                      <div className="col-auto">
+                      <div className="col-4">
                        <img src="photos/game/Player.png" alt="song image"></img>
                       </div>
-                      <div className="col-sm-12 col-md-3 col-lg-3">
+                      <div className="col-sm-12 col-md-6 col-lg-6">
                         {/* <form className="input-group">
                            <textarea className="form-control" aria-label="Write name of song"></textarea>
                           </form> */}
@@ -94,12 +94,15 @@ export function SongGuess(props){
   }
   return(
   <form className="input-group" onSubmit ={handleSubmit}>
-  <textarea className="form-control" aria-label="Write name of song" placeholder="Type name of song" onChange = {handleChange} value={typedValue}></textarea>
-    <div className="col">
+  <div className = "col-6" >
+  <textarea className="form-control"  aria-label="Write name of song" placeholder="Type name of song" onChange = {handleChange} value={typedValue}></textarea>
+  </div>
+    <div >
       <button className="member-btn trade" type ="submit">
       <span  aria-label="submit">Submit</span>
       </button> 
     </div>
+   
  
  </form>)
  }
