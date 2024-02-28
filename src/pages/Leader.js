@@ -11,35 +11,35 @@ export default function Leader(props){
         <div>
         <h1 id="congrat">Congrats!</h1>
 <div className= "container" id="back">
-    <div class="row"> 
-        <div class="col-sm-12 col-lg-4 gx-5"> 
+    <div className="row"> 
+        <div className ="col-sm-12 col-lg-4 gx-5"> 
          
 {/* result */}
 
-            <div class="row">
+            <div className="row">
                
-                <div class="col-6">
-                    <p class="colTitle">Score:</p>
+                <div className="col-6">
+                    <p className="colTitle">Score:</p>
                 </div>
-                <div class="col-6">
-                    <p class="colTitle">Average Time/Song:</p>
+                <div className="col-6">
+                    <p className="colTitle">Average Time/Song:</p>
                 </div>
-                <div class="col-6 purple-bg">
+                <div className="col-6 purple-bg">
                     <p>18</p>
                 </div>
-                <div class="col-6 purple-bg">
+                <div className="col-6 purple-bg">
                     <p>00:07:34</p>
                 </div>
             </div>
-            <div class="row mt-5 desktopPlay">
+            <div className="row mt-5 desktopPlay">
                
-                <div class="col-lg-12 difScore">
+                <div className="col-lg-12 difScore">
                     <p>Want a Different Score?</p>
                 </div>
-                <div class="col-lg-12 mt-2 playagain ">
-                    <div class="playagain">
+                <div className="col-lg-12 mt-2 playagain ">
+                    <div className="playagain">
                         
-                    <Link class="member-btn trade" to='/Game'> Play Again </Link>
+                    <Link className="member-btn trade" to='/Game'> Play Again </Link>
                 </div>
                 
                 </div>
@@ -47,13 +47,13 @@ export default function Leader(props){
         </div>
         
         
-        <div class="col-sm-12 col-lg-7"> 
+        <div className="col-sm-12 col-lg-7"> 
             {/* <!-- leaderboard --> */}
             
 
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="leader">World LeaderBoard</h2>
+            <div className="row">
+                <div className="col-12">
+                    <h2 className="leader">World LeaderBoard</h2>
                 </div>
           
            <table>
