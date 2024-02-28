@@ -127,15 +127,12 @@ function Events(props) {
                     {allEvents}
                 </div>
             </section>
-            <Popup isVisible={isVisible} setIsVisible={setIsVisible} eventList={eventList} setEventList={setEventList} />
+            {isVisible && <Popup isVisible={isVisible} setIsVisible={setIsVisible} eventList={eventList} setEventList={setEventList} />}
         </div>
     );
 }
 
 function Popup(props) {
-    if (!props.isVisible) {
-        return null;
-    }
     const handleClose = (event) => {
         props.setIsVisible(!props.isVisible);
     }
