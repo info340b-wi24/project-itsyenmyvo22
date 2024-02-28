@@ -81,7 +81,7 @@ function App(props){
 
                 <div className='container'>
                     <Routes>
-                        <Route exact path = "/" element={<Home />}/>
+                        <Route index element={<Home />}/>
                         <Route path = "/Calendar" element = {<Calendar />} />
                         <Route path = "/Game" element = {<Game />} />
                         <Route path = "/Cards" element = {<Cards />}/>
