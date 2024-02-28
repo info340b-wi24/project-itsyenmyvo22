@@ -739,6 +739,10 @@ footer {
         text-decoration: none;
     } 
 
+    .btn-sent:hover {
+        color: white;
+    }
+
     h1.rqh1 {
         color: white;
     }
