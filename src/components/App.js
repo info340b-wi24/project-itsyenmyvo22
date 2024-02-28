@@ -11,6 +11,7 @@ import SentRequests from '../pages/sent-requests';
 import { Link } from 'react-router-dom';
 import TradeRequest from "../pages/TradeRequest";
 import {Accept} from "../pages/Accept";
+import AddCard from '../pages/add-card';
 
 
 // function Outline(props){
@@ -82,6 +83,7 @@ function App(props){
                 <div className='container'>
                     <Routes>
                         <Route index element={<Home />}/>
+                        <Route path = "/add-card" element = {<AddCard />} />
                         <Route path = "/Calendar" element = {<Calendar />} />
                         <Route path = "/Game" element = {<Game />} />
                         <Route path = "/Cards" element = {<Cards />}/>
