@@ -291,6 +291,7 @@ h2.cardh {
 
 .row.g-0.mx-0 .btn-incoming {
     position: absolute;
+    margin-top: 25rem;
     top: 50%;
     left: 75%;
     transform: translate(-50%, -50%);
@@ -584,6 +585,21 @@ footer {
         height: 100%;
     }
 
+    .row.g-0.mx-0 .btn-incoming {
+        position: absolute;
+        margin-top: 100rem;
+        top: 50%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+        background-color: #8F5EB1;
+        color: white;
+        font-size: 16px;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 15px;
+        text-decoration: none;
+    } 
+
     .rectangle {
         background-color: #8F5EB1;
         width: 100%;
@@ -718,6 +734,71 @@ footer {
         left: 30%;
         bottom: 30%
     }
+
+    .row.g-0.mx-0 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-grow: 1;
+        padding-bottom: .5rem;
+        height: 100%;
+    }
+
+    .row.g-0.mx-0 .btn-incoming {
+        position: absolute;
+        margin-top: 100rem;
+        top: 50%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+        background-color: #8F5EB1;
+        color: white;
+        font-size: 16px;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 15px;
+        text-decoration: none;
+    } 
+
+    .rectangle {
+        background-color: #8F5EB1;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        justify-content: center;
+        text-align: center;
+    }
+
+
+    h1.rqh1 {
+        color: #8F5EB1;
+        text-align: center;
+    }
+
+    body .incoming {
+        background-image: url('../photos/home/army-ocean.png');
+        background-size: cover;
+        background-position: center;
+    }
+
+    h2.cardh {
+        padding-left: 2.5em;
+    }
+
+    .rectangle {
+        display: flex;
+        background-color: white;
+        width: 80%;
+        height: 50rem;
+        border-radius: 15px;
+        margin: 25px auto;
+        text-align: center;
+    }
+
+    body .sent {
+        background-image: url('../photos/home/purple-clouds.png');
+        background-size: cover;
+        background-position: center;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -729,6 +810,71 @@ footer {
        }
        div.row.mt-5.desktopPlay{
         display: block;
+    }
+
+    .row.g-0.mx-0 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-grow: 1;
+        padding-bottom: .5rem;
+        height: 100%;
+    }
+
+    .row.g-0.mx-0 .btn-incoming {
+        position: absolute;
+        margin-top: 100rem;
+        top: 50%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+        background-color: #8F5EB1;
+        color: white;
+        font-size: 16px;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 15px;
+        text-decoration: none;
+    } 
+
+    .rectangle {
+        background-color: #8F5EB1;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        justify-content: center;
+        text-align: center;
+    }
+
+
+    h1.rqh1 {
+        color: #8F5EB1;
+        text-align: center;
+    }
+
+    body .incoming {
+        background-image: url('../photos/home/army-ocean.png');
+        background-size: cover;
+        background-position: center;
+    }
+
+    h2.cardh {
+        padding-left: 2.5em;
+    }
+
+    .rectangle {
+        display: flex;
+        background-color: white;
+        width: 80%;
+        height: 50rem;
+        border-radius: 15px;
+        margin: 25px auto;
+        text-align: center;
+    }
+
+    body .sent {
+        background-image: url('../photos/home/purple-clouds.png');
+        background-size: cover;
+        background-position: center;
     }
 
 

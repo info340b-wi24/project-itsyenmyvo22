@@ -132,7 +132,7 @@ function Home(props) {
         <section id="my-cards">
         <h2 className="cardh">My Cards</h2>
             <div className="container">
-            <div className="rectangle">
+            <div className="rectangle-home">
                 <div className="card">
                 <div className="card-body">
                     <a href="add-card.html" className="card-link">Add card</a>
