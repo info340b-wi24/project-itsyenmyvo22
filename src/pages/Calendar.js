@@ -1,29 +1,13 @@
 import React, { useState } from 'react';
+import daysOfMonth2024 from '../data/days.json'
 
-// data:
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-const daysOfMonth2024 = {
-    January:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 0, 0, 0],
-    February:[0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 0, 0],
-    March:[0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 0, 0, 0, 0, 0, 0],
-    April:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 0, 0, 0, 0],
-    May:[0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 0],
-    June:[0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 0, 0, 0, 0, 0, 0],
-    July:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 0, 0, 0],
-    August:[0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
-    September:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 0, 0, 0, 0, 0],
-    October:[0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 0, 0],
-    November:[0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-    December:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 0, 0, 0, 0]
-};
-
-// Calendar:
 export default function Calendar(props) {
+    const months = Object.keys(daysOfMonth2024);
     const [displayMonth, setDisplayMonth] = useState(months[2]);
     return (
         <div className="layout d-flex flex-column flex-md-row">
             <section className="calendar">
-                <MonthBar displayMonth={displayMonth} setDisplayMonth={setDisplayMonth} />
+                <MonthBar displayMonth={displayMonth} setDisplayMonth={setDisplayMonth} months={months} />
                 <table>
                     <tbody>
                         <tr>
@@ -44,7 +28,6 @@ export default function Calendar(props) {
     );
 }
 
-// Calendar Components:
 function MonthBar(props) {
     let prevClass = 'cal-prev';
     let nextClass = 'cal-next';
@@ -55,14 +38,14 @@ function MonthBar(props) {
     }
     const handlePrevMonth = (event) => {
         if (props.displayMonth !== 'January') {
-            const currMonth = months.indexOf(props.displayMonth);
-            props.setDisplayMonth(months[currMonth - 1]);
+            const currMonth = props.months.indexOf(props.displayMonth);
+            props.setDisplayMonth(props.months[currMonth - 1]);
         }
     }
     const handleNextMonth = (event) => {
         if (props.displayMonth !== 'December') {
-            const currMonth = months.indexOf(props.displayMonth);
-            props.setDisplayMonth(months[currMonth + 1]);
+            const currMonth = props.months.indexOf(props.displayMonth);
+            props.setDisplayMonth(props.months[currMonth + 1]);
         }
     }
     return (
@@ -80,10 +63,25 @@ function MonthBar(props) {
 
 function CalendarBody(props) {
     const rowArray = [];
-    const dayArray = [...daysOfMonth2024[props.displayMonth]];
+    const dayArray = daysOfMonth2024[props.displayMonth].map((day, index) => {
+        const key = index;
+        if (day === 0) {
+            return (
+                <td className='no-hover' key={key}>
+                    <span></span>
+                </td>
+            );
+        } else {
+            return (
+                <td key={key}>{day}
+                    <span></span>
+                </td>
+            );
+        };
+    });
     let startIndex = 0;
     while (startIndex < dayArray.length) {
-        rowArray.push(<CalendarRow startIndex={startIndex} dayArray={dayArray} displayMonth={props.displayMonth} />);
+        rowArray.push(<CalendarRow key={startIndex} startIndex={startIndex} dayArray={dayArray} />);
         startIndex = startIndex + 7;
     }
     return rowArray;
@@ -92,21 +90,8 @@ function CalendarBody(props) {
 function CalendarRow(props) {
     const initialIndex = props.startIndex;
     const dayCells = [];
-    for (let i = initialIndex; i < (initialIndex + 7); i++) {
-        const key = props.displayMonth + i + props.dayArray[i];
-        if (props.dayArray[i] === 0) {
-            dayCells.push(
-                <td className='no-hover' key={key}>
-                    <span key={key + 'span'}></span>
-                </td>
-            );
-        } else {
-            dayCells.push(
-                <td key={key}>{props.dayArray[i]}
-                    <span key={key + 'span'}></span>
-                </td>
-            );
-        };
+    for (let i = '' + initialIndex; i < (initialIndex + 7); i++) {
+        dayCells.push(props.dayArray[i]);
     };
     return (
         <tr key={initialIndex}>
@@ -115,7 +100,6 @@ function CalendarRow(props) {
     );
 }
 
-// Event Components:
 function Events(props) {
     const [eventList, setEventList] = useState([{title:'Event 1', date:'March 8, 2024', time:'6:00 pm PST', type:'Concert'}]);
     const [isVisible, setIsVisible] = useState(false);
@@ -161,28 +145,28 @@ function Popup(props) {
         props.setIsVisible(!props.isVisible);
     }
     return (
-        <div class="popup py-3" id="popup">
-            <button class="btn-close" onClick={handleClose}></button>
+        <div className="popup py-3" id="popup">
+            <button className="btn-close" onClick={handleClose}></button>
             <form>
-                <div class="popup-title">
-                    <label for="title-input" class="title-label">Event Title:</label>
-                    <input type="text" id="title-input" placeholder="My Event" class="title-input"></input>
+                <div className="popup-title">
+                    <label htmlFor="title-input" className="title-label">Event Title:</label>
+                    <input type="text" id="title-input" placeholder="My Event" className="title-input"></input>
                 </div>
-                <div class="popup-date">
-                    <label for="date-input" class="date-label">Date:</label>
-                    <input type="date" id="date-input" class="date-input"></input>
+                <div className="popup-date">
+                    <label htmlFor="date-input" className="date-label">Date:</label>
+                    <input type="date" id="date-input" className="date-input"></input>
                 </div>
-                <div class="popup-time">
-                    <label for="time-input" class="time-label">Time:</label>
-                    <input type="time" id="time-input" class="time-input"></input>
+                <div className="popup-time">
+                    <label htmlFor="time-input" className="time-label">Time:</label>
+                    <input type="time" id="time-input" className="time-input"></input>
                 </div>
-                <select class="popup-select">
-                    <option selected>Type of Event</option>
+                <select className="popup-select">
+                    <option defaultValue>Type of Event</option>
                     <option value="1">Concert</option>
                     <option value="2">Livestream</option>
                     <option value="3">Meet and Greet</option>
                 </select>
-                <button class="create-event" onSubmit={handleCreate}>Create Event</button>
+                <button className="create-event" onSubmit={handleCreate}>Create Event</button>
             </form>
         </div>
     );
