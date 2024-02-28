@@ -108,9 +108,9 @@ function Home(props) {
         <h1>Home</h1>
         <div className="container mobile-buttons" id="mobile-buttons">
         <div className="d-grid gap-2 col-6 mx-auto d-block d-md-none d-lg-none d-xl-none">
-            <a className="btn btn-light" href="sent-requests.html" role="button">Sent Trade Request</a>
-            <a className="btn btn-light" href="incoming-requests.html" role="button">Incoming Trade Request</a>
-            <a className="btn btn-light" href="#" role="button">Message Inbox</a>
+            <Link className="btn btn-light" to="/sent-requests" role="button">Sent Trade Request</Link>
+            <Link className="btn btn-light" to="/incoming-requests" role="button">Incoming Trade Request</Link>
+            {/* <a className="btn btn-light" href="#" role="button">Message Inbox</a> */}
         </div>
         </div>
 
