@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
@@ -38,7 +37,7 @@ export default function Leader(props){
                 </div>
                 <div className="col-lg-12 mt-2 playagain ">
                     <div className="playagain">
-                        
+    
                     <Link className="member-btn trade" to='/Game'> Play Again </Link>
                 </div>
                 
