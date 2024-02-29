@@ -266,9 +266,14 @@ a.trade-btn:hover, a.member-btn:hover {
     position: absolute;
     top: 2%;
     right: 5%;
-    color: black;
+    color: white;
     text-decoration: none;
 }
+
+.exit-btn:hover {
+    color: white;
+}
+
 
 /* End of Stuff for Card Trading Page */
 
