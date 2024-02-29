@@ -14,59 +14,11 @@ import {Accept} from "../pages/Accept";
 import AddCard from '../pages/add-card';
 
 
-// function Outline(props){
-//     let component;
-//     switch(window.location.pathname){
 
-    
-//         case "/home":
-//         component = <Home />
-//         break
-//         case "/game":
-//             component = <Game />
-//             break
-//             case"/calendar":
-//             component = <Calendar />
-//             break
-//             case "photo-cards":
-//                 component = <Cards />
-//                 break
-               
-//         }
-
-//     return (
-        
-//         <div>
-//         <header>
-//         </header>
-//          <NavBar/>
-//           {component} 
-          
-//         </div>
-//     )
-// }
 
 function App(props){
 
-    // let component;
-    // switch(window.location.pathname){
 
-    
-    //     case "/Home":
-    //     component = <Home />
-    //     break
-    //     case"/Calendar":
-    //     component = <Calendar />
-    //     break
-    //     case "/Game":
-    //         component = <Game />
-    //         break
-           
-    //         case "/Cards":
-    //             component = <Cards />
-    //             break
-               
-    //     }
 
 
     return (

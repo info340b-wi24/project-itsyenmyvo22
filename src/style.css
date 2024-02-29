@@ -680,6 +680,16 @@ div.jumbotron p.lead{
     color: black;
     
 }
+
+.progress-bar {
+    background-color: #8F57B2;
+   
+}
+
+.play{
+   width: 40px;
+}
+
 footer {
     padding: 1em 0em;
     text-align:center;
