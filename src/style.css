@@ -569,7 +569,7 @@ td:hover {
 
 .create-event {
     display: block;
-    background-color: rgba(177, 128, 210, 0.35); 
+    background-color:#8F57B2; 
     border: none;
     color:white ;
     text-decoration: none;
@@ -583,7 +583,7 @@ td:hover {
 
 .create-event:hover {
     background-color:#B78AD6;
-    color: white;
+    color: black;
 }
 
 .scheduled {
