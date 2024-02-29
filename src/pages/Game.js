@@ -85,13 +85,12 @@ export function SongGuess(props){
  
   const handleChange = (event) => {
     const inputtedValue = event.target.value;
-    setTypedValue(inputtedValue); //update state and re-render!
+    setTypedValue(inputtedValue); 
   }
  
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("submitting", typedValue);
-    // props.addMessageCallback(typedValue)
     setTypedValue(""); 
  
   }
