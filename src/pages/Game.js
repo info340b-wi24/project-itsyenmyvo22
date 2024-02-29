@@ -1,11 +1,7 @@
-
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+
 export default function Game(props){
-
-
-
-
 
     return(
         <div>
@@ -50,28 +46,22 @@ export function SongGuess(props){
   return (
     <div className="row mb-4">
             <div className="col d-flex justify-content-center"> 
-               {/* <!-- <div class="card" id="white-bg" > 
-                 <div class="card-body d-flex" id="white-bg" >   --> */}
+
                     <div className="row">
                    
                       <div className="col-sm-12 col-md-6 col-lg-6 mb-3">
                         <img src="photos/game/Play.png" alt="play audio"></img>
-                      {/* </div>
-                      <div className=" col-md-4 col-lg-4"> */}
+                  
                        <img src="photos/game/Player.png" alt="song image"></img>
                       </div>
                   
                       <div className="col-sm-12 col-md-6 col-lg-6">
-                        {/* <form className="input-group">
-                           <textarea className="form-control" aria-label="Write name of song"></textarea>
-                          </form> */}
+                       
                           <ComposeForm />
                       </div>
                                           
                                  
-                      {/* <div className="col">
-                        <a className="member-btn trade" aria-label="submit">Submit</a>
-                     </div> */}
+                    
                     </div>
                   </div>
                   </div>
@@ -95,9 +85,9 @@ export function SongGuess(props){
  
   }
   return(
-  <form className="input-group" onSubmit ={handleSubmit}>
-  <div className = "col-6" >
-  <textarea className="form-control"  aria-label="Write name of song" placeholder="Type name of song" onChange = {handleChange} value={typedValue}></textarea>
+  <form className="input-group" onSubmit={handleSubmit}>
+  <div className="col-6" >
+  <textarea className="form-control"  aria-label="Write name of song" placeholder="Type name of song" onChange={handleChange} value={typedValue}></textarea>
   </div>
     <div >
       <button className="member-btn trade" type ="submit">

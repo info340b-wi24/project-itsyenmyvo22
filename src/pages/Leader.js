@@ -10,11 +10,11 @@ export default function Leader(props){
     return(
         <div>
         <h1 id="congrat">Congrats!</h1>
-<div className= "container" id="back">
+    <div className="container" id="back">
     <div className="row"> 
         <div className ="col-sm-12 col-lg-4 gx-5"> 
          
-{/* result */}
+
 
             <div className="row">
                
@@ -48,7 +48,7 @@ export default function Leader(props){
         
         
         <div className="col-sm-12 col-lg-7"> 
-            {/* <!-- leaderboard --> */}
+           
             
 
             <div className="row">
@@ -66,20 +66,20 @@ export default function Leader(props){
                 </tr>
             </thead>
             <tbody>
-                <MakeRow rank= '1' score='20' time='00:03:12' user = 'Username'  />
-                <MakeRow rank = '2' score= '19' time='00:03:12' user = 'Username' />  
-                <MakeRow rank = '3' score= '19' time='00:03:12' user = 'Username' />  
-                <MakeRow rank = '4' score= '19' time='00:03:12' user = 'Username' />  
-                <MakeRow rank = '5' score= '19' time='00:03:12' user = 'Username' />  
-                <MakeRow rank = '6' score= '19' time='00:03:12' user = 'Username' />  
+                <MakeRow rank= '1' score='20' time='00:03:12' user='Username'/>
+                <MakeRow rank='2' score='19' time='00:03:12' user='Username'/>  
+                <MakeRow rank='3' score='19' time='00:03:12' user='Username'/>  
+                <MakeRow rank='4' score='19' time='00:03:12' user='Username' />  
+                <MakeRow rank='5' score='19' time='00:03:12' user='Username' />  
+                <MakeRow rank='6' score='19' time='00:03:12' user='Username' />  
             </tbody> 
             </table>
          
             </div>
             </div>  
-                </div>
-                </div>
-                </div>
+        </div>
+        </div>
+        </div>
                 
 
 
