@@ -34,7 +34,7 @@ export default function Home(props) {
             <div className="rectangle-home">
                 <div className="card">
                 <div className="card-body">
-                    <a href="add-card.html" className="card-link">Add card</a>
+                    <Link to='/add-card' className="card-link">Add card</Link>
                 </div>
                 </div>
             </div>

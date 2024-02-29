@@ -703,7 +703,7 @@ footer {
 
     .row.g-0.mx-0 .btn-incoming {
         position: absolute;
-        top: 60%;
+        top: 50%;
         left: 73%;
         transform: translate(-50%, -50%);
         background-color: #8F5EB1;
@@ -727,7 +727,7 @@ footer {
 
     .btn-sent {
         position: absolute;
-        top: 60%;
+        top: 50%;
         left: 28%;
         transform: translate(-50%, -50%);
         background-color:#8F5EB1;
