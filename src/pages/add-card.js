@@ -8,9 +8,9 @@ export default function AddCard (props) {
             <Link className="exit-btn" to='/'>X</Link>
             <div className="inner-add-card">
                 <img className="upload-icon" src="photos/home/upload-icon.png" alt="cloud with an arrow pointing upwards" />
-                <Link className="member-btn trade-btn" to='/'>Select File</Link>
+                <Link className="member-btn trade-btn" to='/add-card'>Select File</Link>
             </div>
-            <Link className="member-btn trade-btn" to='/'>Upload</Link>
+            <Link className="member-btn trade-btn" to='/add-card'>Upload</Link>
         </div>
     )  
 }
