@@ -9,11 +9,19 @@ import audios from '../data/audios.json'
 // import { IconContext } from "react-icons"
 // import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 export default function Game(props){
-
+  const[points, setPoints] = useState(0);
 let song = audios.map(function(song){
   let aud = song.audio;
+  function countPoints(){
+    let newPoints = points +10
+    setPoints(newPoints);
+    console.log(points);
+   }
+  
   return (
-    <PlaySong audio={aud} key={song.key}/>
+    <PlaySong audio={aud} name={song.songname} key={song.key} points={points} countPoints ={countPoints}/>
+
+   
   )
 })
 
@@ -23,7 +31,7 @@ let song = audios.map(function(song){
     
 
         <div className="jumbotron">
-          <p className="lead">Instructions: Play the song clip. Then, type the song title with proper uppercase and spaces.</p>
+          <p className="lead">Instructions: Play the song clip. Then, type the song title all lowercase with proper spaces.</p>
          </div>
       
       

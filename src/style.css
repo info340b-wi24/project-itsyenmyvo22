@@ -689,7 +689,22 @@ div.jumbotron p.lead{
 .play{
    width: 40px;
 }
+button.playButton{
+    margin: 0;
+ background-color:#EADFF0; 
+  border: none;
+  padding: 0px ;
+  text-align: center;
+  font-size: 17px;
 
+}
+.highlightAnswer{
+border-color: green;
+}
+
+.wrong{
+    border-color: red;
+}
 footer {
     padding: 1em 0em;
     text-align:center;
