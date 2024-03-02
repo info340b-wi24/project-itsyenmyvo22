@@ -13,12 +13,6 @@ export default function Game({points, countPoints}){
 let song = audios.map(function(song){
   let aud = song.audio;
   
-  // const[points, setPoints] = useState(0);
-  // function countPoints(){
-  //   let newPoints = points +10
-  //   setPoints(newPoints);
-  //   console.log(points);
-  //  }
   
   return (
     <PlaySong audio={aud} name={song.songname} key={song.key} points={points} countPoints ={countPoints}/>
