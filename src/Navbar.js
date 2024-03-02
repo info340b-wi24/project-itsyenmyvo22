@@ -37,23 +37,7 @@ export function NavBar(props){
     <CustomLink to="/Game" onClick ={closeMenu}>Guess the Song </CustomLink>
     <CustomLink to ="/Cards" onClick ={closeMenu}>Card Trading</CustomLink>
     </ul>
-        {/* <div className="row">
-       
-     
-            <div className="col-sm-3 col-md-3 col-lg-3 col-xl-3 td">
-      <CustomLink to="/" onClick ={closeMenu}>Home</CustomLink>
-        </div>
-        <div className="col-md-3 col-lg-3 col-xl-3 td">
-      <CustomLink to ="/Calendar" onClick ={closeMenu}>Calendar</CustomLink>
-    </div>
-    <div className="col-md-3 col-lg-3 col-xl-3 td">
-      <CustomLink to="/Game" onClick ={closeMenu}>Guess the Song </CustomLink>
-    </div>
-    <div className="col-md-3 col-lg-3 col-xl-3 td">
-      <CustomLink to ="/Cards" onClick ={closeMenu}>Card Trading</CustomLink>
-    </div>
-  
-    </div> */}
+      
    
   </nav>
 
@@ -93,7 +77,7 @@ export function NavBar(props){
        )}
   
 
-     {/* </div> */}
+  
    
         {isOpen && (
         <div className="overlay" onClick={closeMenu}></div>

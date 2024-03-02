@@ -70,46 +70,4 @@ export function PlaySong({audio, points, countPoints, name}){
       )
     }
 
-    // export function Timeline({sound}) {
-    //     const [currTime, setCurrTime] = useState({
-    //       min: "",
-    //       sec: "",
-    //     }); 
-
-    //     const [seconds, setSeconds] = useState(); 
-    //     useEffect(() => {
-    //         const sec = duration / 1000;
-    //         const min = Math.floor(sec / 60);
-    //         const secRemain = Math.floor(sec % 60);
-    //         const time = {
-    //           min: min,
-    //           sec: secRemain
-    //     }});
-        
-        
-       
-    // return(
-      
-    //     <div>
-    //     <div className="time">
-    //       <p>
-    //         {currTime.min}:{CurrTime.sec}
-    //       </p>
-    //       <p>
-    //         {currTime.min}:{currTime.sec}
-    //       </p>
-    //     </div>
-    //     <input
-    //       type="range"
-    //       min="0"
-    //       max={duration / 1000}
-    //       default="0"
-    //       value={seconds}
-    //       className="timeline"
-    //       onChange={(e) => {
-    //         sound.seek([e.target.value]);
-    //       }}
-    //     />
-    //   </div>
-    // )
-    //   }
+    

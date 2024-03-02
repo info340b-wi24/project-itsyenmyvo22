@@ -19,7 +19,14 @@ import AddCard from '../pages/add-card';
 function App(props){
 
 
-
+   
+        
+        const[points, setPoints] = useState(0);
+        function countPoints(){
+          let newPoints = points +10
+          setPoints(newPoints);
+          console.log(points);
+         }
 
     return (
         <div>            
@@ -37,9 +44,9 @@ function App(props){
                         <Route index="/Home" element={<Home />}/>
                         <Route path="/add-card" element={<AddCard />}/>
                         <Route path="/Calendar" element={<Calendar />}/>
-                        <Route path="/Game" element={<Game />}/>
+                        <Route path="/Game" element={<Game countPoints={countPoints} points ={points}/>}/>
                         <Route path="/Cards" element={<Cards />}/>
-                        <Route path="/Leader" element={<Leader />}/>
+                        <Route path="/Leader" element={<Leader points ={points}/>}/>
                         <Route path="/incoming-requests" element={<IncomingRequests /> } />
                         <Route path="/sent-requests" element={<SentRequests /> }/>
                         <Route path="/TradeRequest" element={<TradeRequest/>}/>

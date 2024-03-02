@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-export default function Leader(props){
+export default function Leader({points}){
   
     
     return(
@@ -21,13 +21,13 @@ export default function Leader(props){
                     <p className="colTitle">Score:</p>
                 </div>
                 <div className="col-6">
-                    <p className="colTitle">Average Time/Song:</p>
+                    <p className="colTitle">Total Points:</p>
                 </div>
                 <div className="col-6 purple-bg">
-                    <p>18</p>
+                    <p>{points}</p>
                 </div>
                 <div className="col-6 purple-bg">
-                    <p>00:07:34</p>
+                    <p>100</p>
                 </div>
             </div>
             <div className="row mt-5 desktopPlay">

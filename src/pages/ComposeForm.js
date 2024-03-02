@@ -14,7 +14,8 @@ export function ComposeForm(props){
     const handleSubmit = (event) => {
       event.preventDefault();
       console.log("submitting", typedValue);
-      if(typedValue === props.name && currQ === true){
+      let ans = typedValue.toLowerCase();
+      if(ans === props.name && currQ === true){
         setIsCorrect(true);
         // let newPoints = points +10
         // setPoints(newPoints);
@@ -22,9 +23,10 @@ export function ComposeForm(props){
       
       }else if(currQ == true){
         setIsCorrect(false);
-      }else{
-        setCurrQ(false);
       }
+
+        setCurrQ(false);
+      
       
       
     }
@@ -36,9 +38,12 @@ export function ComposeForm(props){
    {isCorrect?(<textarea className="form-control highlightAnswer"  aria-label="Write name of song" placeholder="Type name of song" onChange={handleChange} value={typedValue}></textarea>): (<textarea className="form-control wrong"  aria-label="Write name of song" placeholder="Type name of song" onChange={handleChange} value={typedValue}></textarea>)}
     </div>
       <div >
-        <button className="member-btn trade" type ="submit">
+        {currQ?( <button className="member-btn trade" type ="submit">
         <span  aria-label="submit">Submit</span>
-        </button> 
+        </button> ):(<button className="submitted" type ="submit">
+        <span  aria-label="submit">Submit</span>
+        </button> )}
+        
       </div>
      
    

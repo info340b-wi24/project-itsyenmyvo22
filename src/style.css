@@ -705,6 +705,23 @@ border-color: green;
 .wrong{
     border-color: red;
 }
+
+.submitted{
+    background-color: #C2A4DB;
+    color: black;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2), 0 0.1rem 1.2px 0 rgba(0,0,0,0.19);
+
+    flex-shrink: 0;
+    flex-grow: 1;
+  
+    border: none;
+
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    text-align: center;
+    display: inline-block;
+    font-size: 1rem;
+}
 footer {
     padding: 1em 0em;
     text-align:center;
