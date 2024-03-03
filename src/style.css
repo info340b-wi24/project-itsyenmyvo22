@@ -690,12 +690,14 @@ div.jumbotron p.lead{
    width: 40px;
 }
 button.playButton{
-    margin: 0;
+margin: 0;
  background-color: transparent; 
   border: none;
   padding: 0px ;
   text-align: center;
-  font-size: 17px;
+
+  /* font-size: 17px; */
+  border-radius: 100%;
 
 
 }
@@ -728,10 +730,12 @@ border-color: green;
 }
 input[type='range'] {
     accent-color:#8F57B2;
-    /* background-color: #8F57B2; */
+   
 }
 
-
+IconContext.Provider{
+    color:#8F57B2;
+}
   
  
 /* .progressBar{

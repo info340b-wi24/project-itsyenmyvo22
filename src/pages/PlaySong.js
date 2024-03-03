@@ -24,7 +24,9 @@ export function PlaySong({audio,  points, countPoints, name}){
       const time = {
         sec: secRemain
     }; 
-   
+    // console.log("curr" + sec);
+    // console.log(time.sec);
+     
 
     useEffect(() => {
     
@@ -35,22 +37,25 @@ export function PlaySong({audio,  points, countPoints, name}){
           setCurrTime({
             sec
           });
+
+
+          if(currTime.sec == time.sec){
+            setIsPlaying(false);
+            pause();
+          
+          }
         }
       }, 1000);
-
+    
 
        return () => clearInterval(interval);
-    }, [sound]);
+    }, [sound, currTime.sec]);
+
+  
+
 
     const playingButton = () => {
-      console.log(currTime.sec);
-      console.log(sec);
-if(sec == currTime.sec + 2){
-  console.log('hi');
-  pause(); // play the audio
-  setIsPlaying(false);
-  console.log('hi');
-}
+
      
       if (isPlaying) {
         pause(); // pause the audio
@@ -75,12 +80,13 @@ if(sec == currTime.sec + 2){
               <div className="col-2  mb-3">
     
                          
-              <button className="playButton" onClick={playingButton}>
-                <IconContext.Provider value={{ size: "3em", color: "#8F5EB1" }}>
-                
-                {isPlaying ? <AiFillPauseCircle /> : <AiFillPlayCircle />}
-                </IconContext.Provider>
+              
+                <IconContext.Provider value={{ size: "3em", color: "#8F57B2"}}> 
+                <button className="playButton" onClick={playingButton}>
+                {isPlaying ? <AiFillPauseCircle/> : <AiFillPlayCircle />}
                 </button>
+                </IconContext.Provider>
+               
         
               </div>
           <div className=" col-3 mt-3 mb-3">
@@ -95,7 +101,7 @@ if(sec == currTime.sec + 2){
           value={seconds}
           className='seek_bar'
        onChange={(e) => setSeconds(parseInt(e.target.value))}
-
+     
         />
         
       </div>

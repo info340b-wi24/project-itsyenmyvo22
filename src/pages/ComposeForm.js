@@ -44,7 +44,7 @@ export function ComposeForm(props){
    </div>
 
       <div className="mx-2 col-1">
-         <button className= {currQ? ("member-btn trade"): ("submitted")} type ="submit">
+         <button className= {currQ? ("member-btn"): ("submitted")} type ="submit">
         <span  aria-label="submit">Submit</span>
         </button> 
         
