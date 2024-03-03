@@ -691,11 +691,12 @@ div.jumbotron p.lead{
 }
 button.playButton{
     margin: 0;
- background-color:#EADFF0; 
+ background-color: transparent; 
   border: none;
   padding: 0px ;
   text-align: center;
   font-size: 17px;
+
 
 }
 .highlightAnswer{
@@ -722,6 +723,13 @@ border-color: green;
     display: inline-block;
     font-size: 1rem;
 }
+.start{
+    text-align:center;
+}
+
+/* .progressBar{
+    --bar-bg:#8F57B2
+} */
 footer {
     padding: 1em 0em;
     text-align:center;

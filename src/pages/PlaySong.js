@@ -7,19 +7,58 @@ import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 import { ComposeForm } from './ComposeForm';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
-export function PlaySong({audio, points, countPoints, name}){
-      
-     const [isPlaying, setIsPlaying] = useState(false);
-     const[play, {pause, duration, ct}] = useSound(audio);
+export function PlaySong({audio,  points, countPoints, name}){
      
-     const playingButton = () => {
+     const [isPlaying, setIsPlaying] = useState(false);
+     const[play, {pause, duration, sound}] = useSound(audio);
+     
+     const [currTime, setCurrTime] = useState({
+      sec: "",
+    });
+    const [seconds, setSeconds] = useState(0); 
+   
+      
+    
+    const sec = (duration / 1000) -1;
+      const secRemain = Math.floor(sec % 60);
+      const time = {
+        sec: secRemain
+    }; 
+   
+
+    useEffect(() => {
+    
+      const interval = setInterval(() => {
+        if (sound) {
+          setSeconds(sound.seek()); // setting the seconds state with the current state
+          const sec = Math.floor(sound.seek([]) % 60);
+          setCurrTime({
+            sec
+          });
+        }
+      }, 1000);
+
+
+       return () => clearInterval(interval);
+    }, [sound]);
+
+    const playingButton = () => {
+if(currTime == seconds){
+  console.log('hi');
+  play(); // play the audio
+  setIsPlaying(true);
+  console.log('hi');
+}
+     
       if (isPlaying) {
-        pause(); // this will pause the audio
+        pause(); // pause the audio
         setIsPlaying(false);
-      } else {
-        play(); // this will play the audio
+      } 
+      else {
+        play(); // play the audio
         setIsPlaying(true);
       }
+     
     };
    
    
@@ -28,32 +67,35 @@ export function PlaySong({audio, points, countPoints, name}){
      return (
         <div className="row mb-4">
               
-                        <div className="row">
+                        {/* <div className="row"> */}
                        
-                          <div className="col-sm-1 col-md-1 col-lg-1 ">
+              <div className="col-2  mb-3">
     
-                          {!isPlaying ? (
+                         
               <button className="playButton" onClick={playingButton}>
                 <IconContext.Provider value={{ size: "3em", color: "#8F5EB1" }}>
-                  <AiFillPlayCircle />
-                </IconContext.Provider>
-              </button>
-            ) : (
-              <button className="playButton" onClick={playingButton}>
-                <IconContext.Provider value={{ size: "3em", color: "#8F5EB1" }}>
-               
-                  <AiFillPauseCircle />
-                  
+                
+                {isPlaying ? <AiFillPauseCircle /> : <AiFillPlayCircle />}
                 </IconContext.Provider>
                 </button>
-            
-            )}
-                          </div>
-                          <div className="col-sm-4 col-md-4 col-lg-4 mb-3">
-                          
-
         
+              </div>
+          <div className="col-4 mt-3 mb-3">
+                          
+                          {/* <div> */}
+
+        <input
+          type="range"
+          min="0"
+          max={duration / 1000}
+          default="0"
+          value={seconds}
+          className='progressBar'
+       onChange={(e) => setSeconds(parseInt(e.target.value))}
+        />
       </div>
+        
+      {/* </div> */}
                           
                       
                           <div className="col-sm-12 col-md-6 col-lg-6">
@@ -64,7 +106,7 @@ export function PlaySong({audio, points, countPoints, name}){
                                      
                         
                         </div>
-                      </div>
+                      // </div>
                       // </div>
                    
       )

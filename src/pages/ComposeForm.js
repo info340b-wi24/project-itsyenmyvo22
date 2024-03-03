@@ -23,6 +23,7 @@ export function ComposeForm(props){
       
       }else if(currQ == true){
         setIsCorrect(false);
+    
       }
 
         setCurrQ(false);
@@ -31,18 +32,20 @@ export function ComposeForm(props){
       
     }
     return(
-    <form className="input-group" onSubmit={handleSubmit}>
+    // <form className="input-group" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
     <div >
 
+   {currQ? (<textarea className= 'form-control' aria-label="Write name of song" placeholder="Type name of song" onChange={handleChange} value={typedValue}></textarea>
+    ): (<textarea className={isCorrect?'highlightAnswer form-control': 'form-control wrong'} aria-label="Write name of song" placeholder="Type name of song" onChange={handleChange} value={typedValue}></textarea>)
+    }
+  
    
-   {isCorrect?(<textarea className="form-control highlightAnswer"  aria-label="Write name of song" placeholder="Type name of song" onChange={handleChange} value={typedValue}></textarea>): (<textarea className="form-control wrong"  aria-label="Write name of song" placeholder="Type name of song" onChange={handleChange} value={typedValue}></textarea>)}
-    </div>
+   </div>
       <div >
-        {currQ?( <button className="member-btn trade" type ="submit">
+         <button className= {currQ? ("member-btn trade"): ("submitted")} type ="submit">
         <span  aria-label="submit">Submit</span>
-        </button> ):(<button className="submitted" type ="submit">
-        <span  aria-label="submit">Submit</span>
-        </button> )}
+        </button> 
         
       </div>
      
