@@ -43,16 +43,19 @@ export function PlaySong({audio,  points, countPoints, name}){
     }, [sound]);
 
     const playingButton = () => {
-if(currTime == seconds){
+      console.log(currTime.sec);
+      console.log(sec);
+if(sec == currTime.sec + 2){
   console.log('hi');
-  play(); // play the audio
-  setIsPlaying(true);
+  pause(); // play the audio
+  setIsPlaying(false);
   console.log('hi');
 }
      
       if (isPlaying) {
         pause(); // pause the audio
         setIsPlaying(false);
+        ;
       } 
       else {
         play(); // play the audio
@@ -90,9 +93,11 @@ if(currTime == seconds){
           max={duration / 1000}
           default="0"
           value={seconds}
-          className='progressBar'
+          className='seek_bar'
        onChange={(e) => setSeconds(parseInt(e.target.value))}
+
         />
+        
       </div>
         
       {/* </div> */}
