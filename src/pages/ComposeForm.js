@@ -33,8 +33,8 @@ export function ComposeForm(props){
     }
     return(
     // <form className="input-group" onSubmit={handleSubmit}>
-    <form onSubmit={handleSubmit}>
-    <div >
+    <form onSubmit={handleSubmit} className="input-group">
+    <div className="col-9" >
 
    {currQ? (<textarea className= 'form-control' aria-label="Write name of song" placeholder="Type name of song" onChange={handleChange} value={typedValue}></textarea>
     ): (<textarea className={isCorrect?'highlightAnswer form-control': 'form-control wrong'} aria-label="Write name of song" placeholder="Type name of song" onChange={handleChange} value={typedValue}></textarea>)
@@ -42,7 +42,8 @@ export function ComposeForm(props){
   
    
    </div>
-      <div >
+
+      <div className="mx-2 col-1">
          <button className= {currQ? ("member-btn trade"): ("submitted")} type ="submit">
         <span  aria-label="submit">Submit</span>
         </button> 

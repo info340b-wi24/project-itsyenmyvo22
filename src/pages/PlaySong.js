@@ -80,7 +80,7 @@ if(currTime == seconds){
                 </button>
         
               </div>
-          <div className="col-4 mt-3 mb-3">
+          <div className=" col-3 mt-3 mb-3">
                           
                           {/* <div> */}
 
@@ -98,7 +98,7 @@ if(currTime == seconds){
       {/* </div> */}
                           
                       
-                          <div className="col-sm-12 col-md-6 col-lg-6">
+                          <div className="col-sm-12 col-md-12 col-lg-6">
                            
                               <ComposeForm name={name} points={points} countPoints ={countPoints} />
                           </div>
