@@ -31,7 +31,7 @@ let song = audios.map(function(song){
     
 
         <div className="jumbotron start">
-          <p className="lead">Instructions: Play the song clip. Then, type the song title with proper spaces (case insensitive).</p>
+          <p className="lead">Instructions: Play the song clip. Then, type the song title with proper spaces. (case insensitive and no special characters).</p>
          {start? '': (<button className="member-btn trade " onClick={handleStart}> Press to Start</button>)}
          
          </div>

@@ -1,6 +1,6 @@
 [
 {"songname": "blood sweat and tears", "audio":"audios/bloodsweatandtears.mp3"  ,"length": "5", "key": "bst-5"},
-{"songname": "boy with love", "audio": "audios/boywithlove.mp3","length": "5", "key": "boy-5"},
+{"songname": "boy with luv", "audio": "audios/boywithlove.mp3","length": "5", "key": "boy-5"},
 {"songname": "butter", "audio": "audios/butter.mp3","length": "5", "key": "but-5"},
 {"songname": "dna", "audio": "audios/dna.mp3","length": "5", "key": "dna-5"},
 {"songname": "dynamite", "audio": "audios/dynamite.mp3","length": "5", "key": "dyn-5"},

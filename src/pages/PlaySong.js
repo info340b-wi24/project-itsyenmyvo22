@@ -24,9 +24,7 @@ export function PlaySong({audio,  points, countPoints, name}){
       const time = {
         sec: secRemain
     }; 
-    // console.log("curr" + sec);
-    // console.log(time.sec);
-     
+
 
     useEffect(() => {
     
@@ -75,23 +73,17 @@ export function PlaySong({audio,  points, countPoints, name}){
      return (
         <div className="row mb-4">
               
-                        {/* <div className="row"> */}
+                       
                        
               <div className="col-2  mb-3">
     
-                         
-              
-                <IconContext.Provider value={{ size: "3em", color: "#8F57B2"}}> 
                 <button className="playButton" onClick={playingButton}>
                 {isPlaying ? <AiFillPauseCircle/> : <AiFillPlayCircle />}
                 </button>
-                </IconContext.Provider>
-               
-        
+         
               </div>
           <div className=" col-3 mt-3 mb-3">
                           
-                          {/* <div> */}
 
         <input
           type="range"
@@ -106,7 +98,7 @@ export function PlaySong({audio,  points, countPoints, name}){
         
       </div>
         
-      {/* </div> */}
+  
                           
                       
                           <div className="col-sm-12 col-md-12 col-lg-6">
@@ -117,8 +109,7 @@ export function PlaySong({audio,  points, countPoints, name}){
                                      
                         
                         </div>
-                      // </div>
-                      // </div>
+                    
                    
       )
     }

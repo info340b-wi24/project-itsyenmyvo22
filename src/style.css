@@ -738,9 +738,11 @@ input[type='range'] {
    
 }
 
-IconContext.Provider{
-    color:#8F57B2;
-}
+.playButton svg {
+    /* Define the size and color for the icons */
+    font-size: 3em;
+    color: #8F57B2;
+  }
   
  
 /* .progressBar{
