@@ -121,7 +121,7 @@ function Events(props) {
             <section className="event-section d-flex flex-column">
                 <h1 className="event-heading">Events</h1>
                 <div className="events">
-                    <button  className="add-event" onClick={handleClick}>
+                    <button  className="add-event" aria-label='Add event' onClick={handleClick}>
                         <img src="photos/calendar/event_plus.png" alt="plus icon"></img>
                     </button>
                     {allEvents}
@@ -143,7 +143,7 @@ function Popup(props) {
     }
     return (
         <div className="popup py-3" id="popup">
-            <button className="btn-close" onClick={handleClose}></button>
+            <button className="btn-close" aria-label='Close event popup' onClick={handleClose}></button>
             <form>
                 <div className="popup-title">
                     <label htmlFor="title-input" className="title-label">Event Title:</label>
@@ -157,13 +157,15 @@ function Popup(props) {
                     <label htmlFor="time-input" className="time-label">Time:</label>
                     <input type="time" id="time-input" className="time-input"></input>
                 </div>
-                <select className="popup-select">
-                    <option defaultValue>Type of Event</option>
-                    <option value="1">Concert</option>
-                    <option value="2">Livestream</option>
-                    <option value="3">Meet and Greet</option>
-                </select>
-                <button className="create-event" onSubmit={handleCreate}>Create Event</button>
+                <div className='popup-event-type'>
+                    <label htmlFor='event-type-select' className='event-type-label'></label>
+                    <select className="popup-select" id='event-type-select'>
+                        <option defaultValue>Livestream</option>
+                        <option value="1">Concert</option>
+                        <option value="2">Meet and Greet</option>
+                    </select>
+                </div>
+                <button className="create-event" aria-label='Save event' onSubmit={handleCreate}>Create Event</button>
             </form>
         </div>
     );
