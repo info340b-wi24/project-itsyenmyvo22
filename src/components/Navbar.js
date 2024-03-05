@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import ReactDOM from 'react-dom/client';
+// import ReactDOM from 'react-dom/client';
 import '../style.css';
-import App from './App';
+// import App from './App';
 import {Link, useMatch, useResolvedPath} from 'react-router-dom'
 
 

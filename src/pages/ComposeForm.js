@@ -37,7 +37,7 @@ export function ComposeForm(props){
     <div className="col-9" >
 
    {currQ? (<textarea className= 'form-control' aria-label="Write name of song" placeholder="Type name of song" onChange={handleChange} value={typedValue}></textarea>
-    ): (<textarea className={isCorrect?'highlightAnswer form-control': 'form-control wrong'} aria-label="Write name of song" placeholder="Type name of song" onChange={handleChange} value={typedValue}></textarea>)
+    ): (<textarea className={isCorrect?'highlightAnswer form-control': 'form-control wrong'} aria-label="Write name of song" value={typedValue}></textarea>)
     }
   
    
