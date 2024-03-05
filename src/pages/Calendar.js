@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import daysOfMonth2024 from '../data/days.json'
+import daysOfMonth2024 from '../data/days.json';
+//import { getDatabase, onValue, ref, set as firebaseSet } from 'firebase/database';
 
 export default function Calendar(props) {
     const months = Object.keys(daysOfMonth2024);
@@ -106,6 +107,8 @@ function Events(props) {
     const handleClick = (event) => {
         setIsVisible(!isVisible);
     }
+    // allEvents should be established in effectHook
+    // there should be an onValue event listener inside this eventHook
     const allEvents = eventList.map((event) => {
         return (
             <div className="event" key={event.date + event.time}>
@@ -133,12 +136,34 @@ function Events(props) {
 }
 
 function Popup(props) {
+    const [titleValue, setTitleValue] = useState('');
+    const [dateValue, setDateValue] = useState('');
+    const [timeValue, setTimeValue] = useState('');
+    const [eventTypeValue, setEventTypeValue] = useState('');
+    const handleTitleChange = (event) => {
+        const newTitle = event.target.value;
+        setTitleValue(newTitle);
+    }
+    const handleDateChange = (event) => {
+        const newDate = event.target.value;
+        setDateValue(newDate);
+    }
+    const handleTimeChange = (event) => {
+        const newTime = event.target.value;
+        setTimeValue(newTime);
+    }
+    const handleEventTypeChange = (event) => {
+        const newEventType = event.target.value;
+        setEventTypeValue(newEventType);
+    }
     const handleClose = (event) => {
         props.setIsVisible(!props.isVisible);
     }
     const handleCreate = (event) => {
-        const newEventList = [...props.eventList, {title:'Event 2', date:'March 27, 2024', time:'4:00 pm PST', type:'Livestream'}];
-        props.setEventList(newEventList);
+        // const db = getDatabase();
+        // const eventsRef = ref(db, "events");
+        // const newEventRef = ref(eventsRef, titleValue)
+        // firebaseSet(newEventRef, {title:titleValue, date:dateValue, time:timeValue, type:eventTypeValue});
         props.setIsVisible(!props.isVisible);
     }
     return (
@@ -147,19 +172,19 @@ function Popup(props) {
             <form>
                 <div className="popup-title">
                     <label htmlFor="title-input" className="title-label">Event Title:</label>
-                    <input type="text" id="title-input" placeholder="My Event" className="title-input"></input>
+                    <input type="text" id="title-input" placeholder="My Event" value={titleValue} className="title-input"></input>
                 </div>
                 <div className="popup-date">
                     <label htmlFor="date-input" className="date-label">Date:</label>
-                    <input type="date" id="date-input" className="date-input"></input>
+                    <input type="date" id="date-input" value={dateValue} className="date-input"></input>
                 </div>
                 <div className="popup-time">
                     <label htmlFor="time-input" className="time-label">Time:</label>
-                    <input type="time" id="time-input" className="time-input"></input>
+                    <input type="time" id="time-input" value={timeValue} className="time-input"></input>
                 </div>
                 <div className='popup-event-type'>
                     <label htmlFor='event-type-select' className='event-type-label'></label>
-                    <select className="popup-select" id='event-type-select'>
+                    <select className="popup-select" id='event-type-select' value={eventTypeValue}>
                         <option defaultValue>Livestream</option>
                         <option value="1">Concert</option>
                         <option value="2">Meet and Greet</option>
