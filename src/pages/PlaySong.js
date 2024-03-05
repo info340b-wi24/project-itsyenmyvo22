@@ -1,11 +1,10 @@
 
 import React, {useEffect, useState} from 'react';
-import audios from '../data/audios.json'
+// import audios from '../data/audios.json'
 import useSound from "use-sound";
-import { IconContext } from "react-icons"
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 import { ComposeForm } from './ComposeForm';
-import ProgressBar from 'react-bootstrap/ProgressBar';
+
 
 export function PlaySong({audio,  points, countPoints, name}){
      
@@ -37,7 +36,7 @@ export function PlaySong({audio,  points, countPoints, name}){
           });
 
 
-          if(currTime.sec == time.sec){
+          if(currTime.sec === time.sec){
             setIsPlaying(false);
             pause();
           
@@ -47,7 +46,7 @@ export function PlaySong({audio,  points, countPoints, name}){
     
 
        return () => clearInterval(interval);
-    }, [sound, currTime.sec]);
+    }, [sound, currTime.sec, pause, time.sec]);
 
   
 
@@ -77,8 +76,8 @@ export function PlaySong({audio,  points, countPoints, name}){
                        
               <div className="col-2  mb-3">
     
-                <button className="playButton" onClick={playingButton}>
-                {isPlaying ? <AiFillPauseCircle/> : <AiFillPlayCircle />}
+                <button className="playButton" onClick={playingButton} aria-label="pause/play song">
+                {isPlaying ? <AiFillPauseCircle /> : <AiFillPlayCircle />}
                 </button>
          
               </div>

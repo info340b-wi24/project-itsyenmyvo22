@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { NavBar } from '../Navbar';
+import { NavBar } from './Navbar';
 import Home from '../pages/Home';
 import Game from '../pages/Game';
 import Calendar from '../pages/Calendar';
@@ -33,7 +33,7 @@ function App(props){
             <div className='footer-bottom'>
                 <header>
                     <div className="overlap">
-                        <Link to="/">  <img src="photos/logo.png" alt="ArmyBase logo of a purple whale" height="120" width="120"></img></Link>
+                        <Link to="/">  <img src="photos/logo.png" alt="ArmyBase logo of a purple whale" height="120" width="130"></img></Link>
                     </div>
                 </header>
                 

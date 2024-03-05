@@ -2,7 +2,6 @@ import React from 'react';
 
 export default function IncomingRequests (props) {
     return (
-    // <div>
         <main className="incoming">
         <h1 className="rqh1">Incoming Requests</h1>
         <div className="rectangle">

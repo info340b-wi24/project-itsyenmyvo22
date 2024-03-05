@@ -1,10 +1,10 @@
 
-import React, {useEffect, useState} from 'react';
+import React, { useState} from 'react';
 export function ComposeForm(props){
  let countPoints = props.countPoints;
     const [typedValue, setTypedValue] = useState("");
    const [isCorrect, setIsCorrect] = useState(null);
-    const[points, setPoints] = useState(0);
+    // const[points, setPoints] = useState(0);
     const[currQ, setCurrQ] = useState(true);
    const handleChange = (event) => {
       const inputtedValue = event.target.value;
@@ -21,7 +21,7 @@ export function ComposeForm(props){
         // setPoints(newPoints);
         countPoints();
       
-      }else if(currQ == true){
+      }else if(currQ === true){
         setIsCorrect(false);
     
       }
@@ -44,7 +44,7 @@ export function ComposeForm(props){
    </div>
 
       <div className="mx-2 col-1">
-         <button className= {currQ? ("member-btn"): ("submitted")} type ="submit">
+         <button className= {currQ? ("member-btn"): ("submitted")} type ="submit" aria-label= "submit">
         <span  aria-label="submit">Submit</span>
         </button> 
         
