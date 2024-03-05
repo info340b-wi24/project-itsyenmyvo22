@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { Component} from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useState } from "react";
 
 export default function AddCard (props) {
     const [files, setFiles] = useState([]);
