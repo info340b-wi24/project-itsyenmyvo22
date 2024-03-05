@@ -702,11 +702,16 @@ margin: 0;
 
 }
 .highlightAnswer{
-border-color: green;
+border-color: #487748;
+background-color: 	#bce7c8;
+border-width: .15em;
+
 }
 
 .wrong{
-    border-color: red;
+    border-color: #bb0900;
+    border-width: .15em;
+    background-color: #f4cccc;
 }
 
 .submitted{
