@@ -55,12 +55,12 @@ export function PlaySong({audio,  points, countPoints, name}){
 
      
       if (isPlaying) {
-        pause(); // pause the audio
+        pause(); 
         setIsPlaying(false);
-        ;
+        
       } 
       else {
-        play(); // play the audio
+        play(); 
         setIsPlaying(true);
       }
      
