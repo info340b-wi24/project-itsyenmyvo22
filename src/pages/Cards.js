@@ -14,7 +14,7 @@ export default function Cards(props){
         <div>
             <div className="member-btn-container">
                 {Array.from(new Set(links.map(link => link.member))).map(member => (
-                    <button key={member} className={`member-btn ${selectedMember === member ? 'selected' : ''}`} onClick={() => handleMemberClick(member)}>
+                    <button aria-label="select" key={member} className={`member-btn ${selectedMember === member ? 'selected' : ''}`} onClick={() => handleMemberClick(member)}>
                         {member}
                     </button>
                 ))}
