@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import daysOfMonth2024 from '../data/days.json';
-//import { getDatabase, onValue, ref, set as firebaseSet } from 'firebase/database';
+//import { getDatabase, onValue, ref, push as firebasePush } from 'firebase/database';
 
 export default function Calendar(props) {
     const months = Object.keys(daysOfMonth2024);
@@ -102,13 +102,27 @@ function CalendarRow(props) {
 }
 
 function Events(props) {
-    const [eventList, setEventList] = useState([{title:'Event 1', date:'March 8, 2024', time:'6:00 pm PST', type:'Concert'}]);
+    const [eventList, setEventList] = useState([]);
     const [isVisible, setIsVisible] = useState(false);
     const handleClick = (event) => {
         setIsVisible(!isVisible);
     }
-    // allEvents should be established in effectHook
-    // there should be an onValue event listener inside this eventHook
+    const db = getDatabase();
+    const eventsRef = ref(db, "events");
+    useEffect(() => {
+        const offFunction = onValue(eventsRef, (snapshot) => {
+            const eventObjs = snapshot.val();
+            const eventKeys = Object.keys(eventObjs);
+            const eventArray = eventKeys.map((keyString) => {
+                return eventObjs[keyString];
+            });
+            setEventList(eventArray);
+            function cleanup() {
+                offFunction();
+            };
+            return cleanup;
+        });
+    }, []);
     const allEvents = eventList.map((event) => {
         return (
             <div className="event" key={event.date + event.time}>
@@ -130,7 +144,7 @@ function Events(props) {
                     {allEvents}
                 </div>
             </section>
-            {isVisible && <Popup isVisible={isVisible} setIsVisible={setIsVisible} eventList={eventList} setEventList={setEventList} />}
+            {isVisible && <Popup isVisible={isVisible} setIsVisible={setIsVisible} />}
         </div>
     );
 }
@@ -160,10 +174,9 @@ function Popup(props) {
         props.setIsVisible(!props.isVisible);
     }
     const handleCreate = (event) => {
-        // const db = getDatabase();
-        // const eventsRef = ref(db, "events");
-        // const newEventRef = ref(eventsRef, titleValue)
-        // firebaseSet(newEventRef, {title:titleValue, date:dateValue, time:timeValue, type:eventTypeValue});
+        const db = getDatabase();
+        const eventsRef = ref(db, "events");
+        eventsRef.push( {title:titleValue, date:dateValue, time:timeValue, type:eventTypeValue} );
         props.setIsVisible(!props.isVisible);
     }
     return (
@@ -172,19 +185,19 @@ function Popup(props) {
             <form>
                 <div className="popup-title">
                     <label htmlFor="title-input" className="title-label">Event Title:</label>
-                    <input type="text" id="title-input" placeholder="My Event" value={titleValue} className="title-input"></input>
+                    <input type="text" id="title-input" placeholder="My Event" value={titleValue} onChange={handleTitleChange} className="title-input"></input>
                 </div>
                 <div className="popup-date">
                     <label htmlFor="date-input" className="date-label">Date:</label>
-                    <input type="date" id="date-input" value={dateValue} className="date-input"></input>
+                    <input type="date" id="date-input" value={dateValue} onChange={handleDateChange} className="date-input"></input>
                 </div>
                 <div className="popup-time">
                     <label htmlFor="time-input" className="time-label">Time:</label>
-                    <input type="time" id="time-input" value={timeValue} className="time-input"></input>
+                    <input type="time" id="time-input" value={timeValue} onChange={handleTimeChange} className="time-input"></input>
                 </div>
                 <div className='popup-event-type'>
                     <label htmlFor='event-type-select' className='event-type-label'></label>
-                    <select className="popup-select" id='event-type-select' value={eventTypeValue}>
+                    <select className="popup-select" id='event-type-select' value={eventTypeValue} onChange={handleEventTypeChange}>
                         <option defaultValue>Livestream</option>
                         <option value="1">Concert</option>
                         <option value="2">Meet and Greet</option>
