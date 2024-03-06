@@ -1,63 +1,84 @@
 import React, { useEffect, useState } from 'react';
 import daysOfMonth2024 from '../data/days.json';
+import { Outlet, useParams, useNavigate, Link } from 'react-router-dom';
 //import { getDatabase, onValue, ref, push as firebasePush } from 'firebase/database';
 
-export default function Calendar(props) {
-    const months = Object.keys(daysOfMonth2024);
-    const [displayMonth, setDisplayMonth] = useState(months[2]);
+export function Calendar(props) {
     return (
         <div className="layout d-flex flex-column flex-md-row">
-            <section className="calendar">
-                <MonthBar displayMonth={displayMonth} setDisplayMonth={setDisplayMonth} months={months} />
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>SUN</th>
-                            <th>MON</th>
-                            <th>TUE</th>
-                            <th>WED</th>
-                            <th>THU</th>
-                            <th>FRI</th>
-                            <th>SAT</th>
-                        </tr>
-                        {<CalendarBody displayMonth={displayMonth} />}
-                    </tbody>
-                </table>
-            </section>
+            <Outlet />
             <Events />
         </div>
+    );
+}
+
+export function CalendarTable(props) {
+    const months = Object.keys(daysOfMonth2024);
+    const navigate = useNavigate();
+    let displayMonth = useParams().currMonth;
+    if (props.defaultMonth) {
+        displayMonth = props.defaultMonth;
+    };
+    // const handlePrevMonth = (event) => {
+    //     if (displayMonth !== 'January') {
+    //         const month = months.indexOf(displayMonth);
+    //         const newMonth = months[month - 1];
+    //         console.log(newMonth);
+    //         navigate('/Calendar/:' + newMonth);
+    //     };
+    // };
+    // const handleNextMonth = (event) => {
+    //     if (displayMonth !== months[11]) {
+    //         const month = months.indexOf(displayMonth);
+    //         const newMonth = months[month + 1];
+    //         navigate('/Calendar/:' + newMonth);
+    //     };
+    // };
+    return (
+        <section className="calendar">
+            <MonthBar displayMonth={displayMonth} months={months} />
+            <table>
+                <tbody>
+                    <tr>
+                        <th>SUN</th>
+                        <th>MON</th>
+                        <th>TUE</th>
+                        <th>WED</th>
+                        <th>THU</th>
+                        <th>FRI</th>
+                        <th>SAT</th>
+                    </tr>
+                    {<CalendarBody displayMonth={displayMonth} daysOfMonth2024={daysOfMonth2024} />}
+                </tbody>
+            </table>
+        </section>
     );
 }
 
 function MonthBar(props) {
     let prevClass = 'cal-prev';
     let nextClass = 'cal-next';
+    let prevMonth = props.displayMonth;
+    let nextMonth = props.displayMonth;
     if (props.displayMonth === 'January') {
         prevClass = 'no-cal-prev';
+        nextMonth = months[month + 1];
     } else if (props.displayMonth === 'December') {
         nextClass = 'no-cal-next';
-    }
-    const handlePrevMonth = (event) => {
-        if (props.displayMonth !== 'January') {
-            const currMonth = props.months.indexOf(props.displayMonth);
-            props.setDisplayMonth(props.months[currMonth - 1]);
-        }
-    }
-    const handleNextMonth = (event) => {
-        if (props.displayMonth !== 'December') {
-            const currMonth = props.months.indexOf(props.displayMonth);
-            props.setDisplayMonth(props.months[currMonth + 1]);
-        }
+        prevMonth = months[month - 1];
+    } else {
+        prevMonth = months[month - 1];
+        nextMonth = months[month + 1];
     }
     return (
         <div className="month">
-            <button onClick={handlePrevMonth} className={prevClass}>
+            <Link to={'/Calendar/:' + prevMonth}className={prevClass}>
                 <img src="photos/calendar/month-arrow.png" alt="back arrow"></img>
-            </button>
+            </Link>
             <h1>{props.displayMonth} 2024</h1>
-            <button onClick={handleNextMonth} className={nextClass}>
+            <Link to={'/Calendar/:' + nextMonth} className={nextClass}>
                 <img src="photos/calendar/month-arrow.png" alt="forward arrow"></img>
-            </button>
+            </Link>
         </div>
     );
 }

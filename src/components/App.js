@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { NavBar } from './Navbar';
 import Home from '../pages/Home';
 import Game from '../pages/Game';
-import Calendar from '../pages/Calendar';
+import { Calendar, CalendarTable } from '../pages/Calendar';
 import Cards from '../pages/Cards';
 import { Route, Routes, Switch} from "react-router-dom";
 import Leader from '../pages/Leader';
@@ -41,17 +41,20 @@ function App(props){
 
                 <div className='container'>
                     <Routes>
-                        <Route index="/Home" element={<Home />}/>
-                        <Route path="/add-card" element={<AddCard />}/>
-                        <Route path="/Calendar" element={<Calendar />}/>
-                        <Route path="/Game" element={<Game countPoints={countPoints} points ={points}/>}/>
-                        <Route path="/Cards" element={<Cards />}/>
-                        <Route path="/Leader" element={<Leader points ={points}/>}/>
+                        <Route index="/Home" element={<Home />} />
+                        <Route path="/add-card" element={<AddCard />} />
+                        <Route path="/Calendar" element={<Calendar />} >
+                            <Route path=':currMonth' element={<CalendarTable defaultMonth={null} />} />
+                            <Route index element = {<CalendarTable defaultMonth='March' />} />
+                        </Route>
+                        <Route path="/Game" element={<Game countPoints={countPoints} points ={points} />} />
+                        <Route path="/Cards" element={<Cards />} />
+                        <Route path="/Leader" element={<Leader points ={points} />} />
                         <Route path="/incoming-requests" element={<IncomingRequests /> } />
-                        <Route path="/sent-requests" element={<SentRequests /> }/>
-                        <Route path="/TradeRequest" element={<TradeRequest/>}/>
-                        <Route path="/Accept" element={<Accept/>}/>
-                        <Route path="/Cards" element={<Cards/>}/>
+                        <Route path="/sent-requests" element={<SentRequests /> } />
+                        <Route path="/TradeRequest" element={<TradeRequest />} />
+                        <Route path="/Accept" element={<Accept />} />
+                        <Route path="/Cards" element={<Cards />} />
                     </Routes>      
                 </div>
             </div>
