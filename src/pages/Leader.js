@@ -1,11 +1,55 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-
+import { getDatabase } from 'firebase/database';
+import { ref, set as firebaseSet, child, push as firebasePush, onValue} from 'firebase/database'
+import {useEffect, useState} from 'react';
 export default function Leader({points}){
-  
+    const[leaderboard, setLeaderBoard] = useState([]);
+    useEffect(() => {
+   
+    const db = getDatabase();
+    const leaderRef = ref(db, "leaderboard");
+    const yenmyRef = child(leaderRef, "Yenmy")
+    const natalieRef = child(leaderRef, "Natalie");
+    const carmenRef = child(leaderRef, "Carmen");
+    const stephRef = child(leaderRef, "Stephanie");
+
+    firebaseSet(yenmyRef, {score:"100", rank:"1", name:"Yenmy"})
+    firebaseSet(natalieRef, {score:"50", rank:"4", name:"Natalie"})
+    firebaseSet(carmenRef, {score:"60", rank:"3", name:"Carmen"})
+    firebaseSet(stephRef, {score:"90", rank:"2", name:"Stephanie"})
+    .then(() => console.log("data saved successfully!"))
+    .catch(err => console.log(err));
     
+    const unregisterFunction = onValue(leaderRef, (snapshot) => {
+        const leader = snapshot.val();
+        const objKeys =  Object.keys(leader)
+        const objArray = objKeys.map((keyString) => {
+         
+            leader[keyString].key = keyString;
+            return leader[keyString];
+           
+    })
+
+    objArray.sort((a,b)=>{
+        return b.score -a.score;
+  })
+        setLeaderBoard(objArray);
+     
+ 
+    
+    
+      
+    function cleanup(){
+        unregisterFunction();
+    }
+    return cleanup;
+})
+
+}, [points])
+   
+  console.log(leaderboard) ;
     return(
         <div>
         <h1 id="congrat">Congrats!</h1>
@@ -52,7 +96,7 @@ export default function Leader({points}){
 
             <div className="row">
                 <div className="col-12">
-                    <h2 className="leader">World LeaderBoard</h2>
+                    <h2 className="leader" >World LeaderBoard</h2>
                 </div>
           
            <table>
@@ -60,17 +104,15 @@ export default function Leader({points}){
                 <tr>
                     <th>Rank</th>
                     <th>Score</th>
-                    <th>Avg Time</th>
                     <th>User</th>
                 </tr>
             </thead>
-            <tbody>
-                <MakeRow rank= '1' score='20' time='00:03:12' user='Username'/>
-                <MakeRow rank='2' score='19' time='00:03:12' user='Username'/>  
-                <MakeRow rank='3' score='19' time='00:03:12' user='Username'/>  
-                <MakeRow rank='4' score='19' time='00:03:12' user='Username' />  
-                <MakeRow rank='5' score='19' time='00:03:12' user='Username' />  
-                <MakeRow rank='6' score='19' time='00:03:12' user='Username' />  
+            <tbody onClick={useEffect}>
+
+            {leaderboard.map((entry, index) => (
+                <MakeRow key={index} rank={entry.rank}  score ={entry.score} user={entry.name} />
+                    ))}
+               
             </tbody> 
             </table>
          
@@ -90,12 +132,11 @@ export default function Leader({points}){
 }
 
 
-function MakeRow({rank, score, time, user}){
+function MakeRow({rank, score, user}){
     return(
       <tr>
             <td>{rank}</td>
             <td>{score}</td>  
-            <td>{time}</td>
             <td>{user}</td>
         </tr>
     )
