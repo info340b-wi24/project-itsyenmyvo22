@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { NavBar } from './Navbar';
 import Home from '../pages/Home';
 import Game from '../pages/Game';
-import { Calendar, CalendarTable } from '../pages/Calendar';
+import { Calendar, DefaultCalendarTable, CalendarTable } from '../pages/Calendar';
 import Cards from '../pages/Cards';
 import { Route, Routes, Switch} from "react-router-dom";
 import Leader from '../pages/Leader';
@@ -44,8 +44,8 @@ function App(props){
                         <Route index="/Home" element={<Home />} />
                         <Route path="/add-card" element={<AddCard />} />
                         <Route path="/Calendar" element={<Calendar />} >
-                            <Route path=':currMonth' element={<CalendarTable defaultMonth={null} />} />
-                            <Route index element = {<CalendarTable defaultMonth='March' />} />
+                            <Route path=':currMonth' element={<CalendarTable />} />
+                            <Route index element = {<DefaultCalendarTable />} />
                         </Route>
                         <Route path="/Game" element={<Game countPoints={countPoints} points ={points} />} />
                         <Route path="/Cards" element={<Cards />} />
