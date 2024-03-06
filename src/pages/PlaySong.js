@@ -11,18 +11,15 @@ export function PlaySong({audio,  points, countPoints, name}){
      const [isPlaying, setIsPlaying] = useState(false);
      const[play, {pause, duration, sound}] = useSound(audio);
      
-     const [currTime, setCurrTime] = useState({
-      sec: "",
-    });
+     const [currTime, setCurrTime] = useState("");
     const [seconds, setSeconds] = useState(0); 
    
       
     
     const sec = (duration / 1000) -1;
-      const secRemain = Math.floor(sec % 60);
-      const time = {
-        sec: secRemain
-    }; 
+    const secRemain = Math.floor(sec % 60);
+    const time = secRemain;
+    
 
 
     useEffect(() => {
@@ -31,22 +28,20 @@ export function PlaySong({audio,  points, countPoints, name}){
         if (sound) {
           setSeconds(sound.seek()); // setting the seconds state with the current state
           const sec = Math.floor(sound.seek([]) % 60);
-          setCurrTime({
-            sec
-          });
+          setCurrTime(sec);
 
-
-          if(currTime.sec === time.sec){
+          if(currTime === time){
             setIsPlaying(false);
             pause();
           
           }
         }
-      }, 1000);
+
+    }, 1000);
     
 
-       return () => clearInterval(interval);
-    }, [sound, currTime.sec, pause, time.sec]);
+  return () => clearInterval(interval);
+    }, [sound, currTime, pause, time]);
 
   
 

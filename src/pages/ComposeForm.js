@@ -4,7 +4,7 @@ export function ComposeForm(props){
  let countPoints = props.countPoints;
     const [typedValue, setTypedValue] = useState("");
    const [isCorrect, setIsCorrect] = useState(null);
-    // const[points, setPoints] = useState(0);
+
     const[currQ, setCurrQ] = useState(true);
    const handleChange = (event) => {
       const inputtedValue = event.target.value;
