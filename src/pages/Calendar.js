@@ -107,22 +107,22 @@ function Events(props) {
     const handleClick = (event) => {
         setIsVisible(!isVisible);
     }
-    const db = getDatabase();
-    const eventsRef = ref(db, "events");
-    useEffect(() => {
-        const offFunction = onValue(eventsRef, (snapshot) => {
-            const eventObjs = snapshot.val();
-            const eventKeys = Object.keys(eventObjs);
-            const eventArray = eventKeys.map((keyString) => {
-                return eventObjs[keyString];
-            });
-            setEventList(eventArray);
-            function cleanup() {
-                offFunction();
-            };
-            return cleanup;
-        });
-    }, []);
+    // const db = getDatabase();
+    // const eventsRef = ref(db, "events");
+    // useEffect(() => {
+    //     const offFunction = onValue(eventsRef, (snapshot) => {
+    //         const eventObjs = snapshot.val();
+    //         const eventKeys = Object.keys(eventObjs);
+    //         const eventArray = eventKeys.map((keyString) => {
+    //             return eventObjs[keyString];
+    //         });
+    //         setEventList(eventArray);
+    //         function cleanup() {
+    //             offFunction();
+    //         };
+    //         return cleanup;
+    //     });
+    // }, []);
     const allEvents = eventList.map((event) => {
         return (
             <div className="event" key={event.date + event.time}>
@@ -150,39 +150,39 @@ function Events(props) {
 }
 
 function Popup(props) {
-    const [titleValue, setTitleValue] = useState('');
-    const [dateValue, setDateValue] = useState('');
-    const [timeValue, setTimeValue] = useState('');
-    const [eventTypeValue, setEventTypeValue] = useState('');
-    const handleTitleChange = (event) => {
-        const newTitle = event.target.value;
-        setTitleValue(newTitle);
-    }
-    const handleDateChange = (event) => {
-        const newDate = event.target.value;
-        setDateValue(newDate);
-    }
-    const handleTimeChange = (event) => {
-        const newTime = event.target.value;
-        setTimeValue(newTime);
-    }
-    const handleEventTypeChange = (event) => {
-        const newEventType = event.target.value;
-        setEventTypeValue(newEventType);
-    }
+    // const [titleValue, setTitleValue] = useState('');
+    // const [dateValue, setDateValue] = useState('');
+    // const [timeValue, setTimeValue] = useState('');
+    // const [eventTypeValue, setEventTypeValue] = useState('');
+    // const handleTitleChange = (event) => {
+    //     const newTitle = event.target.value;
+    //     setTitleValue(newTitle);
+    // }
+    // const handleDateChange = (event) => {
+    //     const newDate = event.target.value;
+    //     setDateValue(newDate);
+    // }
+    // const handleTimeChange = (event) => {
+    //     const newTime = event.target.value;
+    //     setTimeValue(newTime);
+    // }
+    // const handleEventTypeChange = (event) => {
+    //     const newEventType = event.target.value;
+    //     setEventTypeValue(newEventType);
+    // }
     const handleClose = (event) => {
         props.setIsVisible(!props.isVisible);
     }
     const handleCreate = (event) => {
-        const db = getDatabase();
-        const eventsRef = ref(db, "events");
-        eventsRef.push( {title:titleValue, date:dateValue, time:timeValue, type:eventTypeValue} );
+        // const db = getDatabase();
+        // const eventsRef = ref(db, "events");
+        // eventsRef.push( {title:titleValue, date:dateValue, time:timeValue, type:eventTypeValue} );
         props.setIsVisible(!props.isVisible);
     }
     return (
         <div className="popup py-3" id="popup">
             <button className="btn-close" aria-label='Close event popup' onClick={handleClose}></button>
-            <form>
+            {/* <form>
                 <div className="popup-title">
                     <label htmlFor="title-input" className="title-label">Event Title:</label>
                     <input type="text" id="title-input" placeholder="My Event" value={titleValue} onChange={handleTitleChange} className="title-input"></input>
@@ -204,7 +204,7 @@ function Popup(props) {
                     </select>
                 </div>
                 <button className="create-event" aria-label='Save event' onSubmit={handleCreate}>Create Event</button>
-            </form>
+            </form> */}
         </div>
     );
 }
