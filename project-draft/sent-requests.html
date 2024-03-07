@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Stephanie Liu">
+  <meta name="description" content="hub for bts fans to enjoy bts related content">
+  <title>ARMY Base</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="icon" href="photos/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body id="sentrq" class="sent">
+  <header>
+    <div class="overlap">
+        <img src="photos/logo.png" alt="ArmyBase logo of a purple whale" height="120" width="120">
+    </div>
+  </header>  
+<nav class="site-navbar">
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 td">
+    <a href="index.html">Home</a>
+
+    </div>
+    <div class="col-md-3 col-lg-3 col-xl-3 td">
+  <a href="calendar.html">Calendar</a>
+</div>
+<div class="col-md-3 col-lg-3 col-xl-3 td">
+  <a href="game.html">Guess the Song</a>
+</div>
+<div class="col-md-3 col-lg-3 col-xl-3 td">
+  <a href="card-trading.html">Card Trading</a>
+</div>
+</div>
+</div>
+</nav>
+
+<nav class="navbar navbar-dark site-navbar" id="mobile">
+
+
+
+<button class="navbar-toggler ms-auto" type="button" id = "toggle" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon fas fa-bars fa-1x"><i
+    Class = "fas fa-bars fa-1x"></i></span>
+</button>
+
+<div class = "collapse navbar-collapse" id = "navbarSupportedContent1">
+ <ul class = "navbar-nav mr-auto">
+    <li class = "nav-item active">
+      <a class = "nav-link" href="index.html">Home</a>
+    </li>
+    <li class = "nav-item">
+       <a class = "nav-link" href="card-trading.html">Card Trading</a>
+    </li>
+    <li class = "nav-item">
+      <a class = "nav-link" href="game.html">Guess the Song</a>
+    </li>
+    <li class = "nav-item">
+      <a class = "nav-link" href="calendar.html">Calendar</a>
+    </li>
+    
+ </ul>
+</div>
+</nav>
+
+<main id="sent" class="sent">
+
+  <h1 class="rqh1">Sent Requests</h1>
+  <div class="rectangle">
+    <div id="none-sent" class="none">
+      No sent requests
+    </div>
+  </div>
+
+  
+
+  
+</main>
+
+<footer>
+  <p> &copy; 2024 ARMY BASE  All Rights Reserved</p>
+  <p> Created By Yenmy Vo, Stephanie Liu, Natalie Hinds, and Carmen Weatherman</p>
+</footer>
+<script>
+  let item = document.getElementById('navbarSupportedContent1');
+  let button = document.getElementById('toggle');
+  button.addEventListener('click', () => {
+     if (item.style.display != "block") {
+        item.style.display = "block";
+     } else {
+        item.style.display = "none";
+     }
+  })
+  </script>
+</body>
+
+
+
+</html>
