@@ -4,7 +4,7 @@
 {"songname": "butter", "audio": "audios/butter.mp3","length": "5", "key": "but-5"},
 {"songname": "dna", "audio": "audios/dna.mp3","length": "5", "key": "dna-5"},
 {"songname": "dynamite", "audio": "audios/dynamite.mp3","length": "5", "key": "dyn-5"},
-{"songname": "fake love", "audio": "audios/fakelove.mp3","length": "5", "key": "flov-5"},
+{"songname": "fake love", "audio": "/audios/fakelove.mp3","length": "5", "key": "flov-5"},
 {"songname": "fire", "audio": "audios/fire.mp3", "length": "5", "key": "fir-5"},
 {"songname": "idol", "audio": "audios/idol.mp3", "length": "5", "key": "idol-5"},
 {"songname": "mic drop", "audio": "audios/micdrop.mp3","length": "5", "key": "mic-5"},

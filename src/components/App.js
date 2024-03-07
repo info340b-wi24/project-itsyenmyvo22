@@ -75,6 +75,8 @@ function App(props){
                                         <Route path="/TradeRequest" element={<TradeRequest />} />
                                         <Route path="/Accept" element={<Accept />} />
                                         <Route path="/Cards" element={<Cards />} />
+                                         
+                                         <Route path="*" element={<Navigate to="/"/>}/>
                                     </Routes>      
                                 </div>
                             </div>
