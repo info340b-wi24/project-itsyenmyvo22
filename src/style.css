@@ -895,10 +895,10 @@ footer {
         flex: 4 1 40%;
     }
     .calendar {
-        flex-basis: 70%;
+        flex-basis: 90%;
     }
     .event-section {
-        padding-right: 4rem;
+        padding-left: 2rem;
     }
     .event-heading {
         width: 100%;
@@ -932,7 +932,7 @@ footer {
 
     th, td {
         width: 5.5rem;
-        padding-bottom: .5rem;
+        padding-bottom: 4rem;
     }
 
     .calendar {
