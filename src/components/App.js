@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { NavBar } from './Navbar';
 import Home from '../pages/Home';
 import Game from '../pages/Game';
@@ -12,25 +12,45 @@ import { Link } from 'react-router-dom';
 import TradeRequest from "../pages/TradeRequest";
 import {Accept} from "../pages/Accept";
 import AddCard from '../pages/add-card';
-
-
-
+import { getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth'
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import {login} from './login';
+import { onAuthStateChanged } from 'firebase/auth'
 
 function App(props){
-
-
-   
         
-        const[points, setPoints] = useState(0);
-        function countPoints(){
-          let newPoints = points +10
-          setPoints(newPoints);
-          console.log(points);
-         }
+    const[points, setPoints] = useState(0);
+    function countPoints(){
+        let newPoints = points +10
+        setPoints(newPoints);
+        console.log(points);
+    }
+
+    // const firebaseUIConfig = {
+    //     signInOptions: [
+    //         GoogleAuthProvider.PROVIDER_ID,
+    //         { provider: EmailAuthProvider.PROVIDER_ID, requiredDisplayName: true },
+    //     ],
+    //     signInFlow: 'popup', 
+    //     credentialHelper: 'none', 
+    //     callbacks: { 
+    //         signInSuccessWithAuthResult: () => {
+    //         return false; //don't redirect after authentication
+    //         }
+    //     }
+    // }
+
+    // const auth = getAuth(); 
 
     return (
-        <div>            
-            <div className='footer-bottom'>
+        <div>
+            {/* <div className='authen-popup-container'>
+                <h1>Login</h1>
+                <p>Please sign-in:</p>
+                <StyledFirebaseAuth uiConfig={firebaseUIConfig} firebaseAuth={auth} />
+            </div> */}
+
+            <div className='footer-bottom'>              
                 <header>
                     <div className="overlap">
                         <Link to="/">  <img src="photos/logo.png" alt="ArmyBase logo of a purple whale" height="120" width="130"></img></Link>
