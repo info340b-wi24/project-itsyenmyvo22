@@ -296,7 +296,7 @@ h1.rqh1 {
 
 .container .rectangle {
     display: flex;
-    height: 9.5rem;
+    height: 10rem;
     width: 100%;
     background-color:  #8F5EB1;
     border-radius: 15px;
@@ -400,7 +400,7 @@ main.incoming {
 
 }
 
-.rectangle {
+.rectanglerq {
     display: flex;
     background-color: white;
     width: 80%;
@@ -837,7 +837,7 @@ footer {
         padding-left: 2.5em;
     }
 
-    .rectangle {
+    .container .rectangle {
         display: flex;
         background-color: white;
         width: 80%;
@@ -845,21 +845,7 @@ footer {
         border-radius: 15px;
         margin: 25px auto;
         justify-content: center;
-    }
-
-    
-
-    /* .rectangle#sentrq {
-        display: flex;
-        background-color: white;
-        width: 80%;
-        height: 25rem;
-        border-radius: 15px;
-        margin: 25px auto;
-        justify-content: center;
-    } */
-
-    
+    } 
     
     th, td {
         width: 4.5rem;
