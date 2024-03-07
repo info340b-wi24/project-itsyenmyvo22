@@ -14,11 +14,14 @@ export default function Leader({points}){
     const natalieRef = child(leaderRef, "Natalie");
     const carmenRef = child(leaderRef, "Carmen");
     const stephRef = child(leaderRef, "Stephanie");
-
-    firebaseSet(yenmyRef, {score:"100", rank:"1", name:"Yenmy"})
-    firebaseSet(natalieRef, {score:"50", rank:"4", name:"Natalie"})
-    firebaseSet(carmenRef, {score:"60", rank:"3", name:"Carmen"})
-    firebaseSet(stephRef, {score:"90", rank:"2", name:"Stephanie"})
+        const userRef = child(leaderRef, "username");
+    firebaseSet(yenmyRef, {score:"100",  name:"Yenmy"})
+    firebaseSet(natalieRef, {score:"50", name:"Natalie"})
+    firebaseSet(carmenRef, {score:"60",  name:"Carmen"})
+    firebaseSet(stephRef, {score:"90", name:"Stephanie"})
+    const scory = {points}.points;
+    console.log({scory});
+    firebaseSet(userRef, {score: scory, name:"user" })
     .then(() => console.log("data saved successfully!"))
     .catch(err => console.log(err));
     
@@ -96,7 +99,7 @@ export default function Leader({points}){
 
             <div className="row">
                 <div className="col-12">
-                    <h2 className="leader" >World LeaderBoard</h2>
+                    <h2 className="leader" >LeaderBoard</h2>
                 </div>
           
            <table>
@@ -110,7 +113,7 @@ export default function Leader({points}){
             <tbody onClick={useEffect}>
 
             {leaderboard.map((entry, index) => (
-                <MakeRow key={index} rank={entry.rank}  score ={entry.score} user={entry.name} />
+                <MakeRow key={index} rank={index+1 }  score ={entry.score} user={entry.name} />
                     ))}
                
             </tbody> 
