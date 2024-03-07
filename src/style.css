@@ -292,6 +292,12 @@ a.trade-btn:hover, a.member-btn:hover {
     justify-content: center;
     height: 100vh;
 }
+
+.logout-btn {
+    position: absolute;
+    top: 0;
+    right: 0;   
+}
 /* End of stuff for authentication */
 
 h1 {

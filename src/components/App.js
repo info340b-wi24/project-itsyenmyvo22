@@ -42,7 +42,7 @@ function App(props){
     }
 
     const handleSignOut = (event) => {
-        //sign out here
+        console.log("Signed out");
         signOut(getAuth());
     }
 
@@ -53,6 +53,7 @@ function App(props){
                                 <header>
                                     <div className="overlap">
                                         <Link to="/">  <img src="photos/logo.png" alt="ArmyBase logo of a purple whale" height="120" width="130"></img></Link>
+                                        <button aria-label='logout' className='member-btn logout-btn' onClick={handleSignOut}>Logout</button>
                                     </div>
                                 </header>
                 
