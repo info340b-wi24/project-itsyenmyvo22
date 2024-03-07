@@ -277,10 +277,22 @@ a.trade-btn:hover, a.member-btn:hover {
 .exit-btn:hover {
     color: white;
 }
-
-
 /* End of Stuff for Card Trading Page */
 
+/* Stuff for authentication */
+.login-instructions {
+    text-align: center;
+}
+
+.authen-container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+/* End of stuff for authentication */
 
 h1 {
     margin: .5rem;
