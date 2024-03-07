@@ -110,7 +110,7 @@ export default function Leader({points}){
                     <th>User</th>
                 </tr>
             </thead>
-            <tbody onClick={useEffect}>
+            <tbody>
 
             {leaderboard.map((entry, index) => (
                 <MakeRow key={index} rank={index+1 }  score ={entry.score} user={entry.name} />
