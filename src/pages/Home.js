@@ -17,14 +17,14 @@ export default function Home(props) {
             <div className="col">
             <div className="container-fluid">
                 <img src="photos/home/purple-clouds.png" alt="background for sent requests button" />
+                <Link aria-label='sent requests page' to="/sent-requests" className="btn-sent" id="sent">Sent Trade Request</Link>
             </div>
-            <Link aria-label='sent requests page' to="/sent-requests" className="btn-sent" id="sent">Sent Trade Request</Link>
             </div>
             <div className="col">
             <div className="container-fluid">
                 <img src="photos/home/army-ocean.png" alt="background for incoming requests button" />
+                <Link aria-label='incoming requests page' to="/incoming-requests" className="btn-incoming" id="incoming">Incoming Trade Request</Link>
             </div>
-            <Link aria-label='incoming requests page' to="/incoming-requests" className="btn-incoming" id="incoming">Incoming Trade Request</Link>
             </div>
         </div>
 

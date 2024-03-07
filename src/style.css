@@ -758,6 +758,10 @@ footer {
 }
 
 @media (min-width: 768px) {
+
+    .container-fluid {
+        position: relative;
+    }
    
     .row.g-0.mx-0 {
         display: flex;
@@ -778,7 +782,7 @@ footer {
     .row.g-0.mx-0 .btn-incoming {
         position: absolute;
         top: 50%;
-        left: 73%;
+        left: 50%;
         transform: translate(-50%, -50%);
         background-color: #8F5EB1;
         color: white;
@@ -802,7 +806,7 @@ footer {
     .btn-sent {
         position: absolute;
         top: 50%;
-        left: 28%;
+        left: 50%;
         transform: translate(-50%, -50%);
         background-color:#8F5EB1;
         color: white;
