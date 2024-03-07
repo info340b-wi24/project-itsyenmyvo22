@@ -2,48 +2,56 @@ import React, { useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import {PlaySong} from './PlaySong.js';
 import {getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { getDatabase, ref as dbRef, push as dbPush, set as firebaseSet } from 'firebase/database';
+import { child, getDatabase, ref, push as dbPush, set as firebaseSet, onValue } from 'firebase/database';
 //import audios from '../data/audios.json'
 
 export default function Game({points, countPoints}){
   
-  const audios =["audios/bloodsweatandtears", "audios/boywithlove", "audios/butter"
-,"audios/dna", "audios/dynamite", "audios/fakelove","audios/fire", "audios/idol"
-,"audios/micdrop", "audios/springday" ]
+  const audios =["audios/bloodsweatandtears.mp3", "audios/boywithlove.mp3", "audios/butter.mp3"
+,"audios/dna.mp3", "audios/dynamite.mp3", "audios/fakelove.mp3","audios/fire.mp3", "audios/idol.mp3"
+,"audios/micdrop.mp3", "audios/springday.mp3" ]
 
  
-useEffect(() => {
-  const storage = getStorage();
+const db = getDatabase();
+const gameRef = ref(db, "game");
 
   // Iterate over the array of audio files
-  audios.map(async (audio, index) => {
-      try {
-          // Generate a unique file name for each audio file (you can customize this as per your requirements)
-          const fileName = audio; // Assuming all files are MP3 format
-// key = audio;
-          // Create a reference to the storage location where you want to upload the audio file
-          const fileRef = storageRef(storage, fileName);
-
-          // Upload the audio file bytes to Firebase Storage
-          await uploadBytes(fileRef, audio);
-          //put in database
-          
-        const db = getDatabase(); //also put in database (for fun)
-        const refString = fileName;
-        
-        const audioRef = dbRef(db, "audios/"+ fileName+"/mp3")
-        firebaseSet(audioRef, audio);
+  audios.forEach(async (audio, index) => {
+    const storage = getStorage();
+    const fileRef = storageRef(storage, audio);
+  
+    try { //try/catch to handle errors
+      await uploadBytes(fileRef, audio) //asynchronous upload
+      const url = await getDownloadURL(fileRef); //asynch query for public URL
+      //...do something with the url, such as set it to state for rendering
+      //...or save that url in the realtime database
+      const songRef = child(gameRef, "song" + [index]);
+      // firebaseSet(songRef, {name:"song" + [index], url:{url}})
+      await firebaseSet(songRef, { name: `song${index}`, url: url });
 
 
 
-          console.log(`Audio file ${index + 1} uploaded successfully.`);
-      } catch (error) {
-          console.error(`Error uploading audio file ${index + 1}:`, error);
-      }
-      <PlaySong audio={audioRef} name={song.songname} key={song.key} points={points} countPoints ={countPoints}/>
+
+    } catch (err) {
+      console.log(err); //log any errors for debugging
+    }
   });
-})
+//return array of audio files
+// const unregisterFunction = onValue(gameRef, (snapshot) => {
+//   const leader = snapshot.val();
+//   const objKeys =  Object.keys(leader)
+//   const objArray = objKeys.map((keyString) => {
+   
+//       leader[keyString].key = keyString;
+//       return leader[keyString];
+     
+// })
 
+// function cleanup(){
+//   unregisterFunction();
+// }
+// return cleanup;
+// })
 // uploadAudios(audios);
   
   
@@ -52,7 +60,7 @@ useEffect(() => {
  const handleStart = () => {
       setStart(true);
   }
-// let song = audios.map(function(song){
+// let song = song.map(function(song){
 //   let aud = song.audio;
   
   
@@ -80,7 +88,7 @@ useEffect(() => {
   
   {start? ( <div className="container">
 
-{song}
+{/* {song} */}
 
 </div>): (<div/>)}
       
