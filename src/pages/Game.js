@@ -1,8 +1,7 @@
 import React, { useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import {PlaySong} from './PlaySong.js';
-import {getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { child, getDatabase, ref, push as dbPush, set as firebaseSet, onValue } from 'firebase/database';
+
 import audios from '../data/audios.json'
 
 export default function Game({points, countPoints}){

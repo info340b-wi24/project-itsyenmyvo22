@@ -85,7 +85,7 @@ function App(props){
                                 <div className='container'>
                                     <Routes>
                                         <Route index="/Home" element={<Home />} />
-                                        <Route path="/add-card" element={<AddCard />} />
+                                        <Route path="/add-card" element={<AddCard userId ={userId}/>} />
                                         <Route path="/Calendar" element={<Calendar />} >
                                             <Route path=':currMonth' element={<CalendarTable />} />
                                             <Route index element = {<DefaultCalendarTable />} />
