@@ -15,26 +15,43 @@ import AddCard from '../pages/add-card';
 import { getAuth, EmailAuthProvider, GoogleAuthProvider, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import Login from './Login';
-
+import { getDatabase } from 'firebase/database';
+import { ref, set as firebaseSet, child, push as firebasePush, onValue} from 'firebase/database'
 function App(props){
     const [currentUser, setCurrentUser] = useState(null);
     const[points, setPoints] = useState(0);
-
+    const [userId, setUserId] = useState(null);
     useEffect(() => {
         const auth = getAuth();
-
+       
         onAuthStateChanged(auth, (firebaseUser) => {
             if (firebaseUser) {
                 console.log("signing in as", firebaseUser.displayName)
                 setCurrentUser(firebaseUser);
+                console.log(firebaseUser.uid);
+                setUserId(firebaseUser.uid);
+               
             } else {
                 console.log("signed out");
                 setCurrentUser(null);
+                setUserId(null);
             }
         })
 
     }, []);
-    
+   
+   
+  
+        if(userId !== null){
+            console.log("hi");
+        const db = getDatabase();
+        const userDataRef = ref(db, "userData");
+        const userRef = child(userDataRef, currentUser)
+        firebaseSet(userDataRef);
+        firebaseSet(userRef, {name:"user", userId: userId })
+        }
+   
+
     function countPoints(){
         let newPoints = points +10
         setPoints(newPoints);
