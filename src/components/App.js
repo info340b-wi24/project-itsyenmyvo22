@@ -54,7 +54,7 @@ function App(props){
         const userDataRef = ref(db, "userData");
         const userRef = child(userDataRef, userId)
        
-        firebaseSet(userRef, {userId: userId, email: email, userName:userName  })
+        firebaseSet(userRef, {userId: userId, email: email, userName:userName, image: "image" })
         }
    
 
@@ -85,7 +85,7 @@ function App(props){
                                 <div className='container'>
                                     <Routes>
                                         <Route index="/Home" element={<Home />} />
-                                        <Route path="/add-card" element={<AddCard userId ={userId}/>} />
+                                        <Route path="/add-card" element={<AddCard userId ={userId} displayName={userName}/>} />
                                         <Route path="/Calendar" element={<Calendar />} >
                                             <Route path=':currMonth' element={<CalendarTable />} />
                                             <Route index element = {<DefaultCalendarTable />} />

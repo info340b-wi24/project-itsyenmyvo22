@@ -9,6 +9,7 @@ import {getStorage, ref as dbRef, uploadBytes, getDownloadURL } from 'firebase/s
 // function Drop({onOptionChange}) {
 //     const handleOptionSelect = (eventKey) => {
 //         onOptionChange(eventKey);
+//         //setSelectedOption(eventKey);
 //     };
 
 //     return (
@@ -35,9 +36,9 @@ export default function AddCard (props) {
     
   
     const userId = props.userId;
-  
+  const displayName = props.displayName
     const [imageFile, setImageFile] = useState(undefined)
-    let initialURL = props.currentUser;
+    let initialURL = "photos/home/upload-icon.png";
     const [imageUrl, setImageUrl] = useState(initialURL)
   const[selectedOption, setSelectedOption] = useState("")
 
@@ -46,7 +47,7 @@ export default function AddCard (props) {
     
     //image uploading!
     const handleChange = (event) => {
-      if(event.target.files.length > 0 && event.target.files[0]) {
+      if(event && event.target.files.length > 0 && event.target.files[0]) {
         const imageFile = event.target.files[0]
         setImageFile(imageFile);
         setImageUrl(URL.createObjectURL(imageFile));
@@ -55,68 +56,91 @@ export default function AddCard (props) {
     }
   
     const handleImageUpload = async (event) => {
-      console.log("Uploading", imageFile);
+      const storage = getStorage();
+      const db= getDatabase();
+        console.log("Uploading", imageFile);
       
-      const storageRef = dbRef(storage);
-      const imageRef = ref(storageRef, userId+".png");
+
+      const imageRef = dbRef(storage, userId+".png");
      
-      try{
-        await uploadBytes(imageRef, imageFile)
+        await uploadBytes(imageRef, imageFile);
+        console.log("hu");
       const downloadUrlString = await getDownloadURL(imageRef);
       console.log(downloadUrlString);
   
       //put in user profile
-    //   await updateProfile(currentUser, { photoURL: downloadUrlString} );
-  
+
       //also put in database (for fun)
-      const db = getDatabase();
-      const userDataRef = dbRef(db, "userData");
+
+      const userDataRef = ref(db, "cardData");
+        //const userImgRef = ref(userDataRef, "images")
+       
       const userRef = child(userDataRef, userId)
-    //   const refString = "userData/"+userId+"/imgUrl";
-    //   console.log(refString);
-    //   const userImgRef = dbRef(db, "userData/"+userId+"/imgUrl")
-    firebaseSet(userRef, {imageUrl: downloadUrlString})
-    //   await firebaseSet(userImgRef, downloadUrlString);
+        
+    
+   
+    await firebaseSet(userRef, {imageUrl: downloadUrlString, userId: userId, member:selectedOption})
+    
     console.log("Image uploaded successfully:", downloadUrlString);
-    } catch (error) {
-        console.error("Error uploading image:", error);
     }
-}
 
-    // const handleOptionChange = (selected) => {
-    //     setSelectedOption(selected);
-    // };
 
-    // const isFormValid = () => {
-    //     return imageFile && selectedOption; // Check if both file and dropdown are selected
-    // };
+    const handleOptionChange = (selected) => {
+    setSelectedOption(selected);
+    if(selected){
+        handleImageUpload()
+    }
+    }
+
+    const isFormValid = () => {
+        return  selectedOption; // Check if both file and dropdown are selected
+    };
 
 
     const handleSubmit = () => {
-        handleImageUpload();
-        // if (isFormValid()) {
-        //     // Submit form
-        //     handleImageUpload();
-        // } else {
-        //     console.log("invalid")
-        //     alert("Please select a member name and upload an image.");
-        // }
+       // handleImageUpload();
+     
+       if (isFormValid()) {
+            // Submit form
+            handleChange();
+           
+        } else {
+            console.log("invalid")
+            alert("Please select a member name and upload an image.");
+        }
     };
     return (
         <div className="add-card">
-                <p className="request-title">Upload Image</p>
-                <Link  aria-label='exit button' className="exit-btn" to='/'>X</Link>
-                <div className="inner-add-card">
-                    <img className="upload-icon" src="photos/home/upload-icon.png" alt="cloud with an arrow pointing upwards" />
-                    
-                    {/* <Drop  onOptionChange={setSelectedOption}/> */}
-
-                    <input type="file" onChange={handleChange}/>
-                  
-                    <button aria-label='upload button' className="member-btn trade-btn" onClick={handleSubmit} >Upload</button>
-                
-                
-                </div>
-        </div>
-    )  
-}
+  <div className="container">
+  
+  <p className="request-title">Upload Image</p>
+  <Link  aria-label='exit button' className="exit-btn" to='/'>X</Link><div className="mb-5 image-upload-form">
+  <div className="inner-add-card">
+        <img src={imageUrl} alt="user avatar preview" className="mb-2"/>
+        <Dropdown >
+        <Dropdown.Toggle className = "bg-dark" variant="success" id="dropdown-basic">
+          Select Member Name
+        </Dropdown.Toggle>
+  
+        <Dropdown.Menu>
+          <Dropdown.Item  onClick= {() => handleOptionChange("BTS")}>BTS</Dropdown.Item>
+          <Dropdown.Item onClick= {() => handleOptionChange("RM")}>RM</Dropdown.Item>
+          <Dropdown.Item onClick= {() => handleOptionChange("JIN")} >JIN</Dropdown.Item>
+          <Dropdown.Item onClick= {() => handleOptionChange("SUGA")}>SUGA</Dropdown.Item>
+          <Dropdown.Item onClick= {() => handleOptionChange("J-HOPE")}>J-HOPE</Dropdown.Item>
+          <Dropdown.Item onClick= {() =>handleOptionChange("JIMIN")}>JIMIN</Dropdown.Item>
+          <Dropdown.Item onClick= {() =>handleOptionChange("V")}>V</Dropdown.Item>
+          <Dropdown.Item onClick= {() =>handleOptionChange("JUNKOOK")}>JUNGKOOK</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+        <label htmlFor="imageUploadInput" className="member-btn trade-btn">Choose Image</label>
+        <button ria-label='upload button' className="member-btn trade-btn"  onClick={handleSubmit}>Upload Card</button>
+        <input type="file" name="image" id="imageUploadInput" className="d-none" onChange={handleChange}/>
+      </div>
+      </div>
+    </div>
+    </div>      
+             
+     
+)}
+    
