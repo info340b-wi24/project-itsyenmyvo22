@@ -21,6 +21,9 @@ function App(props){
     const [currentUser, setCurrentUser] = useState(null);
     const[points, setPoints] = useState(0);
     const [userId, setUserId] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [userName, setUserName] = useState(null);
+    
     useEffect(() => {
         const auth = getAuth();
        
@@ -30,11 +33,14 @@ function App(props){
                 setCurrentUser(firebaseUser);
                 console.log(firebaseUser.uid);
                 setUserId(firebaseUser.uid);
-               
+              setEmail(firebaseUser.email);
+              setUserName(firebaseUser.displayName);
             } else {
                 console.log("signed out");
                 setCurrentUser(null);
                 setUserId(null);
+                setEmail(null);
+                setUserName(null);
             }
         })
 
@@ -46,9 +52,9 @@ function App(props){
             console.log("hi");
         const db = getDatabase();
         const userDataRef = ref(db, "userData");
-        const userRef = child(userDataRef, currentUser)
-        firebaseSet(userDataRef);
-        firebaseSet(userRef, {name:"user", userId: userId })
+        const userRef = child(userDataRef, userId)
+       
+        firebaseSet(userRef, {userId: userId, email: email, userName:userName  })
         }
    
 
