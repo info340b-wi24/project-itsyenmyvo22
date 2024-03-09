@@ -128,11 +128,11 @@ export default function AddCard (props) {
           <Dropdown.Item  onClick= {() => handleOptionChange("BTS")}>BTS</Dropdown.Item>
           <Dropdown.Item onClick= {() => handleOptionChange("RM")}>RM</Dropdown.Item>
           <Dropdown.Item onClick= {() => handleOptionChange("JIN")} >JIN</Dropdown.Item>
-          <Dropdown.Item onClick= {() => handleOptionChange("SUGA")}>SUGA</Dropdown.Item>
-          <Dropdown.Item onClick= {() => handleOptionChange("J-HOPE")}>J-HOPE</Dropdown.Item>
-          <Dropdown.Item onClick= {() =>handleOptionChange("JIMIN")}>JIMIN</Dropdown.Item>
+          <Dropdown.Item onClick= {() => handleOptionChange("MYG")}>MYG</Dropdown.Item>
+          <Dropdown.Item onClick= {() => handleOptionChange("JHS")}>JHS</Dropdown.Item>
+          <Dropdown.Item onClick= {() =>handleOptionChange("PJM")}>PJM</Dropdown.Item>
           <Dropdown.Item onClick= {() =>handleOptionChange("V")}>V</Dropdown.Item>
-          <Dropdown.Item onClick= {() =>handleOptionChange("JUNKOOK")}>JUNGKOOK</Dropdown.Item>
+          <Dropdown.Item onClick= {() =>handleOptionChange("JK")}>JK</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
         <label htmlFor="imageUploadInput" className="member-btn trade-btn">Choose Image</label>
