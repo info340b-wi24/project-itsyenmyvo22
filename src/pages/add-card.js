@@ -62,7 +62,7 @@ export default function AddCard (props) {
       const imageRef = dbRef(storage, userId );
      
         await uploadBytes(imageRef, imageFile);
-        console.log("hu");
+       
       const downloadUrlString = await getDownloadURL(imageRef);
       console.log(downloadUrlString);
   

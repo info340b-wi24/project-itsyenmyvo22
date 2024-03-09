@@ -49,7 +49,7 @@ function App(props){
    
   
         if(userId !== null){
-            console.log("hi");
+          
         const db = getDatabase();
         const userDataRef = ref(db, "userData");
         const userRef = child(userDataRef, userId)
