@@ -87,22 +87,21 @@ export default function AddCard (props) {
 
     const handleOptionChange = (selected) => {
     setSelectedOption(selected);
-    if(selected){
-        handleImageUpload()
-    }
+    
     }
 
     const isFormValid = () => {
-        return  selectedOption; // Check if both file and dropdown are selected
+        return  selectedOption && imageFile; // Check if both file and dropdown are selected
     };
 
 
     const handleSubmit = () => {
-       // handleImageUpload();
-     
+      
+    
        if (isFormValid()) {
             // Submit form
-            handleChange();
+            handleImageUpload();
+            //handleChange();
            
         } else {
             console.log("invalid")
