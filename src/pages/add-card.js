@@ -60,8 +60,7 @@ export default function AddCard (props) {
       const db= getDatabase();
         console.log("Uploading", imageFile);
       
-
-      const imageRef = dbRef(storage, userId+".png");
+      const imageRef = dbRef(storage, userId );
      
         await uploadBytes(imageRef, imageFile);
         console.log("hu");
@@ -74,12 +73,15 @@ export default function AddCard (props) {
 
       const userDataRef = ref(db, "cardData");
         //const userImgRef = ref(userDataRef, "images")
-       
-      const userRef = child(userDataRef, userId)
+     
+      const userRef = child(userDataRef, userId );
+      const name = imageFile.name.replace(".", "-");
+      console.log(name);
+      const imgRef = child(userRef, name);
         
     
    
-    await firebaseSet(userRef, {imageUrl: downloadUrlString, userId: userId, member:selectedOption})
+    await firebaseSet(imgRef, {imageUrl: downloadUrlString, userId: userId, member:selectedOption})
     
     console.log("Image uploaded successfully:", downloadUrlString);
     }
@@ -115,7 +117,7 @@ export default function AddCard (props) {
   <p className="request-title">Upload Image</p>
   <Link  aria-label='exit button' className="exit-btn" to='/'>X</Link><div className="mb-5 image-upload-form">
   <div className="inner-add-card">
-        <img src={imageUrl} alt="user avatar preview" className="mb-2 imageUpload"/>
+        <img src={imageUrl} alt="user avatar preview" className=" mt-2 mb-2 imageUpload"/>
         <Dropdown >
         <Dropdown.Toggle className = "bg-dark" variant="success" id="dropdown-basic">
           Select Member Name
