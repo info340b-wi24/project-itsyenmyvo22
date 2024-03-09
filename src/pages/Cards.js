@@ -29,7 +29,9 @@ export default function Cards(props){
         setSelectedMember(member);
     };
 
-    const memberButtons = Array.from(new Set(cardData.map(card => card.member))).map(member => (
+    const cardDataArray = Object.values(cardData);
+    
+    const memberButtons = Array.from(new Set(cardDataArray.map(card => card.member))).map(member => (
         <button
             key={member}
             aria-label="select"
@@ -51,7 +53,7 @@ export default function Cards(props){
     //     </button>
     // ));
 
-    const cardDataArray = Object.values(cardData);
+    //const cardDataArray = Object.values(cardData);
     console.log(cardDataArray);
 
     const photoCards = cardDataArray.map(card => (
@@ -59,7 +61,7 @@ export default function Cards(props){
             key={card.cardId}
             className={`photocard ${selectedMember && selectedMember !== card.member ? 'hidden' : ''}`}
         >
-            <img src={card.img} alt={`${card.member} gathering in a group`} className="photocard-img" />
+            <img src={card.imageUrl} alt={card.member} className="photocard-img" />
             <div className="photocard-description">
                 <p>
                     {card.member}
