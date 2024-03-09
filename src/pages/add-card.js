@@ -73,10 +73,10 @@ export default function AddCard (props) {
       const userDataRef = ref(db, "cardData");
         //const userImgRef = ref(userDataRef, "images")
      
-      const userRef = child(userDataRef, userId );
+    //   const userRef = child(userDataRef, userId );
       const name = imageFile.name.replace(".", "-");
       console.log(name);
-      const imgRef = child(userRef, name);
+      const imgRef = child(userDataRef, name);
         
     
    
