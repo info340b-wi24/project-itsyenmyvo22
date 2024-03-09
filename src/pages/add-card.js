@@ -120,7 +120,7 @@ export default function AddCard (props) {
         <img src={imageUrl} alt="user avatar preview" className=" mt-2 mb-2 imageUpload"/>
         <Dropdown >
         <Dropdown.Toggle className = "bg-dark" variant="success" id="dropdown-basic">
-          Select Member Name
+        {selectedOption || "Select Member Name"}
         </Dropdown.Toggle>
   
         <Dropdown.Menu>
