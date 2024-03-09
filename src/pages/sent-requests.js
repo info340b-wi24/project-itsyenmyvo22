@@ -1,9 +1,8 @@
 import React from 'react';
-
+import TradeRequest from './TradeRequest';
 
 export default function SentRequests (props) {
     return (
-    //<div>
         <main className="sent">
         <h1 className="rqh1">Sent Requests</h1>
         <div className="rectangle">
@@ -11,8 +10,6 @@ export default function SentRequests (props) {
             No sent requests
             </div>
         </div>
-    </main>
-    //</div>
-    
+        </main>
     );
 }

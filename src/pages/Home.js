@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import CardRender from '../components/CardRender';
 
 export default function Home(props) {  
+    const userId = props.userId;
+
     return (
     <div>
         <h1>Home</h1>
@@ -35,10 +38,12 @@ export default function Home(props) {
                 <div className="card">
                 <div className="card-body">
                     <Link aria-label='add card' to='/add-card' className="card-link">Add card</Link>
+                    <CardRender userId={userId} />
                 </div>
                 </div>
             </div>
             </div>
+            
         </section>
     </div> 
     );
