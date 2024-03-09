@@ -43,7 +43,6 @@ export default function AddCard (props) {
   const[selectedOption, setSelectedOption] = useState("")
 
 
-
     
     //image uploading!
     const handleChange = (event) => {
@@ -103,6 +102,7 @@ export default function AddCard (props) {
        if (isFormValid()) {
             // Submit form
             handleImageUpload();
+           
             //handleChange();
            
         } else {
@@ -112,6 +112,7 @@ export default function AddCard (props) {
     };
     return (
         <div className="add-card">
+           
   <div className="container">
   
   <p className="request-title">Upload Image</p>
@@ -135,11 +136,13 @@ export default function AddCard (props) {
         </Dropdown.Menu>
       </Dropdown>
         <label htmlFor="imageUploadInput" className="member-btn trade-btn">Choose Image</label>
-        <button ria-label='upload button' className="member-btn trade-btn"  onClick={handleSubmit}>Upload Card</button>
+        {/* <button ria-label='upload button' className="member-btn trade-btn"  onClick={handleSubmit}>Upload Card</button> */}
+        <Link ria-label='upload button' className="member-btn trade-btn"  onClick={handleSubmit} to="/">Upload Card</Link>
         <input type="file" name="image" id="imageUploadInput" className="d-none" onChange={handleChange}/>
       </div>
       </div>
     </div>
+
     </div>      
              
      
