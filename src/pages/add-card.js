@@ -1,117 +1,74 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-//import firebase from 'firebase/compat/app';
-// import {getStorage} from 'firebase/storage';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { ref, set as firebaseSet, push as firebasePush, onValue, getDatabase, child} from 'firebase/database'
 import {getStorage, ref as dbRef, uploadBytes, getDownloadURL } from 'firebase/storage';
-// import { child, getDatabase,  push as dbPush, set as firebaseSet, onValue } from 'firebase/database';
-// function Drop({onOptionChange}) {
-//     const handleOptionSelect = (eventKey) => {
-//         onOptionChange(eventKey);
-//         //setSelectedOption(eventKey);
-//     };
+import { eventWrapper } from "@testing-library/user-event/dist/utils";
+import { ref as storageRef } from 'firebase/storage';
 
-//     return (
-//       <Dropdown >
-//         <Dropdown.Toggle className = "bg-dark" variant="success" id="dropdown-basic">
-//           Select Member Name
-//         </Dropdown.Toggle>
-  
-//         <Dropdown.Menu>
-//           <Dropdown.Item eventKey= "BTS">BTS</Dropdown.Item>
-//           <Dropdown.Item eventKey= "RM">RM</Dropdown.Item>
-//           <Dropdown.Item eventKey= "JIN" >JIN</Dropdown.Item>
-//           <Dropdown.Item eventKey= "SUGA">SUGA</Dropdown.Item>
-//           <Dropdown.Item eventKey= "J-HOPE">J-HOPE</Dropdown.Item>
-//           <Dropdown.Item eventKey= "JIMIN">JIMIN</Dropdown.Item>
-//           <Dropdown.Item eventKey= "V" >V</Dropdown.Item>
-//           <Dropdown.Item eventKey= "JUNGKOOK">JUNGKOOK</Dropdown.Item>
-//         </Dropdown.Menu>
-//       </Dropdown>
-//     );
-//   }
-
-export default function AddCard (props) {
-    
-  
-    const userId = props.userId;
+export default function AddCard (props) { 
+  const userId = props.userId;
   const displayName = props.displayName
-    const [imageFile, setImageFile] = useState(undefined)
-    let initialURL = "photos/home/upload-icon.png";
-    const [imageUrl, setImageUrl] = useState(initialURL)
+  const [imageFile, setImageFile] = useState(undefined)
+  let initialURL = "photos/home/upload-icon.png";
+  const [imageUrl, setImageUrl] = useState(initialURL)
   const[selectedOption, setSelectedOption] = useState("")
 
-
-    
-    //image uploading!
-    const handleChange = (event) => {
-      if(event && event.target.files.length > 0 && event.target.files[0]) {
-        const imageFile = event.target.files[0]
-        setImageFile(imageFile);
-        setImageUrl(URL.createObjectURL(imageFile));
-        console.log("done uploading")
-      }
+  const handleChange = (event) => {
+    if(event.target.files.length > 0 && event.target.files[0]) {
+      const chosenFile = event.target.files[0];
+      setImageFile(chosenFile);
+      setImageUrl(URL.createObjectURL(chosenFile))
     }
-  
-    const handleImageUpload = async (event) => {
-      const storage = getStorage();
-      const db= getDatabase();
-        console.log("Uploading", imageFile);
-      
-      const imageRef = dbRef(storage, userId );
-     
-        await uploadBytes(imageRef, imageFile);
-       
-      const downloadUrlString = await getDownloadURL(imageRef);
-      console.log(downloadUrlString);
-  
-      //put in user profile
+  }
 
-      //also put in database (for fun)
+  async function handleImageUpload() {
+    const storage = getStorage();
+    const db= getDatabase();
+    const fileRef = storageRef(storage, imageFile.name);
+  
+    try { 
+      await uploadBytes(fileRef, imageFile) 
+      //const url = await getDownloadURL(fileRef); 
+    } catch (err) {
+      console.log(err);
+    }
 
-      const userDataRef = ref(db, "cardData");
-        //const userImgRef = ref(userDataRef, "images")
-     
-    //   const userRef = child(userDataRef, userId );
-      const name = imageFile.name.replace(".", "-");
-      console.log(name);
-      const imgRef = child(userDataRef, name);
-        
-    
+    const downloadUrlString = await getDownloadURL(fileRef);
+    const userDataRef = ref(db, "cardData");   
+    const name = imageFile.name.replace(".", "-");
+    console.log(name);
+    const imgRef = child(userDataRef, name);
    
     await firebaseSet(imgRef, {imageUrl: downloadUrlString, userId: userId, member:selectedOption})
     
     console.log("Image uploaded successfully:", downloadUrlString);
-    }
+  }
+
+  const handleOptionChange = (selected) => {
+    setSelectedOption(selected); 
+  }
+
+  const isFormValid = () => {
+    return  selectedOption && imageFile; // Check if both file and dropdown are selected
+  };
 
 
-    const handleOptionChange = (selected) => {
-    setSelectedOption(selected);
-    
-    }
-
-    const isFormValid = () => {
-        return  selectedOption && imageFile; // Check if both file and dropdown are selected
-    };
-
-
-    const handleSubmit = () => {
-      
-    
-       if (isFormValid()) {
-            // Submit form
-            handleImageUpload();
+  const handleSubmit = () => {
+    if (isFormValid()) {
+      // Submit form
+      handleImageUpload();
            
-            //handleChange();
+      //handleChange();
            
-        } else {
-            console.log("invalid")
-            alert("Please select a member name and upload an image.");
-        }
-    };
-    return (
-        <div className="add-card">
+    } else {
+        console.log("invalid")
+        alert("Please select a member name and upload an image.");
+      }
+  };
+    
+  return (
+  <div className="add-card">
            
   <div className="container">
   
