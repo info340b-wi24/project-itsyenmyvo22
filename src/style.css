@@ -277,6 +277,11 @@ a.trade-btn:hover, a.member-btn:hover {
 .exit-btn:hover {
     color: white;
 }
+
+.imageUpload{
+    max-width: 100%;
+  max-height: 150px; 
+}
 /* End of Stuff for Card Trading Page */
 
 /* Stuff for authentication */

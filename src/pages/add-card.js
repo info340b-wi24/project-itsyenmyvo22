@@ -115,7 +115,7 @@ export default function AddCard (props) {
   <p className="request-title">Upload Image</p>
   <Link  aria-label='exit button' className="exit-btn" to='/'>X</Link><div className="mb-5 image-upload-form">
   <div className="inner-add-card">
-        <img src={imageUrl} alt="user avatar preview" className="mb-2"/>
+        <img src={imageUrl} alt="user avatar preview" className="mb-2 imageUpload"/>
         <Dropdown >
         <Dropdown.Toggle className = "bg-dark" variant="success" id="dropdown-basic">
           Select Member Name
