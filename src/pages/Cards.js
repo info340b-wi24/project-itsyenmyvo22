@@ -31,9 +31,9 @@ export default function Cards(props){
 
     const cardDataArray = Object.values(cardData);
     
-    const memberButtons = Array.from(new Set(cardDataArray.map(card => card.member))).map(member => (
+    const memberButtons = Array.from(new Set(cardDataArray.map(card => card.member))).map((member, index) => (
         <button
-            key={member}
+            key={`${member}-${index}`}
             aria-label="select"
             className={`member-btn ${selectedMember === member ? 'selected' : ''}`}
             onClick={() => handleMemberClick(member)}
@@ -58,7 +58,7 @@ export default function Cards(props){
 
     const photoCards = cardDataArray.map(card => (
         <div
-            key={card.cardId}
+            key={card.imageUrl}
             className={`photocard ${selectedMember && selectedMember !== card.member ? 'hidden' : ''}`}
         >
             <img src={card.imageUrl} alt={card.member} className="photocard-img" />
