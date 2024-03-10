@@ -9,8 +9,6 @@ export default function Home(props) {
     const uid = props.uid
     const [url, setUrl] = useState('');
 
-
-
   
     const [cardData, setCardData] = useState([]);
 
@@ -35,8 +33,9 @@ export default function Home(props) {
        card.imageUrl
     ));
 const cards = urls.map((card)=>
-<img src={card} alt={card.member} className="photocard-img" />
+<img src={card} alt={card.member} className="card-body-img" />
     )
+
     // const urls = cardData.filter((card)=>{
 //     //console.log(card.imageUrl)
 //     if(card.userId == uid){
@@ -44,7 +43,7 @@ const cards = urls.map((card)=>
 //     }
 // })
 
-console.log(urls);
+//console.log(urls);
     // const db = getDatabase();
     // const imgRef = sRef(db, 'cardData/imageUrl');
     
