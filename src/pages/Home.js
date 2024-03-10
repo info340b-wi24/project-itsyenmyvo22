@@ -1,9 +1,40 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import CardRender from '../components/CardRender';
+//import CardRender from '../components/CardRender';
+//import firebase from 'firebase/app';
+import { getDatabase, ref as sRef, child, get, onValue } from 'firebase/database';
 
 export default function Home(props) {  
-    const userId = props.userId;
+    const [imageUrl, setImageUrl] = useState('');
+    const db = getDatabase();
+    const imgRef = sRef(db, "downloadUrlString");
+
+    const fetchData = async () => {
+        try {
+            const snapshot = await get(child(imgRef, imageUrl));
+            if (snapshot.exists()) {
+                const imageData = snapshot.val();
+                //let result = setImageUrl(userDataRef.url);
+                //let result = setImageUrl(URL.createObjectURL(fetchData(file)))
+                let imgPromises = result.items.map(imageRef => imageRef.getDownloadURL());
+                return Promise.all(imgPromises);
+                }
+                if(file.target.files.length > 0) {
+                //let result = setImageUrl(URL.createObjectURL(fetchData(file)))
+                let result = await sRef(userDataRef, userId).listAll();
+                let imgPromises = result.items.map(imageRef => imageRef.getDownloadURL());
+                return Promise.all(imgPromises);
+                }
+        
+                } catch (error) {
+                        console.error('Error fetching image data:', error);
+            }
+
+            const loadImages = async () => {
+                const urls = await fetchData();
+                setImageUrl(urls);
+            };
+
 
     return (
     <div>
@@ -37,8 +68,9 @@ export default function Home(props) {
             <div className="rectangle-home">
                 <div className="card">
                 <div className="card-body">
-                    <Link aria-label='add card' to='/add-card' className="card-link">Add card</Link>
-                    <CardRender userId={userId} />
+                <Link aria-label='add card' to='/add-card' className="card-link">Add card</Link>
+                    {/* <img src='C:\Users\steph\OneDrive\Desktop\joon.jpg' /> */}
+                   <CardRender img src />
                 </div>
                 </div>
             </div>
@@ -47,4 +79,4 @@ export default function Home(props) {
         </section>
     </div> 
     );
-}
+}};

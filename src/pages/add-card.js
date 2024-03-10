@@ -26,7 +26,8 @@ export default function AddCard (props) {
     const storage = getStorage();
     const db= getDatabase();
     const fileRef = storageRef(storage, imageFile.name);
-  
+    console.log(fileRef);
+
     try { 
       await uploadBytes(fileRef, imageFile) 
       //const url = await getDownloadURL(fileRef); 
