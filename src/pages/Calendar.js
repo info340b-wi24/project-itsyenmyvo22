@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import daysOfMonth2024 from '../data/days.json'
 import { Outlet, useParams, Link } from 'react-router-dom';
-//import { getDatabase, onValue, ref, push as firebasePush } from 'firebase/database';
+import { getDatabase, onValue, ref, firebasePush } from 'firebase/database';
 
 export function Calendar(props) {
     return (
         <div className="layout d-flex flex-column flex-md-row">
             <Outlet />
-            <Events />
+            <Events userId={props.userId} />
         </div>
     );
 }
@@ -159,37 +159,41 @@ function CalendarRow(props) {
 }
 
 function Events(props) {
-    //const [eventList, setEventList] = [];
+    const [eventList, setEventList] = useState([]);
     const [isVisible, setIsVisible] = useState(false);
     const handleClick = (event) => {
         setIsVisible(!isVisible);
     }
-    // const db = getDatabase();
-    // const eventsRef = ref(db, "events");
-    // useEffect(() => {
-    //     const offFunction = onValue(eventsRef, (snapshot) => {
-    //         const eventObjs = snapshot.val();
-    //         const eventKeys = Object.keys(eventObjs);
-    //         const eventArray = eventKeys.map((keyString) => {
-    //             return eventObjs[keyString];
-    //         });
-    //         setEventList(eventArray);
-    //         function cleanup() {
-    //             offFunction();
-    //         };
-    //         return cleanup;
-    //     });
-    // }, []);
-    // const allEvents = eventList.map((event) => {
-    //     return (
-    //         <div className="event" key={event.date + event.time}>
-    //             <h2>{event.title}</h2>
-    //             <p>{event.date}</p>
-    //             <p>{event.time}</p>
-    //             <p>{event.type}</p>
-    //         </div>
-    //     );
-    // });
+    useEffect(() => {
+        const db = getDatabase();
+        const userDataRef = ref(db, 'userData');
+        const userRef = ref(userDataRef, props.userId);
+        const eventsRef = ref(userRef, 'events');
+        const offFunction = onValue(eventsRef, (snapshot) => {
+            const eventObjs = snapshot.val();
+            if (eventObjs.exists()) {
+                const eventKeys = Object.keys(eventObjs);
+                const eventArray = eventKeys.map((keyString) => {
+                    const currEvent = eventObjs[keyString];
+                    return (
+                        <div className="event" key={currEvent.date + currEvent.time}>
+                            <h2>{currEvent.title}</h2>
+                            <p>{currEvent.date}</p>
+                            <p>{currEvent.time}</p>
+                            <p>{currEvent.type}</p>
+                        </div>
+                    );
+                });
+                setEventList(eventArray);
+            } else {
+                setEventList([]);
+            }
+        });
+        function cleanup() {
+            offFunction();
+        };
+        return cleanup;
+    });
     return (
         <div>
             <section className="event-section d-flex flex-column">
@@ -198,48 +202,50 @@ function Events(props) {
                     <button  className="add-event" onClick={handleClick}>
                         <img src="photos/calendar/event_plus.png" alt="plus icon"></img>
                     </button>
-                    {/* {allEvents} */}
+                    {eventList}
                 </div>
             </section>
-            {isVisible && <Popup isVisible={isVisible} setIsVisible={setIsVisible} />}
+            {isVisible && <Popup isVisible={isVisible} setIsVisible={setIsVisible} currentUser={props.currentUser} userId={props.userId} />}
         </div>
     );
 }
 
 function Popup(props) {
-    // const [titleValue, setTitleValue] = useState('');
-    // const [dateValue, setDateValue] = useState('');
-    // const [timeValue, setTimeValue] = useState('');
-    // const [eventTypeValue, setEventTypeValue] = useState('');
-    // const handleTitleChange = (event) => {
-    //     const newTitle = event.target.value;
-    //     setTitleValue(newTitle);
-    // }
-    // const handleDateChange = (event) => {
-    //     const newDate = event.target.value;
-    //     setDateValue(newDate);
-    // }
-    // const handleTimeChange = (event) => {
-    //     const newTime = event.target.value;
-    //     setTimeValue(newTime);
-    // }
-    // const handleEventTypeChange = (event) => {
-    //     const newEventType = event.target.value;
-    //     setEventTypeValue(newEventType);
-    // }
+    const [titleValue, setTitleValue] = useState('');
+    const [dateValue, setDateValue] = useState('');
+    const [timeValue, setTimeValue] = useState('');
+    const [eventTypeValue, setEventTypeValue] = useState('');
+    const handleTitleChange = (event) => {
+        const newTitle = event.target.value;
+        setTitleValue(newTitle);
+    }
+    const handleDateChange = (event) => {
+        const newDate = event.target.value;
+        setDateValue(newDate);
+    }
+    const handleTimeChange = (event) => {
+        const newTime = event.target.value;
+        setTimeValue(newTime);
+    }
+    const handleEventTypeChange = (event) => {
+        const newEventType = event.target.value;
+        setEventTypeValue(newEventType);
+    }
     const handleClose = (event) => {
         props.setIsVisible(!props.isVisible);
     }
-    // const handleCreate = (event) => {
-    //     // const db = getDatabase();
-    //     // const eventsRef = ref(db, "events");
-    //     // eventsRef.push( {title:titleValue, date:dateValue, time:timeValue, type:eventTypeValue} );
-    //     props.setIsVisible(!props.isVisible);
-    // }
+    const handleCreate = (event) => {
+        const db = getDatabase();
+        const userDataRef = ref(db, 'userData');
+        const userRef = ref(userDataRef, props.userId);
+        const eventsRef = ref(userRef, 'events');
+        eventsRef.firebasePush( {title:titleValue, date:dateValue, time:timeValue, type:eventTypeValue} );
+        props.setIsVisible(!props.isVisible);
+    }
     return (
         <div className="popup py-3" id="popup">
             <button className="btn-close" onClick={handleClose}></button>
-            {/* <form>
+            <form>
                 <div className="popup-title">
                     <label htmlFor="title-input" className="title-label">Event Title:</label>
                     <input type="text" id="title-input" placeholder="My Event" value={titleValue} onChange={handleTitleChange} className="title-input"></input>
@@ -259,7 +265,7 @@ function Popup(props) {
                     <option value="3">Meet and Greet</option>
                 </select>
                 <button className="create-event" onSubmit={handleCreate}>Create Event</button>
-            </form> */}
+            </form>
         </div>
     );
 }

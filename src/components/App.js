@@ -86,7 +86,7 @@ function App(props){
                                     <Routes>
                                         <Route index="/Home" element={<Home />} />
                                         <Route path="/add-card" element={<AddCard userId ={userId} displayName={userName}/>} />
-                                        <Route path="/Calendar" element={<Calendar currentUser={currentUser} userId={userId} />} >
+                                        <Route path="/Calendar" element={<Calendar userId={userId} />} >
                                             <Route path=':currMonth' element={<CalendarTable />} />
                                             <Route index element = {<DefaultCalendarTable />} />
                                         </Route>
