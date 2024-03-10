@@ -2,33 +2,71 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 //import CardRender from '../components/CardRender';
 //import firebase from 'firebase/app';
-import { getDatabase, ref as sRef, child, get, onValue } from 'firebase/database';
+import { getDatabase, ref , child, get, onValue } from 'firebase/database';
 import MyCards from '../components/MyCards';
 
 export default function Home(props) {
+    const uid = props.uid
     const [url, setUrl] = useState('');
 
-    const db = getDatabase();
-    const imgRef = sRef(db, 'cardData/imageUrl');
+
+
+  
+    const [cardData, setCardData] = useState([]);
 
     useEffect(() => {
-        const fetchUrl = () => {
-            onValue(imgRef, (snapshot) => {
-                const data = snapshot.val();
-                if (data && data.imageUrl) {
-                    setUrl(data.imageUrl);
-                } else {
-                    console.log('Image URL not found');
-                }
-            });
-        };
+        const database = getDatabase();
+        const cardDataRef = ref(database, 'cardData');
 
-        fetchUrl();
+        const unregisterFunction = onValue(cardDataRef, (snapshot) => {
+            const cardDataVal = snapshot.val();
+            if (cardDataVal) {
+                setCardData(Object.values(cardDataVal));
+            }
+        });
 
         return () => {
-            setUrl(null);
+            unregisterFunction();
         };
     }, []);
+    console.log(cardData);
+
+    const urls = cardData.filter(card => card.userId === uid).map(card => (
+       card.imageUrl
+    ));
+const cards = urls.map((card)=>
+<img src={card} alt={card.member} className="photocard-img" />
+    )
+    // const urls = cardData.filter((card)=>{
+//     //console.log(card.imageUrl)
+//     if(card.userId == uid){
+//         return true;
+//     }
+// })
+
+console.log(urls);
+    // const db = getDatabase();
+    // const imgRef = sRef(db, 'cardData/imageUrl');
+    
+
+    // useEffect(() => {
+    //     const fetchUrl = () => {
+    //         onValue(imgRef, (snapshot) => {
+    //             const data = snapshot.val();
+    //             if (data && data.imageUrl) {
+    //                 setUrl(data.imageUrl);
+    //             } else {
+    //                 console.log('Image URL not found');
+    //             }
+    //         });
+    //     };
+
+    //     fetchUrl();
+
+    //     return () => {
+    //         setUrl(null);
+    //     };
+    // }, []);
 
     
     // const [imageUrl, setImageUrl] = useState('');
@@ -92,9 +130,9 @@ export default function Home(props) {
         <h2 className="cardh">My Cards</h2>
             <div className="container">
             <div className="rectangle-home">
-            {url ? (
+            {/* {url ? (
                         <div className="card">
-                        <img src={url} alt={url.member} className="card-body-img" />
+                        <img src={cardData.url} alt={url.member} className="card-body-img" />
                         </div>
                 ) : (
                     <div className="card">
@@ -102,7 +140,8 @@ export default function Home(props) {
                     <Link aria-label='add card' to='/add-card' className="card-link">Add card</Link>
                     </div>
                     </div>
-            )}
+            )} */}
+           {cards}
             </div>
             </div>
             

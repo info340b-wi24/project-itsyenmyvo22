@@ -4,10 +4,12 @@ import { Outlet, useParams, Link } from 'react-router-dom';
 import { getDatabase, onValue, ref, set, push, get, update, child } from 'firebase/database';
 
 export function Calendar(props) {
-    return (
+   console.log(props.userId)
+ return (
         <div className="layout d-flex flex-column flex-md-row">
             <Outlet />
             <Events userId={props.userId} />
+           
         </div>
     );
 }
@@ -161,6 +163,7 @@ function CalendarRow(props) {
 function Events(props) {
     const [eventList, setEventList] = useState([]);
     const [isVisible, setIsVisible] = useState(false);
+    console.log(props.userId);
     const handleClick = (event) => {
         setIsVisible(!isVisible);
     }
@@ -206,6 +209,27 @@ function Events(props) {
         };
         return cleanup;
     });
+<<<<<<< HEAD
+=======
+    return (
+        <div>
+            <section className="event-section d-flex flex-column">
+                <h1 className="event-heading">Events</h1>
+                <div className="events">
+                    <button  className="add-event" onClick={handleClick}>
+                        <img src="photos/calendar/event_plus.png" alt="plus icon"></img>
+                    </button>
+                    {eventList}
+                </div>
+            </section>
+            {isVisible && <Popup isVisible={isVisible} setIsVisible={setIsVisible} currentUser={props.currentUser} userId={props.userId} />}
+        </div>
+    );
+}
+
+function Popup(props) {
+    console.log(props.userId);
+>>>>>>> 4cc803a76ad7465e850304393d705b8f92e5db73
     const [titleValue, setTitleValue] = useState('');
     const [dateValue, setDateValue] = useState('');
     const [timeValue, setTimeValue] = useState('');
