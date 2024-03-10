@@ -1,10 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getDatabase, ref as dRef, child, set, onValue, off} from 'firebase/database';
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 
-export default function MyCards (props) {
-    const [imageUrl, setImageUrl] = useState('');
+export default function MyCards () {
+    const [url, setUrl] = useState('');
+    
+    
+    // const storage = getStorage();
+    // const imgRef = ref(storage, 'cardData/imageUrl');
+
+    // useEffect(() => {
+    //     const fetchUrl = async () => {
+    //         try {
+    //             const url = await getDownloadURL(imgRef);
+    //             setImageUrl(url);
+    //         } catch (error) {
+    //             console.error('Error fetching image:', error.message);
+    //         }
+    //     };
+
+    //     fetchUrl();
+    //     }
+    // )
+
     const db = getDatabase();
     const imgRef = dRef(db, 'cardData/imageUrl');
 
@@ -12,20 +32,42 @@ export default function MyCards (props) {
         const fetchUrl = () => {
             onValue(imgRef, (snapshot) => {
                 const data = snapshot.val();
-                if (data) {
-                    setImageUrl(data);
+                if (data && data.imageUrl) {
+                    setUrl(data.imageUrl);
                 } else {
-                    setImageUrl('');
+                    console.log('Image URL not found');
                 }
-            })
-        }
+            });
+        };
 
         fetchUrl();
 
         return () => {
-            off(imgRef, 'value', fetchUrl);
+            setUrl(null);
         };
-    }, [imgRef]);
+    }, []);
+
+    
+
+
+    // useEffect(() => {
+    //     const fetchUrl = () => {
+    //         onValue(imgRef, (snapshot) => {
+    //             const data = snapshot.val();
+    //             if (data) {
+    //                 setImageUrl(data);
+    //             } else {
+    //                 setImageUrl('');
+    //             }
+    //         })
+    //     }
+
+    //     fetchUrl();
+
+    //     return () => {
+    //         off(imgRef, 'value', fetchUrl);
+    //     };
+    // }, [imgRef]);
         // imgRef.on('value', (snapshot) => {
         //     const data = snapshot.val();
         //     if (data) {
@@ -52,9 +94,9 @@ export default function MyCards (props) {
 
     return (
         <div>
-            {imageUrl ? (
+            {url ? (
                         <div className="card">
-                        <img src='https://firebasestorage.googleapis.com/v0/b/armybase-c294a.appspot.com/o/joon.jpg?alt=media&token=a38d1cd0-b2a2-4f32-b171-c220da5cc530' alt={imageUrl.member} className="card-body-img" />
+                        <img src={url} alt={url.member} className="card-body-img" />
                         </div>
                 ) : (
                     <div className="card">

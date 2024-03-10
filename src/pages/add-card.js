@@ -37,7 +37,7 @@ export default function AddCard (props) {
 
     const downloadUrlString = await getDownloadURL(fileRef);
     const userDataRef = ref(db, "cardData");   
-    const name = imageFile.name.replace(".", "-");
+    const name = imageFile.name.replace(/-|\./g, "_");
     console.log(name);
     const imgRef = child(userDataRef, name);
    

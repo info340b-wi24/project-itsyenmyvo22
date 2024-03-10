@@ -6,6 +6,30 @@ import { getDatabase, ref as sRef, child, get, onValue } from 'firebase/database
 import MyCards from '../components/MyCards';
 
 export default function Home(props) {
+    const [url, setUrl] = useState('');
+
+    const db = getDatabase();
+    const imgRef = sRef(db, 'cardData/imageUrl');
+
+    useEffect(() => {
+        const fetchUrl = () => {
+            onValue(imgRef, (snapshot) => {
+                const data = snapshot.val();
+                if (data && data.imageUrl) {
+                    setUrl(data.imageUrl);
+                } else {
+                    console.log('Image URL not found');
+                }
+            });
+        };
+
+        fetchUrl();
+
+        return () => {
+            setUrl(null);
+        };
+    }, []);
+
     
     // const [imageUrl, setImageUrl] = useState('');
     // const db = getDatabase();
@@ -68,7 +92,17 @@ export default function Home(props) {
         <h2 className="cardh">My Cards</h2>
             <div className="container">
             <div className="rectangle-home">
-                <MyCards />
+            {url ? (
+                        <div className="card">
+                        <img src={url} alt={url.member} className="card-body-img" />
+                        </div>
+                ) : (
+                    <div className="card">
+                    <div className="card-body">
+                    <Link aria-label='add card' to='/add-card' className="card-link">Add card</Link>
+                    </div>
+                    </div>
+            )}
             </div>
             </div>
             
