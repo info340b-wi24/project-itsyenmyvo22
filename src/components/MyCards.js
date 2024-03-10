@@ -26,7 +26,7 @@ export default function MyCards () {
     // )
 
     const db = getDatabase();
-    const imgRef = dRef(db, 'cardData/imageUrl');
+    const imgRef = dRef(db, 'cardData');
 
     useEffect(() => {
         const fetchUrl = () => {

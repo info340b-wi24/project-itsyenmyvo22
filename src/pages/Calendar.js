@@ -4,10 +4,12 @@ import { Outlet, useParams, Link } from 'react-router-dom';
 import { getDatabase, onValue, ref, set, push, get } from 'firebase/database';
 
 export function Calendar(props) {
-    return (
+   console.log(props.userId)
+ return (
         <div className="layout d-flex flex-column flex-md-row">
             <Outlet />
             <Events userId={props.userId} />
+           
         </div>
     );
 }
@@ -161,6 +163,7 @@ function CalendarRow(props) {
 function Events(props) {
     const [eventList, setEventList] = useState([]);
     const [isVisible, setIsVisible] = useState(false);
+    console.log(props.userId);
     const handleClick = (event) => {
         setIsVisible(!isVisible);
     }
@@ -237,6 +240,7 @@ function Events(props) {
 }
 
 function Popup(props) {
+    console.log(props.userId);
     const [titleValue, setTitleValue] = useState('');
     const [dateValue, setDateValue] = useState('');
     const [timeValue, setTimeValue] = useState('');
