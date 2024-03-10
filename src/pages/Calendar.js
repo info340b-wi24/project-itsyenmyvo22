@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import daysOfMonth2024 from '../data/days.json'
 import { Outlet, useParams, Link } from 'react-router-dom';
-import { getDatabase, onValue, ref, firebasePush } from 'firebase/database';
+import { getDatabase, onValue, ref, set, push, get } from 'firebase/database';
 
 export function Calendar(props) {
     return (
@@ -167,11 +167,37 @@ function Events(props) {
     useEffect(() => {
         const db = getDatabase();
         const userDataRef = ref(db, 'userData');
+        const checkUserDataExists = async () => {
+            const snapshot = await get(userDataRef);
+            if (snapshot.exists()) {
+                console.log("userData node exists");
+            }
+        };
+        checkUserDataExists();
         const userRef = ref(userDataRef, props.userId);
+        console.log('got past userRef line');
+        const checkUserExists = async () => {
+            const snapshot = await get(userRef);
+            if (snapshot.exists()) {
+                console.log("user node exists");
+            } else {
+                console.log('user node DOES NOT exist');
+            }
+        };
+        checkUserExists();
         const eventsRef = ref(userRef, 'events');
+        const checkEventsExistence = async () => {
+            const snapshot = await get(eventsRef);
+            if (snapshot.exists()) {
+                console.log("Events node exists");
+            } else {
+                set(eventsRef, true);
+            }
+        };
+        checkEventsExistence();
         const offFunction = onValue(eventsRef, (snapshot) => {
             const eventObjs = snapshot.val();
-            if (eventObjs.exists()) {
+            if (eventObjs !== null) {
                 const eventKeys = Object.keys(eventObjs);
                 const eventArray = eventKeys.map((keyString) => {
                     const currEvent = eventObjs[keyString];
@@ -239,13 +265,14 @@ function Popup(props) {
         const userDataRef = ref(db, 'userData');
         const userRef = ref(userDataRef, props.userId);
         const eventsRef = ref(userRef, 'events');
-        eventsRef.firebasePush( {title:titleValue, date:dateValue, time:timeValue, type:eventTypeValue} );
+        const newEventRef = push(eventsRef);
+        set(newEventRef, {title: titleValue, date: dateValue, time: timeValue, type: eventTypeValue});
         props.setIsVisible(!props.isVisible);
     }
     return (
         <div className="popup py-3" id="popup">
             <button className="btn-close" onClick={handleClose}></button>
-            <form>
+            <form onSubmit={handleCreate}>
                 <div className="popup-title">
                     <label htmlFor="title-input" className="title-label">Event Title:</label>
                     <input type="text" id="title-input" placeholder="My Event" value={titleValue} onChange={handleTitleChange} className="title-input"></input>
@@ -264,7 +291,7 @@ function Popup(props) {
                     <option value="2">Livestream</option>
                     <option value="3">Meet and Greet</option>
                 </select>
-                <button className="create-event" onSubmit={handleCreate}>Create Event</button>
+                <button type="submit" className="create-event">Create Event</button>
             </form>
         </div>
     );
