@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 //import CardRender from '../components/CardRender';
 //import firebase from 'firebase/app';
 import { getDatabase, ref , child, get, onValue } from 'firebase/database';
-import MyCards from '../components/MyCards';
+//import MyCards from '../components/MyCards';
 
 export default function Home(props) {
     const uid = props.uid
