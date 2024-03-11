@@ -4,6 +4,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { unsub as Unsubscribe } from 'firebase/auth';
 import 'firebase/auth';
 import TradeRequest from './TradeRequest';
+import { update } from 'firebase/database';
 
 export default function IncomingRequests (props) {
 //     const [userEmail, setUserEmail] = useState(null);
@@ -96,6 +97,8 @@ export default function IncomingRequests (props) {
     const [userEmail, setUserEmail] = useState(null);
     const [hasEmail, setHasEmail] = useState(false);
     const [requestData, setRequestData] = useState(null);
+    const [accept, setAccept] = useState(false);
+    const [reject, setReject] = useState(false);
     const auth = getAuth();
     const db = getDatabase();
 
@@ -137,12 +140,44 @@ export default function IncomingRequests (props) {
     }
   }, [userEmail, db]);
 
-  const handleAccept = (requestId) => {
-    // Implement logic to handle request acceptance
+  const handleAccept = () => {
+    const pendingRequest = Object.values(requestData).find(request => request.status === 'pending' && request.recipientId === userEmail);
+    if (pendingRequest) {
+      const requestId = Object.keys(requestData).find(key => requestData[key] === pendingRequest);
+      const requestRef = ref(db, `requestData/${requestId}`);
+      update(requestRef, { status: 'accepted' })
+        .then(() => {
+          console.log('Request accepted successfully');
+          setRequestData(prevData => {
+            const updatedData = { ...prevData };
+            delete updatedData[requestId];
+            return updatedData;
+          });
+        })
+        .catch((error) => {
+          console.error('Error accepting request:', error);
+        });
+    }
   };
 
-  const handleReject = (requestId) => {
-    // Implement logic to handle request rejection
+  const handleReject = () => {
+    const pendingRequest = Object.values(requestData).find(request => request.status === 'pending' && request.recipientId === userEmail);
+    if (pendingRequest) {
+        const requestId = Object.keys(requestData).find(key => requestData[key] === pendingRequest);
+        const requestRef = ref(db, `requestData/${requestId}`);
+        update(requestRef, { status: 'rejected' })
+        .then(() => {
+            console.log('Request rejected successfully');
+            setRequestData(prevData => {
+            const updatedData = { ...prevData };
+            delete updatedData[requestId];
+            return updatedData;
+            });
+        })
+        .catch((error) => {
+            console.error('Error rejecting request:', error);
+        });
+    }
   };
 
   return (
@@ -157,8 +192,8 @@ export default function IncomingRequests (props) {
                   return (
                     <div key={key}>
                         You received a request from {request.senderId}
-                        <button onClick={() => handleAccept(request.id)}>Accept</button>
-                        <button onClick={() => handleReject(request.id)}>Reject</button>
+                        <button onClick={handleAccept}>Accept</button>
+                        <button onClick={handleReject}>Reject</button>
                     </div>
                   );
                 }
@@ -171,20 +206,6 @@ export default function IncomingRequests (props) {
               No sent requests
             </div>
           )}
-        {/* {incomingRequests.length > 0 ? (
-          incomingRequests.map(request => (
-            <div key={request.id} className="incoming-request">
-              <img src="request-image.png" alt="Incoming Request" />
-              <p>You received a request from {request.senderId}</p>
-              <button onClick={() => handleAccept(request.id)}>Accept</button>
-              <button onClick={() => handleReject(request.id)}>Reject</button>
-            </div>
-          ))
-        ) : (
-          <div id="none-received" className="none">
-            No incoming requests
-          </div>
-        )} */}
       </div>
     </div>
   );
