@@ -6,47 +6,70 @@ import 'firebase/auth';
 import TradeRequest from './TradeRequest';
 
 export default function SentRequests (props) {
-    // const [status, setStatus] = useState('');
-    // const [user, setUser] = useState([]);
-    // const [currentUser, setCurrentUser] = useState(null);
-    // const database = getDatabase();
-    // const userDataRef = ref(database, 'userData');
+  const [userEmail, setUserEmail] = useState(null);
+  const [hasEmail, setHasEmail] = useState(false);
+  const auth = getAuth();
+  const db = getDatabase();
 
-    // useEffect(() => {
-    //     const auth = getAuth();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            setUserEmail(user.email);
+        } else {
+            setUserEmail(null);
+        }
+    });
 
-    //     onAuthStateChanged(auth, (user) => {
-    //     if (user) {
-    //         setCurrentUser(user);
-    //     } else {
-    //       setCurrentUser(null);
-    //     }
-    //     });
-    // }, []);
+  }, [auth]);
 
-    // useEffect(() => {
-    //     const unregisterFunction = onValue(userDataRef, (snapshot) => {
-    //         const userDataRef = snapshot.val();
-    //         setUser(userDataRef);
-    //     })
-
-    //     function cleanup() {
-    //         unregisterFunction();
-    //     }
-    //     return cleanup;
-    // }, []);
-
- 
-
+  useEffect(() => {
+    if (userEmail) {
+      const emailsRef = ref(db, 'requestData');
+  
+      const unsubscribe = onValue(emailsRef, (snapshot) => {
+        const requestData = snapshot.val();
+  
+        if (requestData && typeof requestData === 'object') {
+          // Extract email addresses from the requestData
+          const emailsArray = Object.values(requestData)
+            .map(request => request.senderId);
+  
+          // Check if userEmail exists in the emailsArray
+          const hasEmail = emailsArray.includes(userEmail);
+          setHasEmail(hasEmail);
+        } else {
+          console.log("No valid requestData available");
+        }
+      }, (error) => {
+        console.error("Error retrieving data:", error);
+      });
+  
+      return () => unsubscribe();
+    }
+  }, [userEmail, db]);
 
     return (
-        <main className="sent">
-        <h1 className="rqh1">Sent Requests</h1>
-        <div className="rectangle">
-            <div id="none-sent" className="none">
-            No sent requests
-            </div>
+        <div>
+            {hasEmail ? (
+                <main className="sent">
+                <h1 className="rqh1">Sent Requests</h1>
+                <div className="rectangle">
+                    <div id="none-sent" className="none">
+                    Your request to userB is pending.
+                    </div>
+                </div>
+                </main>
+            ) : (
+              <main className="sent">
+              <h1 className="rqh1">Sent Requests</h1>
+              <div className="rectangle">
+                  <div id="none-sent" className="none">
+                  No sent requests
+                  </div>
+              </div>
+              </main>
+            )}
         </div>
-        </main>
+        
     );
 };
