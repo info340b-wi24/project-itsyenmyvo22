@@ -33,7 +33,9 @@ export default function Home(props) {
        card.imageUrl
     ));
 const cards = urls.map((card)=>
+<div className="img-card">
 <img src={card} alt={card.member} className="card-body-img" />
+</div>  
     )
 
 
@@ -63,26 +65,46 @@ const cards = urls.map((card)=>
             </div>
         </div>
 
-        <section id="my-cards">
+     
         <h2 className="cardh">My Cards</h2>
-            <div className="container">
-            <div className="rectangle-home">
+        <div className="card ">
+            {/* <div className="container"> */}
+            
             {/* {url ? (
                         <div className="card">
                         <img src={cardData.url} alt={url.member} className="card-body-img" />
                         </div>
                 ) : (
-                    <div className="card">
-                    <div className="card-body">
-                    <Link aria-label='add card' to='/add-card' className="card-link">Add card</Link>
-                    </div>
-                    </div>
+                  
             )} */}
-           {cards}
+           
+         
+            <div className= "row">
+            <div className = "col-sm-3 col-lg-2">
+                    <div className="card-body">
+                   
+                    
+                    <Link aria-label='add card' to='/add-card' className="card-link">
+                    
+                    <img src="photos/calendar/event_plus.png" alt="plus icon" className = "add row" ></img>
+                   
+                    Add card</Link>
+                    </div>
+                    </div>
+                    
+                 
+                    {cards}
+                
             </div>
-            </div>
-            
-        </section>
+      
+                   
+
+
+     
+         
+            </div>  
+    
+     
     </div> 
     );
 };

@@ -338,23 +338,39 @@ h1.rqh1 {
   }
 
 .card {
-    height: 135px;
-    width: 89px;
+  width: inherit;
+  height: inherit;
     border-radius: 15px;
     border: none;
     position: absolute;
     background-color:   #8F5EB1;
     margin: .5em;
+    padding: 1em;
 }
-
+.img-card{
+    height:135px;
+    width: 120px;
+    margin:.3em;
+}
 .card-body {
+    /* height: 135px; */
+    height: 135px;
+  
     background-color: white;
     color: #8F5EB1;
     text-align: center;
     border-radius: 15px;
     margin: .3em;
+    border:none;
+    
 }
-
+.add{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 80px;
+   
+}
 .card-body-img {
     padding: 0.5rem;
     position: relative;
@@ -362,7 +378,7 @@ h1.rqh1 {
     width: 100%;
     border-radius: 15px;
     size: auto;
-}
+} 
 
 h2.cardh {
     padding-left: 1.5rem;
