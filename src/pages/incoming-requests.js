@@ -182,7 +182,8 @@ export default function IncomingRequests (props) {
 
   return (
     <div>
-      <h1 className="rqh1">Incoming Requests</h1>
+    <main className='incoming'>
+    <h1 className="rqh1">Incoming Requests</h1>
       <div className="rectangle">
       {hasEmail && requestData && (
             <div id="none-sent" className="none">
@@ -207,6 +208,8 @@ export default function IncomingRequests (props) {
             </div>
           )}
       </div>
+    </main>
+      
     </div>
   );
 }
