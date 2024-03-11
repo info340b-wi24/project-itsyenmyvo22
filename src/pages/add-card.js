@@ -41,7 +41,7 @@ export default function AddCard (props) {
     console.log(name);
     const imgRef = child(userDataRef, name);
    
-    await firebaseSet(imgRef, {imageUrl: downloadUrlString, userId: userId, member:selectedOption})
+    await firebaseSet(imgRef, {imageUrl: downloadUrlString, userId: userId, title: name, member:selectedOption})
     
     console.log("Image uploaded successfully:", downloadUrlString);
   }
