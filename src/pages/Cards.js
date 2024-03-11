@@ -48,7 +48,7 @@ export default function Cards(props){
             <div className="photocard-description">
                 <p>
                     {card.member}
-                    <Link aria-label="request" to='/TradeRequest' className="member-btn trade-btn">Request Trade</Link>
+                    <Link aria-label="request" to={`/TradeRequest/${card.title}`}  className="member-btn trade-btn">Request Trade</Link>
                 </p>
             </div>
         </div>

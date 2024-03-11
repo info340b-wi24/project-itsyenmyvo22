@@ -95,7 +95,7 @@ function App(props){
                                         <Route path="/Leader" element={<Leader points ={points} />} />
                                         <Route path="/incoming-requests" element={<IncomingRequests /> } />
                                         <Route path="/sent-requests" element={<SentRequests /> } />
-                                        <Route path="/TradeRequest" element={<TradeRequest />} />
+                                        <Route path="/TradeRequest/:cardKey" element={<TradeRequest />} />
                                         <Route path="/Accept" element={<Accept />} />
                                         <Route path="/Cards" element={<Cards />} />
                                          

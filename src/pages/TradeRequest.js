@@ -3,8 +3,7 @@ import React, {useState, useEffect} from 'react';
 import { getDatabase, ref, set, push, onValue, get, child, orderByChild, query, equalTo } from 'firebase/database';
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import 'firebase/auth';
-
-
+import { useParams } from 'react-router-dom';
 
 export default function TradeRequest(props) {
     const db = getDatabase();
@@ -15,6 +14,7 @@ export default function TradeRequest(props) {
     const [currentUser, setCurrentUser] = useState(null);
     //const [recipientId, setRecipientId] = useState(null);
     const [recipientEmail, setRecipientEmail] = useState(null);
+    const { cardKey } = useParams();
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -28,10 +28,11 @@ export default function TradeRequest(props) {
         return () => unsubscribe();
     }, [auth]);
 
-    const HandleTradeRequest = async () => {
+    const HandleTradeRequest = async (card) => {
+
         try {
             // Retrieve the specific card data
-            const cardKey = "jhope-persona-png"; 
+            //const cardKey = cardDataRef.key;
             const cardDataSnapshot = await get(child(cardDataRef, cardKey)); // Ensure you're accessing the specific card data
             console.log("Card Data Snapshot:", cardDataSnapshot);
     
