@@ -36,68 +36,6 @@ const cards = urls.map((card)=>
 <img src={card} alt={card.member} className="card-body-img" />
     )
 
-    // const urls = cardData.filter((card)=>{
-//     //console.log(card.imageUrl)
-//     if(card.userId == uid){
-//         return true;
-//     }
-// })
-
-//console.log(urls);
-    // const db = getDatabase();
-    // const imgRef = sRef(db, 'cardData/imageUrl');
-    
-
-    // useEffect(() => {
-    //     const fetchUrl = () => {
-    //         onValue(imgRef, (snapshot) => {
-    //             const data = snapshot.val();
-    //             if (data && data.imageUrl) {
-    //                 setUrl(data.imageUrl);
-    //             } else {
-    //                 console.log('Image URL not found');
-    //             }
-    //         });
-    //     };
-
-    //     fetchUrl();
-
-    //     return () => {
-    //         setUrl(null);
-    //     };
-    // }, []);
-
-    
-    // const [imageUrl, setImageUrl] = useState('');
-    // const db = getDatabase();
-    // const imgRef = sRef(db, "downloadUrlString");
-
-    // const fetchData = async () => {
-    //     try {
-    //         const snapshot = await get(child(imgRef, imageUrl));
-    //         if (snapshot.exists()) {
-    //             const imageData = snapshot.val();
-    //             //let result = setImageUrl(userDataRef.url);
-    //             //let result = setImageUrl(URL.createObjectURL(fetchData(file)))
-    //             let imgPromises = result.items.map(imageRef => imageRef.getDownloadURL());
-    //             return Promise.all(imgPromises);
-    //             }
-    //             if(file.target.files.length > 0) {
-    //             //let result = setImageUrl(URL.createObjectURL(fetchData(file)))
-    //             let result = await sRef(userDataRef, userId).listAll();
-    //             let imgPromises = result.items.map(imageRef => imageRef.getDownloadURL());
-    //             return Promise.all(imgPromises);
-    //             }
-        
-    //             } catch (error) {
-    //                     console.error('Error fetching image data:', error);
-    //         }
-
-    //         const loadImages = async () => {
-    //             const urls = await fetchData();
-    //             setImageUrl(urls);
-    //         };
-
 
     return (
     <div>

@@ -9,118 +9,79 @@ import 'firebase/auth';
 export default function TradeRequest(props) {
     const db = getDatabase();
     const auth = getAuth();
-    const userDataRef = ref(db, 'userData');
+    //const userDataRef = ref(db, 'userData');
     const cardDataRef = ref(db, 'cardData');
     const reqRef = ref(db, "requestData");
+    const [currentUser, setCurrentUser] = useState(null);
+    //const [recipientId, setRecipientId] = useState(null);
+    const [recipientEmail, setRecipientEmail] = useState(null);
 
-    const fetchEmailFromCardData = async (userId) => { 
-        // cardDataRef.once('value', (cardDataSnapshot) => {
-        //     cardDataSnapshot.forEach((cardSnapshot) => {
-        //         const userId = cardSnapshot.child(userId).val();
-        //         const newUserDataRef = userDataRef.child(userId);
-    
-        //         userDataRef.once('value', (userDataSnapshot) => {
-        //             const email = userDataSnapshot.child('email').val();
-        //             console.log(`Email associated with userId ${userId} is: ${email}`);
-        //         });
-        //     });
-        // });
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setCurrentUser(user);
+            } else {
+                setCurrentUser(null);
+            }
+        });
 
+        return () => unsubscribe();
+    }, [auth]);
+
+    const HandleTradeRequest = async () => {
         try {
-            const userDataSnapshot = await get(child(userDataRef, userId));
-            const email = userDataSnapshot.val().email;
-            return email;
+            // Retrieve the specific card data
+            const cardKey = "jhope-persona-png"; 
+            const cardDataSnapshot = await get(child(cardDataRef, cardKey)); // Ensure you're accessing the specific card data
+            console.log("Card Data Snapshot:", cardDataSnapshot);
+    
+            if (cardDataSnapshot.exists()) {
+                // Extract the uploader user ID
+                const cardData = cardDataSnapshot.val();
+                console.log("Card Data:", cardData);
+                const uploaderUserId = cardData.userId;
+                console.log("Uploader User ID:", uploaderUserId);
+    
+                // Retrieve the email associated with the uploader user ID from userData
+                const uploaderUserDataRef = ref(db, 'userData/' + uploaderUserId);
+                const uploaderUserSnapshot = await get(uploaderUserDataRef);
+    
+                if (uploaderUserSnapshot.exists()) {
+                    const uploaderUserData = uploaderUserSnapshot.val();
+                    const uploaderEmail = uploaderUserData.email;
+                    console.log("Uploader's Email:", uploaderEmail);
+                    console.log("sender's email:", currentUser.email);
+    
+                    // Continue with the rest of your logic, such as sending the trade request
+                    await SendRequest(uploaderEmail);
+                } else {
+                    console.error('User data not found for uploader userId:', uploaderUserId);
+                }
+            } else {
+                console.error('Card data not found.');
+            }
         } catch (error) {
-            console.error('Error fetching email:', error);
-            throw error;
+            console.error('Error handling trade request:', error);
         }
     };
 
-    // const fetchEmailByUserId = async (userId) => {
-    //     try {
-    //         const userDataSnapshot = await get(child(userDataRef, userId));
-    //         const userData = userDataSnapshot.val();
-    //         if (userData && userData.email) {
-    //             return userData.email;
-    //         } else {
-    //             throw new Error('Email not found for user with userId: ' + userId);
-    //         }
-    //     } catch (error) {
-    //         console.error('Error fetching email by user ID:', error);
-    //         throw error;
-    //     }
-    // };
-    
-    // const fetchCardUserData = async () => {
-    //     try {
-    //         const cardDataSnapshot = await get(cardDataRef);
-    //         const promises = [];
-    
-    //         cardDataSnapshot.forEach((cardSnapshot) => {
-    //             const cardData = cardSnapshot.val();
-    //             const userId = cardData.userId;
-    //             promises.push(fetchEmailByUserId(userId));
-    //         });
-    
-    //         return Promise.all(promises);
-    //     } catch (error) {
-    //         console.error('Error fetching card data:', error);
-    //         throw error;
-    //     }
-    // };
+    const SendRequest = async (recipientEmail) => {
 
-    const useAuthentication = () => {
-        const [currentUser, setCurrentUser] = useState(null);
-
-        useEffect(() => {
-            const unsubscribe = onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    setCurrentUser(user);
-                } else {
-                    setCurrentUser(null);
-                }
-            });
-
-            return () => unsubscribe();
-        }, []);
-
-        return currentUser;
-    };
-
-    const sendRequest = async (recipientId, currentUser) => {
-        // if (!currentUser || !recipientId) {
-        //     console.error('Current user or recipient ID is not available!');
-        //     return;
-        // }
-    
-        // try {
-        //     const email = await fetchEmailByUserId(recipientId);
-        //     const newReqRef = push(reqRef);
-        //     await set(newReqRef, {
-        //         senderId: currentUser.email,
-        //         recipientId: email,
-        //         status: "pending"
-        //     });
-        //     console.log('Request sent successfully!');
-        // } catch (error) {
-        //     console.error('Error sending request:', error);
-        // }
-        if (!currentUser || !recipientId) {
+        if (!currentUser || !recipientEmail) {
             console.error('Current user or recipient ID is not available!');
             return;
         }
     
         try {
-            const email = await fetchEmailByUserId(recipientId);
             const newReqRef = push(reqRef);
             await set(newReqRef, {
                 senderId: currentUser.email,
-                recipientId: email,
+                recipientId: recipientEmail,
                 status: "pending"
             });
-            console.log('Request sent successfully!');
+            console.log('Trade request sent successfully!');
         } catch (error) {
-            console.error('Error sending request:', error);
+            console.error('Error sending trade request:', error);
         }
     };
 
@@ -128,7 +89,7 @@ export default function TradeRequest(props) {
     <div className="trade-request">
         <p className="request-title">Request Trade</p>
         <p>Are you sure you want to send a request to trade this card?</p>
-        <Link aria-label="accept" to='/Accept' className="member-btn" onClick={sendRequest}>Accept</Link>
+        <Link aria-label="accept" to='/Accept' className="member-btn" onClick={HandleTradeRequest}>Accept</Link>
         <Link aria-label="decline" to='/Cards' className="member-btn">Decline</Link>
     </div>
     );
