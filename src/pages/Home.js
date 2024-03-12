@@ -80,7 +80,7 @@ const cards = urls.map((card)=>
            
          
             <div className= "row">
-            <div className = "col-sm-3 col-lg-2">
+            <div className = "col-sm-3 col-lg-3">
                     <div className="card-body">
                    
                     

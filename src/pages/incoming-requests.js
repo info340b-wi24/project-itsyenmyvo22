@@ -111,34 +111,62 @@ export default function IncomingRequests (props) {
       }
     });
   }, [auth]);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserEmail(user.email);
+      } else {
+        setUserEmail(null);
+      }
+    });
+  }, [auth]);
 
   useEffect(() => {
     if (userEmail) {
       const emailsRef = ref(db, 'requestData');
-  
       const unsubscribe = onValue(emailsRef, (snapshot) => {
         const requestData = snapshot.val();
-  
         if (requestData && typeof requestData === 'object') {
           setRequestData(requestData);
-  
-          // Extract email addresses from the requestData
-          const emailsArray = Object.values(requestData)
-            .map(request => request.recipientId);
-  
-          // Check if userEmail exists in the emailsArray
-          const hasEmail = emailsArray.includes(userEmail);
-          setHasEmail(hasEmail);
+          const emailsArray = Object.values(requestData).map(request => request.recipientId);
+          setHasEmail(emailsArray.includes(userEmail));
         } else {
           console.log("No valid requestData available");
         }
       }, (error) => {
         console.error("Error retrieving data:", error);
       });
-  
+
       return () => unsubscribe();
     }
   }, [userEmail, db]);
+  // useEffect(() => {
+  //   if (userEmail) {
+  //     const emailsRef = ref(db, 'requestData');
+  
+  //     const unsubscribe = onValue(emailsRef, (snapshot) => {
+  //       const requestData = snapshot.val();
+  
+  //       if (requestData && typeof requestData === 'object') {
+  //         setRequestData(requestData);
+  
+  //         // Extract email addresses from the requestData
+  //         const emailsArray = Object.values(requestData)
+  //           .map(request => request.recipientId);
+  
+  //         // Check if userEmail exists in the emailsArray
+  //         const hasEmail = emailsArray.includes(userEmail);
+  //         setHasEmail(hasEmail);
+  //       } else {
+  //         console.log("No valid requestData available");
+  //       }
+  //     }, (error) => {
+  //       console.error("Error retrieving data:", error);
+  //     });
+  
+  //     return () => unsubscribe();
+  //   }
+  // }, [userEmail, db]);
 
 //   const handleAccept = () => {
 //     console.log("accept");
@@ -162,61 +190,65 @@ export default function IncomingRequests (props) {
     
 // });
 //   }
-
-const handleAccept = () => {
+const handleAccept = (requestId) => {
   console.log("accept");
-
-  // Assuming 'requestData' is the reference to your database
-  const requestDataRef = ref(db, 'requestData');
-
-  const unregisterFunction = onValue(requestDataRef, (snapshot) => {
-      const leader = snapshot.val();
-      const objKeys = Object.keys(leader);
-      const objArray = objKeys.map((keyString) => {
-          leader[keyString].key = keyString;
-          return leader[keyString];
-      });
-
-      const pendingRequest = objArray.filter((request) => {
-       // console.log(userEmail
-        return request.status === "pending" && request.recipientId === userEmail;
-      });
-      console.log(pendingRequest);
-      
-      // Implement your logic here based on 'pendingRequest'
-      // For example, if you want to update the status of the pending request
-      if (pendingRequest.length > 0) {
-          const requestId = pendingRequest[0].key;
-          const requestRef = ref(db, `requestData/${requestId}`);
-          update(requestRef, { status: 'accepted' })
-              .then(() => {
-                  console.log('Request accepted successfully');
-                  // Update your local state or UI as needed
-              })
-              .catch((error) => {
-                  console.error('Error accepting request:', error);
-              });
-      }
-  });
+  const requestRef = ref(db, `requestData/${requestId}`);
+  update(requestRef, { status: 'accepted' })
+    .then(() => {
+      console.log('Request accepted successfully');
+    })
+    .catch((error) => {
+      console.error('Error accepting request:', error);
+    });
 };
-// if (pendingRequest) {
-//       const requestId = Object.keys(requestData).find(key => requestData[key] === pendingRequest);
-//       const requestRef = ref(db, `requestData/${requestId}`);
-//       console.log(requestId);
-//       update(requestRef, { status: 'accepted' })
-//         .then(() => {
-//           console.log('Request accepted successfully');
-//           setRequestData(prevData => {
-//             const updatedData = { ...prevData };
-//             delete updatedData[requestId];
-//             return updatedData;
-//           });
-//         })
-//         .catch((error) => {
-//           console.error('Error accepting request:', error);
-//         });
-//     }
-//   };
+// const handleAccept = (requestId)=> {
+//   console.log("accept");
+// console.log(requestId);
+//   // Assuming 'requestData' is the reference to your database
+ 
+//   const requestDataRef = ref(db, 'requestData');
+
+//   const unregisterFunction = onValue(requestDataRef, (snapshot) => {
+//       const leader = snapshot.val();
+//       const objKeys = Object.keys(leader);
+//       const objArray = objKeys.map((keyString) => {
+//           leader[keyString].key = keyString;
+//           return leader[keyString];
+//       });
+// console.log(objArray);
+//       const pendingRequest = objArray.filter((request) => {
+//        // console.log(userEmail
+//        return request.status === "pending" && request.recipientId === userEmail && request.key !== requestId ;
+//         //return request.id === requestId;
+//       });
+      
+//       console.log(pendingRequest);
+//       setRequestData(pendingRequest);
+//       // Implement your logic here based on 'pendingRequest'
+//       // For example, if you want to update the status of the pending request
+//       // if (pendingRequest.length > 0) {
+//       //         const requestId = Object.keys(requestData).find(key => requestData[key] === pendingRequest);
+//       //         const requestRef = ref(db, `requestData/${requestId}`);
+//       //         console.log(requestId);
+//       //         update(requestRef, { status: 'accepted' })
+//       //           .then(() => {
+//       //             console.log('Request accepted successfully');
+//       //             setRequestData(prevData => {
+//       //               const updatedData = { ...prevData };
+//       //               delete updatedData[requestId];
+//       //               return updatedData;
+//       //             });
+//       //           })
+//       //           .catch((error) => {
+//       //             console.error('Error accepting request:', error);
+//       //           });
+//       //       }
+          
+//   });
+
+       
+//   return unregisterFunction
+// };
 
   const handleReject = () => {
     const pendingRequest = Object.values(requestData).find(request => request.status === 'pending' && request.recipientId === userEmail);
@@ -250,7 +282,7 @@ const handleAccept = () => {
                   return (
                     <div key={key}>
                         You received a request from {request.senderId}
-                        <button onClick={handleAccept}>Accept</button>
+                        <button onClick={handleAccept(request.key)}>Accept</button>
                         <button onClick={handleReject}>Reject</button>
                     </div>
                   );
