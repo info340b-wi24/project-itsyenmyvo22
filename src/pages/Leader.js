@@ -20,8 +20,8 @@ export default function Leader({points, userName}){
     firebaseSet(carmenRef, {score:"60",  name:"Carmen"})
     firebaseSet(stephRef, {score:"90", name:"Stephanie"})
     const scory = {points}.points;
-    console.log({scory});
-   // const uname = userName;
+    //console.log({scory});
+
     firebaseSet(userRef, {score: scory, name: userName})
     .then(() => console.log("data saved successfully!"))
     .catch(err => console.log(err));

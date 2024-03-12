@@ -26,7 +26,7 @@ export function PlaySong({audio,  points, countPoints, name}){
     
       const interval = setInterval(() => {
         if (sound) {
-          setSeconds(sound.seek()); // setting the seconds state with the current state
+          setSeconds(sound.seek()); 
           const sec = Math.floor(sound.seek([]) % 60);
           setCurrTime(sec);
 

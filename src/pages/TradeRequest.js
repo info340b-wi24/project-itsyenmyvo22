@@ -31,19 +31,18 @@ export default function TradeRequest(props) {
     const HandleTradeRequest = async (card) => {
 
         try {
-            // Retrieve the specific card data
-            //const cardKey = cardDataRef.key;
-            const cardDataSnapshot = await get(child(cardDataRef, cardKey)); // Ensure you're accessing the specific card data
+           
+            const cardDataSnapshot = await get(child(cardDataRef, cardKey)); 
             console.log("Card Data Snapshot:", cardDataSnapshot);
     
             if (cardDataSnapshot.exists()) {
-                // Extract the uploader user ID
+                
                 const cardData = cardDataSnapshot.val();
                 console.log("Card Data:", cardData);
                 const uploaderUserId = cardData.userId;
                 console.log("Uploader User ID:", uploaderUserId);
     
-                // Retrieve the email associated with the uploader user ID from userData
+                
                 const uploaderUserDataRef = ref(db, 'userData/' + uploaderUserId);
                 const uploaderUserSnapshot = await get(uploaderUserDataRef);
     
@@ -53,7 +52,7 @@ export default function TradeRequest(props) {
                     console.log("Uploader's Email:", uploaderEmail);
                     console.log("sender's email:", currentUser.email);
     
-                    // Continue with the rest of your logic, such as sending the trade request
+                    
                     await SendRequest(uploaderEmail);
                 } else {
                     console.error('User data not found for uploader userId:', uploaderUserId);

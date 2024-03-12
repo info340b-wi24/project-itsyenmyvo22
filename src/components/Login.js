@@ -11,7 +11,7 @@ const firebaseUIConfig = {
   credentialHelper: 'none', 
   callbacks: { 
     signInSuccessWithAuthResult: () => {
-      return false; //don't redirect after authentication
+      return false; 
     }
   }
 }
