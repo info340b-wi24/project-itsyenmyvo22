@@ -97,7 +97,9 @@ export default function IncomingRequests() {
             </div>
           )}
           {!hasEmail && (
-            <div>No pending requests</div>
+             <div id="none-sent" className="none">
+             No sent requests
+           </div>
           )}
         
         </div>
