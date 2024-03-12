@@ -287,7 +287,7 @@ const handleAccept = (requestId) => {
                   return (
                     <div key={key}>
                         You received a request from {request.senderId}
-                        <button onClick={handleAccept(request.key)}>Accept</button>
+                        <button onClick={() => handleAccept(request.key)}>Accept</button>
                         <button onClick={handleReject}>Reject</button>
                     </div>
                   );
