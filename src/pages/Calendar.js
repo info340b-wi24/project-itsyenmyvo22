@@ -182,7 +182,7 @@ function Events(props) {
             } else {
                 setEventList([]);
             }
-        });
+        }, [props.userId]);
         function cleanup() {
             offFunction();
         };

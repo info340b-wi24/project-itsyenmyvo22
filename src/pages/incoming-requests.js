@@ -272,7 +272,8 @@ const handleAccept = (requestId) => {
 
   return (
     <div>
-      <h1 className="rqh1">Incoming Requests</h1>
+    <main className='incoming'>
+    <h1 className="rqh1">Incoming Requests</h1>
       <div className="rectangle">
       {hasEmail && requestData && (
             <div id="none-sent" className="none">
@@ -297,6 +298,8 @@ const handleAccept = (requestId) => {
             </div>
           )}
       </div>
+    </main>
+      
     </div>
   );
 }
