@@ -529,12 +529,14 @@ main.sent {
 
 .calendar {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     background: white;
     border-radius: 5%;
     margin: 0.5rem;
     padding: 1rem;
     align-items: center;
+    justify-content: center;
 }
 
 .month button {
@@ -551,17 +553,25 @@ th, td {
     text-align: center;
 }
 
-td span {
-    background-color: #8F5EB1;
-    display: none;
-    margin: 0 auto;
-    border-radius: 50%;
-    width: 0.5rem;
-    height: 0.5rem;
+.calendar td {
+    padding-bottom: 4%;
+    vertical-align: text-top;
 }
 
-td .scheduled {
-    display: block;
+td p {
+    margin-bottom: 2.5rem;
+}
+
+.event-scheduled {
+    padding-bottom: 0%;
+    border-color: #8F5EB1;
+    border-style: double;
+}
+
+.event-scheduled p {
+    font-size: 0.5rem;
+    margin-bottom: 0%;
+    font-size: 0.75rem;
 }
 
 td:hover {
@@ -572,107 +582,6 @@ td:hover {
 .no-hover:hover {
     background-color: white;
     color:#8F5EB1;
-}
-
-.event-heading {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-}
-
-.events {
-    display: flex;
-    overflow-x: auto;
-}
-
-.event {
-    flex: 0 0 auto;
-    background-color: white;
-    width: 8.4rem;
-    height: 9rem;
-    color:#8F5EB1;
-    border-radius: 10%;
-    margin: 0.5rem;
-}
-
-.event h2 {
-    display: block;
-    margin: 0.75rem 1rem;
-    color: #8F57B2;
-    border-bottom: #8F57B2;
-}
-
-.event p {
-    margin: 0 1rem;
-    font-size: 0.8rem;
-}
-
-.event p:last-of-type {
-    font-size: 1rem;
-    margin: 0.3rem 0.5rem 1rem 1rem;
-}
-
-.add-event {
-    background-color: #8F5EB1; 
-    border: none;
-    border-radius: 10%;
-    color: white;
-    text-align: center;
-    font-size: 1rem;
-    width: 8.4rem;
-    margin: 0.5rem 0 0.5rem 0.5rem;
-}
-
-.add-event img {
-    filter:invert(100);
-    width: 60%;
-    padding-top: 25%;
-}
-
-.add-event:hover {
-    background-color: #8F5EB1;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2), 0 0.1rem 1.2px 0 rgba(0,0,0,0.19);
-}
-
-.popup {
-    position: absolute;
-    width: 70%;
-    left: 15%;
-    bottom: 40%;
-    background-color: white;
-    text-align: center;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2), 0 0.1rem 1.2px 0 rgba(0,0,0,0.19);
-}
-
-.popup .btn-close {
-    margin-left: 1rem;
-    display: block;
-}
-
-.popup-date, .popup-time, .popup-select {
-    margin-top: 0.5rem;
-}
-
-.create-event {
-    display: block;
-    background-color:#8F57B2; 
-    border: none;
-    color:white ;
-    text-decoration: none;
-    font-size: 1rem;
-    width: 6rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1rem;
-    padding: 0.2rem;
-}
-
-.create-event:hover {
-    background-color:#B78AD6;
-    color: black;
-}
-
-.scheduled {
-    display: block;
 }
 
 /* end calender styling */
@@ -931,47 +840,19 @@ footer {
     
     th, td {
         width: 4.5rem;
-        padding-bottom: 4rem;
     }
     .layout {
         justify-content: space-between;
     }
-    .popup {
-        width: 50%;
-        left: 30%;
-        bottom: 30%
-    }
+
     .title-input {
         margin-top: 2rem;
     }
-    .create-event {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-    }
-    .events {
-        flex-direction: column;
-        flex-wrap: wrap;
-        overflow-x:unset;
-        flex: 4 1 40%;
-    }
+
     .calendar {
         flex-basis: 90%;
     }
-    .event-section {
-        padding-left: 2rem;
-    }
-    .event-heading {
-        width: 100%;
-    }
-    .event, .add-event {
-        width: 12rem;
-        border-radius: 5%;
-    }
-    .add-event img {
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-        width: 14%;
-    }
+
     div.row.mt-5.desktopPlay{
         display: none;
     }
@@ -988,26 +869,15 @@ footer {
        div.row.mt-5.desktopPlay{
         display: block;
     }
-       
 
     th, td {
         width: 5.5rem;
-        padding-bottom: 4rem;
     }
 
-    .calendar {
-        flex-basis: 60%;
+    .event-scheduled p {
+        font-size: 0.9rem;
     }
 
-    .event, .add-event {
-        width: 18rem;
-    }
-    
-    .popup {
-        width: 40%;
-        left: 30%;
-        bottom: 30%
-    }
 }
 
 @media (min-width: 1200px) {
@@ -1021,6 +891,4 @@ footer {
         display: block;
     }
 
-
 }
-
