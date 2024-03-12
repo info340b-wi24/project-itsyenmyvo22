@@ -77,8 +77,11 @@ export default function IncomingRequests() {
                       
                         <div>
                           You received a request from {request.senderId}
-                          <button onClick={() => handleAccept(key)}>Accept</button>
-                          <button onClick={() => handleReject(key)}>Reject</button>
+                          <div className='btn-rq-container'>
+                          <button className='btn-rq' onClick={() => handleAccept(key)}>Accept</button>
+                          <button className='btn-rq' onClick={() => handleReject(key)}>Reject</button>
+                          </div>
+                          
                         </div>
                      
                     </div>
