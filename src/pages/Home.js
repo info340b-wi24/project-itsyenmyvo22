@@ -2,12 +2,12 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 //import CardRender from '../components/CardRender';
 //import firebase from 'firebase/app';
-import { getDatabase, ref , child, get, onValue } from 'firebase/database';
+import { getDatabase, ref, onValue } from 'firebase/database';
 //import MyCards from '../components/MyCards';
 
 export default function Home(props) {
     const uid = props.uid
-    const [url, setUrl] = useState('');
+    //const [url, setUrl] = useState('');
 
   
     const [cardData, setCardData] = useState([]);
@@ -32,9 +32,9 @@ export default function Home(props) {
     const urls = cardData.filter(card => card.userId === uid).map(card => (
        card.imageUrl
     ));
-const cards = urls.map((card)=>
-<div className="img-card">
-<img src={card} alt={card.member} className="card-body-img" />
+const cards = urls.map((card, index)=>
+<div className="img-card" key={index}>
+<img  src={card} alt={card.member} className="card-body-img" />
 </div>  
     )
 

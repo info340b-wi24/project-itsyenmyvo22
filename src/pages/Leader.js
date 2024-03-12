@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { getDatabase } from 'firebase/database';
-import { ref, set as firebaseSet, child, push as firebasePush, onValue} from 'firebase/database'
+import { ref, set as firebaseSet, child, onValue} from 'firebase/database'
 import {useEffect, useState} from 'react';
 export default function Leader({points, userName}){
     const[leaderboard, setLeaderBoard] = useState([]);
@@ -51,7 +51,7 @@ export default function Leader({points, userName}){
     return cleanup;
 })
 
-}, [points])
+}, [points, userName])
    
   console.log(leaderboard) ;
     return(
