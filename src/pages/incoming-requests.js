@@ -67,30 +67,39 @@ export default function IncomingRequests() {
             <div id="none-sent" className="none">
               {Object.keys(requestData).map((key) => {
                 const request = requestData[key];
-                if (request.recipientId === userEmail) {
+                
+                
+                if (request.recipientId === userEmail && request.status === 'pending') {
                   return (
                     
                     <div key={key}>
                       
-                      {request.status === 'pending' && (
+                      
                         <div>
                           You received a request from {request.senderId}
                           <button onClick={() => handleAccept(key)}>Accept</button>
                           <button onClick={() => handleReject(key)}>Reject</button>
                         </div>
-                      )}
+                     
                     </div>
                   );
-                }
-                return null;
+                }else{
+                return null;}
+            
+              
               })}
+                {Object.values(requestData).every((request) => request.status !== 'pending') && (
+               <div>No pending requests</div>
+              )}
             </div>
           )}
           {!hasEmail && (
-            <div id="none-sent" className="none">
-              No sent requests
-            </div>
+            // <div id="none-sent" className="none">
+            //   No sent requests
+            // </div>
+            <div>No pending requests</div>
           )}
+        
         </div>
       </main>
     </div>
