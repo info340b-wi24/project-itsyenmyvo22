@@ -121,25 +121,7 @@ export default function IncomingRequests (props) {
     });
   }, [auth]);
 
-  useEffect(() => {
-    if (userEmail) {
-      const emailsRef = ref(db, 'requestData');
-      const unsubscribe = onValue(emailsRef, (snapshot) => {
-        const requestData = snapshot.val();
-        if (requestData && typeof requestData === 'object') {
-          setRequestData(requestData);
-          const emailsArray = Object.values(requestData).map(request => request.recipientId);
-          setHasEmail(emailsArray.includes(userEmail));
-        } else {
-          console.log("No valid requestData available");
-        }
-      }, (error) => {
-        console.error("Error retrieving data:", error);
-      });
 
-      return () => unsubscribe();
-    }
-  }, [userEmail, db]);
   // useEffect(() => {
   //   if (userEmail) {
   //     const emailsRef = ref(db, 'requestData');

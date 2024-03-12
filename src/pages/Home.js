@@ -78,9 +78,9 @@ const cards = urls.map((card)=>
                   
             )} */}
            
-         
+         <section>
             <div className= "row">
-            <div className = "col-sm-3 col-lg-3">
+            <div className = "col-sm-4 col-lg-4">
                     <div className="card-body">
                    
                     
@@ -100,11 +100,11 @@ const cards = urls.map((card)=>
                    
 
 
-     
+            </section>
          
             </div>  
     
-     
+         
     </div> 
     );
 };

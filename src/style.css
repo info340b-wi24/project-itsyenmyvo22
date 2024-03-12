@@ -342,7 +342,7 @@ h1.rqh1 {
   height: inherit;
     border-radius: 15px;
     border: none;
-    position: absolute;
+    /* position: absolute; */
     background-color:   #8F5EB1;
     margin: .5em;
     padding: 1em;
