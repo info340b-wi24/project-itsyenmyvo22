@@ -17,8 +17,6 @@ export function ComposeForm(props){
       let ans = typedValue.toLowerCase();
       if(ans === props.name && currQ === true){
         setIsCorrect(true);
-        // let newPoints = points +10
-        // setPoints(newPoints);
         countPoints();
       
       }else if(currQ === true){
@@ -32,7 +30,6 @@ export function ComposeForm(props){
       
     }
     return(
-    // <form className="input-group" onSubmit={handleSubmit}>
     <form onSubmit={handleSubmit} className="input-group">
     <div className="col-9" >
 

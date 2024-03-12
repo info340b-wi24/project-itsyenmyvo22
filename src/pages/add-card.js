@@ -30,7 +30,6 @@ export default function AddCard (props) {
 
     try { 
       await uploadBytes(fileRef, imageFile) 
-      //const url = await getDownloadURL(fileRef); 
     } catch (err) {
       console.log(err);
     }
@@ -51,16 +50,13 @@ export default function AddCard (props) {
   }
 
   const isFormValid = () => {
-    return  selectedOption && imageFile; // Check if both file and dropdown are selected
+    return  selectedOption && imageFile; 
   };
 
 
   const handleSubmit = () => {
     if (isFormValid()) {
-      // Submit form
       handleImageUpload();
-           
-      //handleChange();
            
     } else {
         console.log("invalid")
@@ -94,7 +90,6 @@ export default function AddCard (props) {
         </Dropdown.Menu>
       </Dropdown>
         <label htmlFor="imageUploadInput" className="member-btn trade-btn">Choose Image</label>
-        {/* <button ria-label='upload button' className="member-btn trade-btn"  onClick={handleSubmit}>Upload Card</button> */}
         <Link ria-label='upload button' className="member-btn trade-btn"  onClick={handleSubmit} to="/">Upload Card</Link>
         <input type="file" name="image" id="imageUploadInput" className="d-none" onChange={handleChange}/>
       </div>

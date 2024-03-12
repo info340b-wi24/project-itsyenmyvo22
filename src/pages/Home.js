@@ -1,14 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-//import CardRender from '../components/CardRender';
-//import firebase from 'firebase/app';
 import { getDatabase, ref, onValue } from 'firebase/database';
-//import MyCards from '../components/MyCards';
 
 export default function Home(props) {
     const uid = props.uid
-    //const [url, setUrl] = useState('');
-
   
     const [cardData, setCardData] = useState([]);
 
@@ -44,7 +39,6 @@ const cards = urls.map((card, index)=>
         <div className="d-grid gap-2 col-6 mx-auto d-block d-md-none d-lg-none d-xl-none">
             <Link aria-label='sent requests page' className="btn btn-light" to="/sent-requests" role="button">Sent Trade Request</Link>
             <Link aria-label='incoming requests page' className="btn btn-light" to="/incoming-requests" role="button">Incoming Trade Request</Link>
-            {/* <a className="btn btn-light" href="#" role="button">Message Inbox</a> */}
         </div>
         </div>
 
@@ -66,15 +60,6 @@ const cards = urls.map((card, index)=>
      
         <h2 className="cardh">My Cards</h2>
         <div className="card ">
-            {/* <div className="container"> */}
-            
-            {/* {url ? (
-                        <div className="card">
-                        <img src={cardData.url} alt={url.member} className="card-body-img" />
-                        </div>
-                ) : (
-                  
-            )} */}
            
          <section>
             <div className= "row">
