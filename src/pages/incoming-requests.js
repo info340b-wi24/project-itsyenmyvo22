@@ -89,7 +89,6 @@ export default function IncomingRequests() {
                 }else{
                 return null;}
             
-              
               })}
                 {Object.values(requestData).every((request) => request.status !== 'pending') && (
                <div>No pending requests</div>
