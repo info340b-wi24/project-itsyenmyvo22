@@ -92,7 +92,7 @@ function App(props){
                                         </Route>
                                         <Route path="/Game" element={<Game countPoints={countPoints} points ={points} />} />
                                         <Route path="/Cards" element={<Cards />} />
-                                        <Route path="/Leader" element={<Leader points ={points} />} />
+                                        <Route path="/Leader" element={<Leader points ={points} userName= {userName}/>} />
                                         <Route path="/incoming-requests" element={<IncomingRequests /> } />
                                         <Route path="/sent-requests" element={<SentRequests /> } />
                                         <Route path="/TradeRequest/:cardKey" element={<TradeRequest />} />

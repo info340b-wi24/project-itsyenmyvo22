@@ -318,7 +318,9 @@ h1.rqh1 {
 }
 
 .container .rectangle {
+    position: relative;
     display: flex;
+    overflow: auto;
     height: 10rem;
     width: 100%;
     background-color:  #8F5EB1;
@@ -389,19 +391,18 @@ h2.cardh {
     text-decoration-line: none;
 }
 
+
 .container.mobile-buttons {
     display: flex;
     justify-content: center;
 }
 
-/* a#rq {
-    color: white;
-    text-decoration-line: none;
-} */
 
 .row.g-0.mx-0 {
     display: none;
 }
+
+
 
 .row.g-0.mx-0 img {
     width: 100%;
@@ -465,8 +466,9 @@ div.none {
     text-align: center;
     height: fit-content;
     width: fit-content;
-    margin: 2rem auto;
     padding: .5em;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
     font-size: large;
     border-radius: 15px;
 }
@@ -478,6 +480,31 @@ body.sent {
 main.sent {
     background-color: #EADFF0;
 }
+
+.btn-rq-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+.btn-rq {
+    background-color: #8F5EB1;
+    border: 2px solid #E2CFEB;
+    border-radius: 15px;
+    color: white;
+    padding: 3px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0s;
+}
+
+.btn-rq:hover {
+    background-color: #E2CFEB;
+    color: #210736;
+}  
 
 /* Calendar Styling */
 
@@ -891,12 +918,14 @@ footer {
     }
 
     .container .rectangle {
+        position: relative;
         display: flex;
+        overflow: auto;
         background-color: white;
         width: 80%;
         height: 25rem;
         border-radius: 15px;
-        margin: 25px auto;
+        margin: auto;
         justify-content: center;
     } 
     
