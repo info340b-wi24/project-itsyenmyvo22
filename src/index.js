@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import './style.css';
 import App from './components/App';
@@ -18,11 +18,13 @@ const firebaseConfig = {
   projectId: "armybase-c294a",
   storageBucket: "armybase-c294a.appspot.com",
   messagingSenderId: "732191123489",
-  appId: "1:732191123489:web:61b3dc83c990e8db345b60"
+  appId: "1:732191123489:web:61b3dc83c990e8db345b60",
+  databaseURL: "https://armybase-c294a-default-rtdb.firebaseio.com/"
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
