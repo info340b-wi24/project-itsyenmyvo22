@@ -25,7 +25,7 @@ header div.overlap{
 }
 
 nav{
-    /* font-family: "Akshar", sans-serif; */
+  
     top:0;
     left: 0;
     width: 100%;
@@ -622,10 +622,7 @@ tbody{
     border-spacing: 0;
     border-collapse: collapse;
 }
-/* div.leaderBack{
-    background-color: white;
-    padding: .5rem;
-} */
+
  td {
     padding: 8px; /* Adjust the padding as needed */
     border: 1px solid #ddd; /* Optional: Add border for better separation */
@@ -684,7 +681,7 @@ margin: 0;
   padding: 0px ;
   text-align: center;
 
-  /* font-size: 17px; */
+ 
   border-radius: 100%;
 
 
@@ -727,7 +724,7 @@ input[type='range'] {
 }
 
 .playButton svg {
-    /* Define the size and color for the icons */
+  
     font-size: 3em;
     color: #8F57B2;
   }

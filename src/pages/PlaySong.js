@@ -1,6 +1,5 @@
 
 import React, {useEffect, useState} from 'react';
-// import audios from '../data/audios.json'
 import useSound from "use-sound";
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 import { ComposeForm } from './ComposeForm';
