@@ -111,15 +111,15 @@ export default function IncomingRequests (props) {
       }
     });
   }, [auth]);
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUserEmail(user.email);
-      } else {
-        setUserEmail(null);
-      }
-    });
-  }, [auth]);
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       setUserEmail(user.email);
+  //     } else {
+  //       setUserEmail(null);
+  //     }
+  //   });
+  // }, [auth]);
 
 
   useEffect(() => {
