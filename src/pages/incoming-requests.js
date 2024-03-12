@@ -140,25 +140,83 @@ export default function IncomingRequests (props) {
     }
   }, [userEmail, db]);
 
-  const handleAccept = () => {
-    const pendingRequest = Object.values(requestData).find(request => request.status === 'pending' && request.recipientId === userEmail);
-    if (pendingRequest) {
-      const requestId = Object.keys(requestData).find(key => requestData[key] === pendingRequest);
-      const requestRef = ref(db, `requestData/${requestId}`);
-      update(requestRef, { status: 'accepted' })
-        .then(() => {
-          console.log('Request accepted successfully');
-          setRequestData(prevData => {
-            const updatedData = { ...prevData };
-            delete updatedData[requestId];
-            return updatedData;
-          });
-        })
-        .catch((error) => {
-          console.error('Error accepting request:', error);
-        });
-    }
-  };
+//   const handleAccept = () => {
+//     console.log("accept");
+//    // const pendingRequest = Object.values(requestData).find(request => request.status === 'pending' && request.recipientId === userEmail );
+
+// console.log(requestData);
+// const unregisterFunction = onValue(requestData, (snapshot) => {
+//   const leader = snapshot.val();
+//   const objKeys =  Object.keys(leader)
+//   const objArray = objKeys.map((keyString) => {
+   
+//       leader[keyString].key = keyString;
+//       return leader[keyString];
+     
+//   });
+
+// const pendingRequest = objArray.filter((request) =>{
+//   return request.status === "pending" && request.recipientId === userEmail;
+// });
+// console.log(objArray)
+    
+// });
+//   }
+
+const handleAccept = () => {
+  console.log("accept");
+
+  // Assuming 'requestData' is the reference to your database
+  const requestDataRef = ref(db, 'requestData');
+
+  const unregisterFunction = onValue(requestDataRef, (snapshot) => {
+      const leader = snapshot.val();
+      const objKeys = Object.keys(leader);
+      const objArray = objKeys.map((keyString) => {
+          leader[keyString].key = keyString;
+          return leader[keyString];
+      });
+
+      const pendingRequest = objArray.filter((request) => {
+       // console.log(userEmail
+        return request.status === "pending" && request.recipientId === userEmail;
+      });
+      console.log(pendingRequest);
+      
+      // Implement your logic here based on 'pendingRequest'
+      // For example, if you want to update the status of the pending request
+      if (pendingRequest.length > 0) {
+          const requestId = pendingRequest[0].key;
+          const requestRef = ref(db, `requestData/${requestId}`);
+          update(requestRef, { status: 'accepted' })
+              .then(() => {
+                  console.log('Request accepted successfully');
+                  // Update your local state or UI as needed
+              })
+              .catch((error) => {
+                  console.error('Error accepting request:', error);
+              });
+      }
+  });
+};
+// if (pendingRequest) {
+//       const requestId = Object.keys(requestData).find(key => requestData[key] === pendingRequest);
+//       const requestRef = ref(db, `requestData/${requestId}`);
+//       console.log(requestId);
+//       update(requestRef, { status: 'accepted' })
+//         .then(() => {
+//           console.log('Request accepted successfully');
+//           setRequestData(prevData => {
+//             const updatedData = { ...prevData };
+//             delete updatedData[requestId];
+//             return updatedData;
+//           });
+//         })
+//         .catch((error) => {
+//           console.error('Error accepting request:', error);
+//         });
+//     }
+//   };
 
   const handleReject = () => {
     const pendingRequest = Object.values(requestData).find(request => request.status === 'pending' && request.recipientId === userEmail);
@@ -188,7 +246,7 @@ export default function IncomingRequests (props) {
             <div id="none-sent" className="none">
               {Object.keys(requestData).map(key => {
                 const request = requestData[key];
-                if (request.recipientId === userEmail) {
+                if (request.recipientId === userEmail ) {
                   return (
                     <div key={key}>
                         You received a request from {request.senderId}
