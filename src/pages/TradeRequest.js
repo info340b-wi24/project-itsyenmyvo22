@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import React, {useState, useEffect} from 'react';
-import { getDatabase, ref, set, push, onValue, get, child, orderByChild, query, equalTo } from 'firebase/database';
+import { getDatabase, ref, set, push, get, child} from 'firebase/database';
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import 'firebase/auth';
 import { useParams } from 'react-router-dom';
@@ -12,8 +12,7 @@ export default function TradeRequest(props) {
     const cardDataRef = ref(db, 'cardData');
     const reqRef = ref(db, "requestData");
     const [currentUser, setCurrentUser] = useState(null);
-    //const [recipientId, setRecipientId] = useState(null);
-    const [recipientEmail, setRecipientEmail] = useState(null);
+    
     const { cardKey } = useParams();
 
     useEffect(() => {

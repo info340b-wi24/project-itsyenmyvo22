@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Dropdown from 'react-bootstrap/Dropdown';
-import { ref, set as firebaseSet, push as firebasePush, onValue, getDatabase, child} from 'firebase/database'
-import {getStorage, ref as dbRef, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { eventWrapper } from "@testing-library/user-event/dist/utils";
+import { ref, set as firebaseSet, getDatabase, child} from 'firebase/database'
+import {getStorage, uploadBytes, getDownloadURL } from 'firebase/storage';
+//import { eventWrapper } from "@testing-library/user-event/dist/utils";
 import { ref as storageRef } from 'firebase/storage';
 
 export default function AddCard (props) { 
   const userId = props.userId;
-  const displayName = props.displayName
   const [imageFile, setImageFile] = useState(undefined)
   let initialURL = "photos/home/upload-icon.png";
   const [imageUrl, setImageUrl] = useState(initialURL)

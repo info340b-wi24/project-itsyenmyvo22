@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import { getDatabase, ref, child, set, onValue, off} from 'firebase/database';
+import { getDatabase, ref, onValue} from 'firebase/database';
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
-import { unsub as Unsubscribe } from 'firebase/auth';
+//import { unsub as Unsubscribe } from 'firebase/auth';
 import 'firebase/auth';
-import TradeRequest from './TradeRequest';
+//import TradeRequest from './TradeRequest';
 
 export default function SentRequests (props) {
   const [userEmail, setUserEmail] = useState(null);

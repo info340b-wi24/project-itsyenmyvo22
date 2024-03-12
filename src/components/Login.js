@@ -17,7 +17,7 @@ const firebaseUIConfig = {
 }
 
 export default function Login(props) {
-   const currentUser = props.currentUser;
+   //const currentUser = props.currentUser;
 
    const auth = getAuth();
 
