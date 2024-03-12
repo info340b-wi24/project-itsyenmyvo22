@@ -169,7 +169,7 @@ function Events(props) {
                 setCurrentUser(user);
                 const userId = user.userId;
                 const updateUserEvents = async (user) => {
-                    const eventsDataSnapshot = get(db, "eventsData");
+                    const eventsDataSnapshot = ref(db, "eventsData");
                     if (!eventsDataSnapshot) {
                         try {
                             const newEventsDataRef = push(db, "eventsData");
