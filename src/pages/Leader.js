@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { getDatabase } from 'firebase/database';
 import { ref, set as firebaseSet, child, push as firebasePush, onValue} from 'firebase/database'
 import {useEffect, useState} from 'react';
-export default function Leader({points}){
+export default function Leader({points, userName}){
     const[leaderboard, setLeaderBoard] = useState([]);
     useEffect(() => {
    
@@ -21,7 +21,8 @@ export default function Leader({points}){
     firebaseSet(stephRef, {score:"90", name:"Stephanie"})
     const scory = {points}.points;
     console.log({scory});
-    firebaseSet(userRef, {score: scory, name:"user" })
+   // const uname = userName;
+    firebaseSet(userRef, {score: scory, name: userName})
     .then(() => console.log("data saved successfully!"))
     .catch(err => console.log(err));
     
@@ -55,7 +56,7 @@ export default function Leader({points}){
   console.log(leaderboard) ;
     return(
         <div>
-        <h1 id="congrat">Congrats!</h1>
+        <h1 id="congrat">Congrats, {userName}!</h1>
     <div className="container" id="back">
     <div className="row"> 
         <div className ="col-sm-12 col-lg-4 gx-5"> 
