@@ -29,12 +29,10 @@ export default function Home(props) {
     }, []);
     console.log(cardData);
 
-    const urls = cardData.filter(card => card.userId === uid).map(card => (
-       card.imageUrl
-    ));
+    const urls = cardData.filter(card => card.userId === uid);
 const cards = urls.map((card, index)=>
 <div className="img-card" key={index}>
-<img  src={card} alt={card.member} className="card-body-img" />
+<img  src={card.imageUrl} alt={card.member} className="card-body-img" />
 </div>  
     )
 
