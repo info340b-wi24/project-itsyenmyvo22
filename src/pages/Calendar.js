@@ -169,8 +169,8 @@ function Events(props) {
                 setCurrentUser(user);
                 const userId = user.userId;
                 const updateUserEvents = async (user) => {
-                    const eventsDataSnapshot = await get(child(db, "eventsData"));
-                    if (!eventsDataSnapshot.exists()) {
+                    const eventsDataSnapshot = get(db, "eventsData");
+                    if (!eventsDataSnapshot) {
                         try {
                             const newEventsDataRef = push(db, "eventsData");
                             const newUserRef = push(newEventsDataRef, userId);
@@ -208,13 +208,14 @@ function Events(props) {
             } else {
                 setCurrentUser(null);
             }
+            return
         });
-        // checkEventsHasUser();
+        checkEventsHasUser();
         const eventsDataRef = ref(db, 'eventsData'); 
         const userEventsRef = ref(eventsDataRef, auth.userId);
         const offFunction = onValue(userEventsRef, (snapshot) => {
-            const eventObjs = snapshot.val();
-            if (eventObjs.exists()) {
+            if (snapshot.exists()) {
+                const eventObjs = snapshot.val();
                 const eventKeys = Object.keys(eventObjs);
                 const eventArray = eventKeys.map((keyString) => {
                     const currEvent = eventObjs[keyString];
@@ -328,7 +329,7 @@ function Popup(props) {
                     <option value="2">Livestream</option>
                     <option value="3">Meet and Greet</option>
                 </select>
-                <button className="create-event" onSubmit={handleCreate}>Create Event</button>
+                <button className="create-event" onClick={handleCreate}>Create Event</button>
             </form>
         </div>
     );
