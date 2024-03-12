@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import daysOfMonth2024 from '../data/days.json'
 import { Outlet, useParams, Link } from 'react-router-dom';
-import { getDatabase, onValue, ref, firebasePush } from 'firebase/database';
+import { getDatabase, ref, set, push, onValue, get, child } from 'firebase/database';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 export function Calendar(props) {
     return (
@@ -158,12 +159,60 @@ function Events(props) {
     const handleClick = (event) => {
         setIsVisible(!isVisible);
     }
+    const auth = getAuth();
+    const [currentUser, setCurrentUser] = useState(null);
+    const [placeholderEvent, setPlaceholderEvent] = useState();
     useEffect(() => {
         const db = getDatabase();
-        const userDataRef = ref(db, 'userData');
-        const userRef = ref(userDataRef, props.userId);
-        const eventsRef = ref(userRef, 'events');
-        const offFunction = onValue(eventsRef, (snapshot) => {
+        const checkEventsHasUser = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setCurrentUser(user);
+                const userId = user.userId;
+                const updateUserEvents = async (user) => {
+                    const eventsDataSnapshot = await get(child(db, "eventsData"));
+                    if (!eventsDataSnapshot.exists()) {
+                        try {
+                            const newEventsDataRef = push(db, "eventsData");
+                            const newUserRef = push(newEventsDataRef, userId);
+                            await set(newUserRef, {
+                                title: 'Event Example',
+                                date: '0000/00/00',
+                                time: '00:00',
+                                type: 'Example'
+                            });
+                            setPlaceholderEvent(newUserRef.key);
+                            console.log('Event Placeholder created successfully!');
+                        } catch (error) {
+                            console.error('Error creating eventsData:', error);
+                        }
+                    }
+                    const userSnapshot = await get(child(eventsDataRef, userId));
+                    if (!userSnapshot) {
+                        try {
+                            const eventsDataRef = get(db, "eventsData");
+                            const newUserRef = push(eventsDataRef, userId);
+                            await set(newUserRef, {
+                                title: 'Event Example',
+                                date: '0000/00/00',
+                                time: '00:00',
+                                type: 'Example'
+                            });
+                            setPlaceholderEvent(newUserRef.key);
+                            console.log('Event Placeholder created successfully!');
+                        }catch (error) {
+                            console.error('Error creating userEvents:', error);
+                        }
+                    }
+                }
+                updateUserEvents(userId);
+            } else {
+                setCurrentUser(null);
+            }
+        });
+        // checkEventsHasUser();
+        const eventsDataRef = ref(db, 'eventsData'); 
+        const userEventsRef = ref(eventsDataRef, auth.userId);
+        const offFunction = onValue(userEventsRef, (snapshot) => {
             const eventObjs = snapshot.val();
             if (eventObjs.exists()) {
                 const eventKeys = Object.keys(eventObjs);
@@ -182,12 +231,13 @@ function Events(props) {
             } else {
                 setEventList([]);
             }
-        }, [props.userId]);
+        });
         function cleanup() {
+            checkEventsHasUser();
             offFunction();
         };
         return cleanup;
-    });
+    }, [auth]);
     return (
         <div>
             <section className="event-section d-flex flex-column">
@@ -199,7 +249,7 @@ function Events(props) {
                     {eventList}
                 </div>
             </section>
-            {isVisible && <Popup isVisible={isVisible} setIsVisible={setIsVisible} currentUser={props.currentUser} userId={props.userId} />}
+            {isVisible && <Popup isVisible={isVisible} setIsVisible={setIsVisible} currentUser={currentUser} placeholderEvent={placeholderEvent} />}
         </div>
     );
 }
@@ -229,11 +279,31 @@ function Popup(props) {
         props.setIsVisible(!props.isVisible);
     }
     const handleCreate = (event) => {
+        if (!props.currentUser || !props.currentUser.userId) {
+            console.error('Current user or userId is not available!');
+            return;
+        }
         const db = getDatabase();
-        const userDataRef = ref(db, 'userData');
-        const userRef = ref(userDataRef, props.userId);
-        const eventsRef = ref(userRef, 'events');
-        eventsRef.firebasePush( {title:titleValue, date:dateValue, time:timeValue, type:eventTypeValue} );
+        const userEventsRef = ref(db, 'userEvents');
+        const userRef = ref(userEventsRef, props.currentUser.userId);
+        const updateUserEvents = async () => {
+            try {
+                const eventsSnapshot = await get(child(userRef));
+                if (eventsSnapshot.exists()) {
+                    const userEventsKey = eventsSnapshot.key;
+                    if (userEventsKey === props.placeholderEvent) {
+                        await set(userRef, {title:titleValue, date:dateValue, time:timeValue, type:eventTypeValue} );
+                    } else {
+                        push(userRef, {title:titleValue, date:dateValue, time:timeValue, type:eventTypeValue} );
+                    }
+                } else {
+                    console.log("user does not exist or does not have events.");
+                }
+            } catch (error) {
+                console.error('Error updating user events:', error);
+            }
+        }
+        updateUserEvents();
         props.setIsVisible(!props.isVisible);
     }
     return (
